@@ -1,0 +1,101 @@
+.logo-animado {
+    padding: 5px;
+    border: 3px solid transparent;
+    border-radius: 15px;
+    background: linear-gradient(120deg, #171d1d, #50484f, #607f7b);
+    background-size: 300% 300%;
+    animation: borderFlow 5s linear infinite;
+}
+
+@keyframes borderFlow {
+    0% {
+    background-position: 0% 50%;
+    }
+    50% {
+    background-position: 100% 50%;
+    }
+    100% {
+    background-position: 0% 50%;
+    }
+}
+
+.logo-animado img {
+    display: block;
+    border-radius: 10px;
+}
+
+.nav-link {
+    font-family: 'Playfair Display', serif;
+}
+
+.navbar-secondary-items:hover {
+    padding: 5px;
+    border: 3px solid transparent;
+    border-radius: 15px;
+    background: linear-gradient(120deg, #171d1d, #50484f, #607f7b);
+    background-size: 300% 300%;
+    animation: borderFlow 5s linear infinite;
+}
+
+
+#carouselExampleCaptions{
+    margin-top: 25px;
+}
+
+.carousel-inner img{
+    max-height: 400px;
+    /* object-fit: contain;  */
+    width: auto;
+}
+
+.carousel-item:nth-child(1) img {
+    height: 600px;
+    object-fit: cover;
+}
+
+.carousel-item:nth-child(2) img {
+    height: 600px;
+    object-fit: cover;
+}
+
+/* .carousel-item:nth-child(3) img {
+    height: 500px;
+    object-fit: cover;
+} */
+
+.carousel-item:nth-child(4) img {
+    height: 600px;
+    object-fit: cover;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(56%) sepia(89%) saturate(393%) hue-rotate(135deg) brightness(98%) contrast(93%);
+}
+
+/*
+body{
+    background-image: url("assets/img/bg-body.avif");
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 100vh;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
