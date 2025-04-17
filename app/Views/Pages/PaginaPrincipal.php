@@ -72,8 +72,22 @@
   </div>
 </section>
 
+<!-- Introduccion a la Pagina -->
+<hr>
+<div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-12 text-center">
+        <h1 class="Titulo-Principal display-5 mb-4">L'AIR PUR TIENDA ONLINE DE PERFUMES</h1>
+        <p class="lead">
+          En L'Air Pur te ofrecemos una cuidada selección de perfumes que se adaptan a todos los gustos y estilos. Desde las casas de diseñador más reconocidas hasta las marcas nicho más exclusivas, cada fragancia es una invitación a expresar tu personalidad.
+        </p>
+      </div>
+    </div>
+  </div>
+
+
   <hr>
-  <h2 class="text-center text-uppercase fw-semibold mt-4 mb-4 display-5">Productos Destacados</h2>
+  <h2 class="text-center text-uppercase mt-4 mb-4 display-6">Productos Destacados</h2>
   <hr>
 
     <!-- Cards de Perfumes Destacados -->
@@ -140,30 +154,28 @@
         </div>
       </div>
     </section>
-  <hr>
 
-  <!-- Reseña de Reseña Jean Paul Gaultier Le Male Elixir -->
-  <section class="py-5 bg-light">
-    <div class="container text-center">
-      <h2 class="fw-semibold mb-4 border-bottom pb-2 d-inline-block text-dark">
-        Reseña Jean Paul Gaultier Le Male Elixir - Andrés Perfume-Man
-      </h2>
-      <div class="mx-auto shadow rounded overflow-hidden" style="max-width: 1080px;">
-        <div class="ratio ratio-16x9">
-          <iframe 
-            src="https://www.youtube.com/embed/_z6NnfQDlT8" 
-            title="Video de YouTube - Andrés Perfume-Man" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            allowfullscreen>
-          </iframe>
-        </div>
+<!-- Descripcion De Fragancias Exoticas -->
+<hr>
+<div class="container-fluid px-0 mt-4 mb-4 shadow">
+  <img src="assets/img/BannerOferta.png" class="img-fluid w-100" alt="Banner de la página">
+</div>
+  
+  <hr>
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-12 text-center">
+        <h2 class="Titulo-Principal display-6 mb-4">SUMERGETE EN LAS FRAGANCIAS AXOTICAS</h2>
+        <p class="lead">
+          Explora nuestro universo olfativo y déjate llevar por notas que evocan lugares lejanos, recuerdos intensos y emociones profundas. Porque cada fragancia tiene su magia... y la tuya te está esperando.
+        </p>
       </div>
     </div>
-  </section>
+  </div>
 
   <!-- Cards de Perfumes de Nicho -->
   <hr>
-    <h3 class="text-center text-uppercase fw-semibold mt-4 mb-4 display-5">Perfumes Nicho</h3>
+    <h2 class="text-center text-uppercase mt-4 mb-4 display-6">Perfumes Exclusivos</h2>
   <hr>
     <section class="Primavera/Verano">
       <div class="container text-center">
@@ -230,8 +242,27 @@
       <hr>
     </section>
 
+    <!-- Reseña de Reseña Jean Paul Gaultier Le Male Elixir -->
+  <section class="py-5 bg-light">
+    <div class="container text-center">
+      <h2 class="fw-semibold mb-4 border-bottom pb-2 d-inline-block text-dark">
+        Reseña Jean Paul Gaultier Le Male Elixir - Andrés Perfume-Man
+      </h2>
+      <div class="mx-auto shadow rounded overflow-hidden" style="max-width: 1080px;">
+        <div class="ratio ratio-16x9">
+          <iframe 
+            src="https://www.youtube.com/embed/_z6NnfQDlT8" 
+            title="Video de YouTube - Andrés Perfume-Man" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <hr>
-  <h2 class="text-center text-uppercase fw-semibold mt-4 mb-4 display-5">Perfumes Arabes</h2>
+  <h2 class="text-center text-uppercase mt-4 mb-4 display-6">Perfumes Arabes</h2>
   <hr>
 
   <ul>

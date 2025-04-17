@@ -24,8 +24,14 @@
     border-radius: 10px;
 }
 
-h1, h2, h3 {
-    font-family: 'Cormorant Garamond', serif;
+.Titulo-Principal {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    letter-spacing: 7px;
+}
+
+.TitulosTipoPerfums{
+    font-family: 'Inter', sans-serif;
     letter-spacing: 1px;
 }
 
@@ -62,7 +68,7 @@ h1, h2, h3 {
 }
 
 .card-title {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Inter', sans-serif;
     letter-spacing: 1px;
     font-weight: 700;
 }
@@ -83,6 +89,8 @@ h1, h2, h3 {
     font-size: 0.9rem;
     margin-right: 5px;
 }
+
+
 
 
 
