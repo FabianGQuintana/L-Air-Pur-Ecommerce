@@ -91,54 +91,200 @@
   </div>
 </div>
 
+<!-- Carrucel de Marcas -->
+<section class="Home-Carousel container">
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="assets/img/GiorgioArmani.png" class="d-block w-100" alt="Giorgio Armani">
+      </div>
+      <div class="carousel-item">
+        <img src="assets/img/BossHugo.png" class="d-block w-100" alt="Boss Hugo">
+      </div>
+      <div class="carousel-item">
+        <img src="assets/img/JeanPaulGultier.png" class="d-block w-100" alt="Jean Paul Gaultier">
+      </div>
+      <div class="carousel-item">
+        <img src="assets/img/VersaceEros.png" class="d-block w-100" alt="Versace Eros">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Siguiente</span>
+    </button>
+  </div>
+</section>
 
-  <section class="Home-Carousel">
-    <!-- CARROUSEL DE MARCAS -->
-  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="assets/img/GiorgioArmani-bg-white.png" class="d-block w-100" alt="Giorgio A.">
-    </div>
-    <div class="carousel-item">
-      <img src="assets/img/BossHugo.png" class="d-block w-100" alt="Boss Hugo">
-    </div>
-    <div class="carousel-item">
-      <img src="assets/img/prueba1.png" class="d-block w-100" alt="Lattafa">
-    </div>
-    <div class="carousel-item">
-      <img src="assets/img/probando.png" class="d-block w-100" alt="Versace Eros">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-  </section>
-  
-  <h2>Perfumes Y Fragancias</h2>
   <hr>
-  <p>Si estás buscando perfumes, estás en el lugar correcto. En L’Air Pur, ofrecemos una amplia selección de perfumes importados,
-    originales y fragancias para todos los gustos. Ya sea que busques un perfume de hombre, o unisex,
-    encontrarás opciones que se adaptan a tu estilo y personalidad.</p>
+  <h2 class="text-center text-uppercase fw-semibold mt-4 mb-4 display-5">Productos Destacados</h2>
+  <hr>
 
-  <h3>Perfumes importados</h3>
-  <p>Nuestra colección de perfumes importados incluye las mejores marcas y fragancias del mundo. Cada perfume ha sido seleccionado
-    por su calidad y durabilidad, garantizando una experiencia olfativa única.</p>
-  <h3>Perfumes originales: las mejores marcas en un solo lugar</h3>
-  <p>En L’Air Pur, nos aseguramos de ofrecer solo perfumes originales. Trabajamos directamente con las marcas y distribuidores
-    autorizados para garantizar la autenticidad de cada producto. Compra con confianza y disfruta de la mejor calidad.</p>
-  <h3>Beneficios de comprar en Perfumerías L’Air Pur</h3>
+    <!-- Cards de Perfumes Destacados -->
+    <section class="Perfumes-Destacados">
+      <div class="container text-center">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
+          
+          <div class="col mb-4">
+            <div class="card h-100 d-flex flex-column mx-auto">
+              <img src="assets/img/JeanPaulElixir.jpg" class="card-img-top" alt="Jean Paul Gaultier Le Male Elixir">
+              <div class="card-body">
+                <h5 class="card-title">Jean Paul Gaultier Le Male Elixir</h5>
+                <p class="precio-elegante text-center"><span class="simbolo">$</span>160.00</p>
+                <p class="card-text">
+                  Fragancia intensa y moderna con notas dulces y especiadas, ideal para destacar en noches especiales o eventos importantes.
+                </p>
+                <a href="#" class="btn btn-dark">Comprar</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col mb-4">
+            <div class="card h-100 d-flex flex-column mx-auto">
+              <img src="assets/img/ErbaPura.jpg" class="card-img-top" alt="ErbaPura">
+              <div class="card-body">
+                <h5 class="card-title">Erba Pura Xerjoff Eau De Parfum</h5>
+                <p class="precio-elegante text-center"><span class="simbolo">$</span>180.00</p>
+                <p class="card-text">
+                  Perfume afrutado y fresco con un toque oriental, ofrece elegancia y sofisticación para quienes buscan una presencia encantadora.
+                </p>
+                <a href="#" class="btn btn-dark">Comprar</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col mb-4">
+            <div class="card h-100 d-flex flex-column mx-auto">
+              <img src="assets/img/BossUnited.png" class="card-img-top" alt="boss-bottled-united-eau-de-toilette">
+              <div class="card-body">
+                <h5 class="card-title">Hugo Boss Bottled Eau De Parfum</h5>
+                <p class="precio-elegante text-center"><span class="simbolo">$</span>130.00</p>
+                <p class="card-text">
+                  Aroma masculino refinado y versátil, combina frescura y calidez para acompañarte con estilo durante el día o la noche.
+                </p>
+                <a href="#" class="btn btn-dark">Comprar</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col mb-4">
+            <div class="card h-100 d-flex flex-column mx-auto">
+              <img src="assets/img/CreedAventus.png" class="card-img-top" alt="Bharara King Eau de Parfum">
+              <div class="card-body">
+                <h5 class="card-title">Bharara King Eau de Parfum</h5>
+                <p class="precio-elegante text-center"><span class="simbolo">$</span>105.00</p>
+                <p class="card-text">
+                  Fragancia intensa y exótica con notas orientales y amaderadas, perfecta para destacar con elegancia y distinción.
+                </p>
+                <a href="#" class="btn btn-dark">Comprar</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  <hr>
+
+  <!-- Reseña de Reseña Jean Paul Gaultier Le Male Elixir -->
+  <section class="py-5 bg-light">
+    <div class="container text-center">
+      <h2 class="fw-semibold mb-4 border-bottom pb-2 d-inline-block text-dark">
+        Reseña Jean Paul Gaultier Le Male Elixir - Andrés Perfume-Man
+      </h2>
+      <div class="mx-auto shadow rounded overflow-hidden" style="max-width: 1080px;">
+        <div class="ratio ratio-16x9">
+          <iframe 
+            src="https://www.youtube.com/embed/_z6NnfQDlT8" 
+            title="Video de YouTube - Andrés Perfume-Man" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cards de Perfumes de Nicho -->
+  <hr>
+    <h3 class="text-center text-uppercase fw-semibold mt-4 mb-4 display-5">Perfumes Nicho</h3>
+  <hr>
+    <section class="Primavera/Verano">
+      <div class="container text-center">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
+          
+          <div class="col mb-4">
+            <div class="card h-100 d-flex flex-column mx-auto">
+              <img src="assets/img/nishane.png" class="card-img-top" alt="Ani Nishane Extrait de Parfum">
+              <div class="card-body">
+                <h5 class="card-title">Ani Nishane Extrait de Parfum</h5>
+                <p class="precio-elegante text-center"><span class="simbolo">$</span>250.00</p>
+                <p class="card-text">
+                  Aroma cálido y especiado con notas orientales y un toque dulce, ideal para momentos sofisticados y memorables.
+                </p>
+                <a href="#" class="btn btn-dark">Comprar</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col mb-4">
+            <div class="card h-100 d-flex flex-column mx-auto">
+              <img src="assets/img/CreedAventus.png" class="card-img-top" alt="Creed Aventus Eau de Parfum">
+              <div class="card-body">
+                <h5 class="card-title">Creed Aventus Eau de Parfum</h5>
+                <p class="precio-elegante text-center"><span class="simbolo">$</span>495.00</p>
+                <p class="card-text">
+                  Fragancia masculina fresca y afrutada con un fondo amaderado, perfecta para líderes seguros y decididos.
+                </p>
+                <a href="#" class="btn btn-dark">Comprar</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col mb-4">
+            <div class="card h-100 d-flex flex-column mx-auto">
+              <img src="assets/img/InitioParfums.jpg" class="card-img-top" alt="Side Effect Initio Eau de Parfum">
+              <div class="card-body">
+                <h5 class="card-title">Side Effect Initio Eau de Parfum</h5>
+                <p class="precio-elegante text-center"><span class="simbolo">$</span>400.00</p>
+                <p class="card-text">
+                  Perfume intenso y sensual con matices ambarinos y especiados, diseñado para dejar una impresión inolvidable.
+                </p>
+                <small><a href="#" class="btn btn-dark">Comprar</a></small>
+              </div>
+            </div>
+          </div>
+
+          <div class="col mb-4">
+            <div class="card h-100 d-flex flex-column mx-auto">
+              <img src="assets/img/MaisonFrancisKurkdjian.jpg" class="card-img-top" alt="Side Effect Initio Eau de Parfum">
+              <div class="card-body">
+                <h5 class="card-title">Maison Francis Kurkdjian Aqua Universalis</h5>
+                <p class="precio-elegante text-center"><span class="simbolo">$</span>144.00</p>
+                <p class="card-text">
+                  Perfume fresco y limpio con notas cítricas y florales, ideal para un estilo versátil y sofisticado.
+                </p>
+                <small><a href="#" class="btn btn-dark">Comprar</a></small>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <hr>
+    </section>
+  
+  <h3>Perfumes Arabes</h3>
+
   <ul>
       <li>Amplia variedad de marcas y fragancias</li>
       <li>Productos 100% originales</li>
