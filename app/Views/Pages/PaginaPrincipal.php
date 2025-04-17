@@ -1,9 +1,4 @@
-
-
-  <!-- NAVBAR PRINCIPAL -->
-
-
-  <!-- SEGUNDO NAVBAR (Secundario o de categorías) -->
+<!-- SEGUNDO NAVBAR (Secundario o de categorías) -->
   
 <nav class="navbar navbar-expand-lg navbar-light bg-light border-top border-bottom sticky-top navbar-secondary-items">
     <div class="container-fluid justify-content-between align-items-center">
@@ -209,7 +204,7 @@
                 <h5 class="card-title">Side Effect Initio Eau de Parfum</h5>
                 <p class="precio-elegante text-center"><span class="simbolo">$</span>400.00</p>
                 <p class="card-text">
-                  Perfume intenso y sensual con matices ambarinos y especiados, diseñado para dejar una impresión inolvidable.
+                  Intenso y sensual con matices ambarinos y especiados, diseñado para dejar una impresión inolvidable.
                 </p>
                 <small><a href="#" class="btn btn-dark">Comprar</a></small>
               </div>
@@ -234,8 +229,10 @@
       </div>
       <hr>
     </section>
-  
-  <h3>Perfumes Arabes</h3>
+
+  <hr>
+  <h2 class="text-center text-uppercase fw-semibold mt-4 mb-4 display-5">Perfumes Arabes</h2>
+  <hr>
 
   <ul>
       <li>Amplia variedad de marcas y fragancias</li>
@@ -246,11 +243,5 @@
   </ul>
   <h4>Explora nuestra categoría de perfumes de hombre y encontra la fragancia perfecta para cada ocasión en L’Air Pur.</h4>
 
-
-  <!-- FOOTER -->
-  
-
-  
-<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script> -->
 
 

@@ -24,7 +24,7 @@ class Pages extends BaseController
 
     public function Comercializacion()
     {
-        // Cargar la página "Quiénes Somos"
+        // Cargar la página "Comercializacion"
         return view('Templates/main_layout', [
             'title' => 'Comercializacion - L’Air Pur',
             'content' => view('Pages/Comercializacion')
