@@ -29,14 +29,6 @@ h1, h2, h3 {
     letter-spacing: 1px;
 }
 
-body{
-    background-image: url("./assets/img/bg-body.avif");
-    background-attachment: fixed;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    min-height: 100vh;
-} 
 
 .nav-link {
     font-family: 'Playfair Display', serif;
@@ -80,20 +72,19 @@ body{
 }
 
 .precio-elegante {
-  font-size: 1.3rem;
-  font-weight: 600;
-  font-family: 'Playfair Display', serif;
-  color: #343a40;
-  margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    font-family: 'Playfair Display', serif;
+    color: #343a40;
+    margin-bottom: 0.5rem;
 }
 
 .precio-elegante .simbolo {
-  font-size: 0.9rem;
-  vertical-align: super;
-  margin-right: 2px;
+    font-size: 0.9rem;
+    margin-right: 5px;
 }
 
-  
+
 
 
 
