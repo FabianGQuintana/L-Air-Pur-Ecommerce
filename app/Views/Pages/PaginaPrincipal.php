@@ -46,19 +46,30 @@
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="assets/img/GiorgioArmani.png" class="d-block w-100" alt="Giorgio Armani">
+        <!-- Imagen chica (visible hasta sm) -->
+        <img src="assets/img/GiorgioArmani-sm.png" class="d-block d-md-none w-100" alt="Giorgio Armani móvil">
+        <!-- Imagen grande (visible desde md en adelante) -->
+        <img src="assets/img/GiorgioArmani.png" class="d-none d-md-block w-100" alt="Giorgio Armani movil">      
       </div>
       <div class="carousel-item">
-        <img src="assets/img/BossHugo.png" class="d-block w-100" alt="Boss Hugo">
+          <img src="assets/img/BossHugo-sm.png" class="d-block d-md-none w-100" alt="Hugo Boss">
+          <img src="assets/img/BossHugo.png" class="d-none d-md-block w-100" alt="Hugo Boss">
       </div>
       <div class="carousel-item">
-        <img src="assets/img/JeanPaulGultier.png" class="d-block w-100" alt="Jean Paul Gaultier">
+        <img src="assets/img/JeanPaulGaultier-sm.png" class="d-block d-md-none w-100" alt="Jean Paul Gaultier">
+        <img src="assets/img/JeanPaulGaultier.png" class="d-none d-md-block w-100" alt="Jean Paul Gaultier">
       </div>
       <div class="carousel-item">
-        <img src="assets/img/VersaceEros.png" class="d-block w-100" alt="Versace Eros">
+        <img src="assets/img/VersaceEros-sm.png" class="d-block d-md-none w-100" alt="Versace Eros">
+        <img src="assets/img/VersaceEros.png" class="d-none d-md-block w-100" alt="Versace Eros">
+      </div>
+      <div class="carousel-item">
+        <img src="assets/img/Valentino-sm.png" class="d-block d-md-none w-100" alt="Valentino movil">
+        <img src="assets/img/Valentino.png" class="d-none d-md-block w-100" alt="Valentino">
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -262,7 +273,7 @@
   </section>
 
   <hr>
-  <h2 class="text-center text-uppercase mt-4 mb-4 display-6">Perfumes Arabes</h2>
+  <h2 class="text-center text-uppercase mt-4 mb-4 display-6">Perfumes Arabes Destacados</h2>
   <hr>
 
   <ul>
