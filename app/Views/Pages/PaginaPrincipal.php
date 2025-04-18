@@ -38,6 +38,7 @@
   </div>
 </div>
 
+
 <!-- Carrucel de Marcas -->
 <section class="Home-Carousel container">
   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
@@ -90,7 +91,9 @@
       <div class="col-lg-12 text-center">
         <h1 class="Titulo-Principal display-5 mb-4">L'AIR PUR TIENDA ONLINE DE PERFUMES</h1>
         <p class="lead">
-          En L'Air Pur te ofrecemos una cuidada selección de perfumes que se adaptan a todos los gustos y estilos. Desde las casas de diseñador más reconocidas hasta las marcas nicho más exclusivas, cada fragancia es una invitación a expresar tu personalidad.
+          En L'Air Pur te ofrecemos una cuidada selección de perfumes que se adaptan a todos los gustos y estilos.
+          Desde las casas de diseñador más reconocidas hasta las marcas nicho más exclusivas, cada fragancia es
+          una invitación a expresar tu personalidad.
         </p>
       </div>
     </div>
@@ -113,7 +116,8 @@
                 <h5 class="card-title">Jean Paul Gaultier Le Male Elixir</h5>
                 <p class="precio-elegante text-center"><span class="simbolo">$</span>160.00</p>
                 <p class="card-text">
-                  Fragancia intensa y moderna con notas dulces y especiadas, ideal para destacar en noches especiales o eventos importantes.
+                  Fragancia intensa y moderna con notas dulces y especiadas, ideal para destacar en noches especiales o
+                  eventos importantes.
                 </p>
                 <a href="#" class="btn btn-dark">Comprar</a>
               </div>
@@ -127,7 +131,8 @@
                 <h5 class="card-title">Erba Pura Xerjoff Eau De Parfum</h5>
                 <p class="precio-elegante text-center"><span class="simbolo">$</span>180.00</p>
                 <p class="card-text">
-                  Perfume afrutado y fresco con un toque oriental, ofrece elegancia y sofisticación para quienes buscan una presencia encantadora.
+                  Perfume afrutado y fresco con un toque oriental, ofrece elegancia y sofisticación
+                  para quienes buscan una presencia encantadora.
                 </p>
                 <a href="#" class="btn btn-dark">Comprar</a>
               </div>
@@ -141,7 +146,8 @@
                 <h5 class="card-title">Hugo Boss Bottled Eau De Parfum</h5>
                 <p class="precio-elegante text-center"><span class="simbolo">$</span>130.00</p>
                 <p class="card-text">
-                  Aroma masculino refinado y versátil, combina frescura y calidez para acompañarte con estilo durante el día o la noche.
+                  Aroma masculino refinado y versátil, combina la frescura y calidez para acompañarte con estilo durante
+                  el cualquier momento del dia.
                 </p>
                 <a href="#" class="btn btn-dark">Comprar</a>
               </div>
@@ -155,7 +161,8 @@
                 <h5 class="card-title">Bharara King Eau de Parfum</h5>
                 <p class="precio-elegante text-center"><span class="simbolo">$</span>105.00</p>
                 <p class="card-text">
-                  Fragancia intensa y exótica con notas orientales y amaderadas, perfecta para destacar con elegancia y distinción.
+                  Fragancia intensa y exótica con notas orientales y amaderadas, perfecta para destacar con
+                  elegancia y distinción para cualquier momento.
                 </p>
                 <a href="#" class="btn btn-dark">Comprar</a>
               </div>
@@ -178,7 +185,8 @@
       <div class="col-lg-12 text-center">
         <h2 class="Titulo-Principal display-6 mb-4">SUMERGETE EN LAS FRAGANCIAS AXOTICAS</h2>
         <p class="lead">
-          Explora nuestro universo olfativo y déjate llevar por notas que evocan lugares lejanos, recuerdos intensos y emociones profundas. Porque cada fragancia tiene su magia... y la tuya te está esperando.
+          Explora nuestro universo olfativo y déjate llevar por notas que evocan lugares lejanos, recuerdos intensos
+          y emociones profundas. Porque cada fragancia tiene su magia... y la tuya te está esperando.
         </p>
       </div>
     </div>
@@ -241,7 +249,7 @@
                 <h5 class="card-title">Maison Francis Kurkdjian Aqua Universalis</h5>
                 <p class="precio-elegante text-center"><span class="simbolo">$</span>144.00</p>
                 <p class="card-text">
-                  Perfume fresco y limpio con notas cítricas y florales, ideal para un estilo versátil y sofisticado.
+                  Perfume fresco y limpio con notas cítricas y florales, ideal para un estilo sofisticado.
                 </p>
                 <small><a href="#" class="btn btn-dark">Comprar</a></small>
               </div>
@@ -261,10 +269,10 @@
       </h2>
       <div class="mx-auto shadow rounded overflow-hidden" style="max-width: 1080px;">
         <div class="ratio ratio-16x9">
-          <iframe 
-            src="https://www.youtube.com/embed/_z6NnfQDlT8" 
-            title="Video de YouTube - Andrés Perfume-Man" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          <iframe
+            src="https://www.youtube.com/embed/_z6NnfQDlT8"
+            title="Video de YouTube - Andrés Perfume-Man"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen>
           </iframe>
         </div>

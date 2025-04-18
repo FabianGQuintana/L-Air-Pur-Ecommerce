@@ -49,6 +49,7 @@
     animation: borderFlow 5s linear infinite;
 }
 
+
 #carouselExampleIndicators {
     margin-top: 40px;
     border-radius: 12px;
@@ -90,6 +91,16 @@
     margin-right: 5px;
 }
 
+
+.btn-dark {
+    transition: all 0.3s ease;
+}
+
+.btn-dark:hover {
+    /* background-color: #607f7b; */
+    box-shadow: 0 4px 12px rgba(8, 185, 132, 0.3); /* Sombra suave */
+    transform: translateY(-2px); /* Efecto de levantar */
+}
 
 
 
