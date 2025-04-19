@@ -18,7 +18,6 @@
       <li class="nav-item mx-5"><a class="nav-link" href="#nuevos">Nuevos</a></li>
       <li class="nav-item mx-5"><a class="nav-link" href="#ofertas">Review</a></li>
     </ul>
-
   </div>
 </nav>
 
@@ -38,6 +37,14 @@
   </div>
 </div>
 
+<!-- Banner principal(Hero) -->
+<div class="container-fluid px-0 position-relative">
+  <img src="assets/img/Banner-Hero.png" class="img-fluid w-100" alt="Banner Creed-Aventus L’Air Pur">
+  <!-- <button class="btn btn-dark position-absolute" style="bottom: 110px; left: 160px;">Descubre colección</button> -->
+</div>
+
+
+
 
 <!-- Carrucel de Marcas -->
 <section class="Home-Carousel container">
@@ -54,7 +61,7 @@
         <!-- Imagen chica (visible hasta sm) -->
         <img src="assets/img/GiorgioArmani-sm.png" class="d-block d-md-none w-100" alt="Giorgio Armani móvil">
         <!-- Imagen grande (visible desde md en adelante) -->
-        <img src="assets/img/GiorgioArmani.png" class="d-none d-md-block w-100" alt="Giorgio Armani movil">      
+        <img src="assets/img/GiorgioArmani.png" class="d-none d-md-block w-100" alt="Giorgio Armani movil">
       </div>
       <div class="carousel-item">
           <img src="assets/img/BossHugo-sm.png" class="d-block d-md-none w-100" alt="Hugo Boss">

@@ -15,8 +15,8 @@
 
   <!-- Enlaces rápidos -->
   <div class="col-md-4 mb-3">
-    <h6>Enlaces</h6>
-    <ul class="list-unstyled al">
+    <h6 class="subtitulo-enlases-footer">Enlaces</h6>
+    <ul class="list-unstyled">
       <li class="mb-2"><a href="#marcas" class="text-light text-decoration-none">Inicio</a></li>
       <li class="mb-2"><a href="#marcas" class="text-light text-decoration-none">Marcas</a></li>
       <li class="mb-2"><a href="#nuevos" class="text-light text-decoration-none">Nuevos</a></li>

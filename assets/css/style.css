@@ -102,6 +102,21 @@
     transform: translateY(-2px); /* Efecto de levantar */
 }
 
+.subtitulo-enlases-footer{
+    text-align: center;
+}
+
+.list-unstyled li{
+    transition: all 0.3s ease;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.list-unstyled li:hover{
+    box-shadow: 0 4px 12px rgba(8, 185, 132, 0.3);
+    transform: translate(-2px);
+}
+
 
 
 
