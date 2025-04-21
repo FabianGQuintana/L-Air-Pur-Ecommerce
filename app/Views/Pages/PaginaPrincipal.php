@@ -1,6 +1,6 @@
 <!-- SEGUNDO NAVBAR (Secundario o de categorías) -->
   
-<nav class="navbar navbar-expand-lg navbar-light bg-light border-top border-bottom sticky-top navbar-secondary-items">
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-top border-bottom sticky-top navbar-secondary-items letter-navbar-Secondary">
     <div class="container-fluid justify-content-between align-items-center">
 
     <!--  Botón de offcanvas visible solo en pantallas pequeñas -->
@@ -40,9 +40,7 @@
 <!-- Banner principal(Hero) -->
 <div class="container-fluid px-0 position-relative">
   <img src="assets/img/Banner-Hero.png" class="img-fluid w-100" alt="Banner Creed-Aventus L’Air Pur">
-  <!-- <button class="btn btn-dark position-absolute" style="bottom: 110px; left: 160px;">Descubre colección</button> -->
 </div>
-
 
 
 

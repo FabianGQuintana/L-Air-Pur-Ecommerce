@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
   <div class="container-fluid">
     <!-- LOGO -->
-    <a class="navbar-brand" href="<?= base_url('/') ?>">
+    <a class="navbar-brand letter-navbar" href="<?= base_url('/') ?>">
       <div class="logo-animado">
         <img src="assets/img/LogoPrincipal.png" alt="L’Air Pur-logo" width="80" height="80">
       </div>
@@ -18,7 +18,7 @@
       <div class="d-flex flex-grow-1 justify-content-center">
         <!-- BARRA DE BÚSQUEDA -->
         <form class="d-flex w-75" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <input class="form-control me-2" type="search"  aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Buscar</button>
         </form>
       </div>

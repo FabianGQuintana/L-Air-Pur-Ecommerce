@@ -1,3 +1,12 @@
+
+.letter-navbar{
+    font-family: 'Inter', sans-serif !important;
+}
+
+.letter-navbar-Secondary{
+    font-family: 'Inter', sans-serif !important;
+}
+
 .logo-animado {
     padding: 5px;
     border: 3px solid transparent;
@@ -116,6 +125,7 @@
     box-shadow: 0 4px 12px rgba(8, 185, 132, 0.3);
     transform: translate(-2px);
 }
+
 
 
 
