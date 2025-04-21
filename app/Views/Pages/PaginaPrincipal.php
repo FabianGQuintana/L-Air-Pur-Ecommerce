@@ -39,7 +39,7 @@
 
 <!-- Banner principal(Hero) -->
 <div class="container-fluid px-0 position-relative">
-  <img src="assets/img/Banner-Hero.png" class="img-fluid w-100" alt="Banner Creed-Aventus L’Air Pur">
+  <img src="assets/img/Banner-Hero.jpg" class="img-fluid w-100" alt="Banner Creed-Aventus L’Air Pur">
 </div>
 
 
