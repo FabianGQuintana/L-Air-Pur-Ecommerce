@@ -284,6 +284,75 @@
     <h2 class="text-center text-uppercase mt-4 mb-4 display-6">Perfumes Arabes Destacados</h2>
     <hr>
 
+    <!-- Cards de Perfumes Arabes Destacados -->
+  <section class="Perfumes-Arabes-Destacados">
+    <div class="container text-center">
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
+        
+        <div class="col mb-4">
+          <div class="card h-100 d-flex flex-column mx-auto">
+            <img src="assets/img/JeanPaulElixir.jpg" class="card-img-top" alt="Afnan 9PM Eau de Parfum">
+            <div class="card-body">
+              <h5 class="card-title">Afnan 9PM Eau de Parfum</h5>
+              <p class="precio-elegante text-center"><span class="simbolo">$</span>160.00</p>
+              <p class="card-text">
+                Fragancia dulce, cálida y envolvente con notas de vainilla y ámbar, ideal para destacar en salidas
+                nocturnas y dejar una impresión duradera.
+              </p>
+              <a href="#" class="btn btn-dark">Comprar</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col mb-4">
+          <div class="card h-100 d-flex flex-column mx-auto">
+            <img src="assets/img/ErbaPura.jpg" class="card-img-top" alt="ErbaPura">
+            <div class="card-body">
+              <h5 class="card-title">Honor and Glory Eau de Parfum</h5>
+              <p class="precio-elegante text-center"><span class="simbolo">$</span>180.00</p>
+              <p class="card-text">
+                Perfume potente y vibrante con acordes especiados y amaderados, pensado para el hombre que
+                busca poder y sofisticación en su aroma diario.
+              </p>
+              <a href="#" class="btn btn-dark">Comprar</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col mb-4">
+          <div class="card h-100 d-flex flex-column mx-auto">
+            <img src="assets/img/BossUnited.png" class="card-img-top" alt="boss-bottled-united-eau-de-toilette">
+            <div class="card-body">
+              <h5 class="card-title">Lattafa Khamrah Eau de Parfum</h5>
+              <p class="precio-elegante text-center"><span class="simbolo">$</span>130.00</p>
+              <p class="card-text">
+                Fragancia oriental dulce con notas de canela, dátiles y vainilla, ofrece una estela cálida
+                y encantadora ideal para días fríos y ocasiones especiales.
+              </p>
+              <a href="#" class="btn btn-dark">Comprar</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col mb-4">
+          <div class="card h-100 d-flex flex-column mx-auto">
+            <img src="assets/img/CreedAventus.png" class="card-img-top" alt="Bharara King Eau de Parfum">
+            <div class="card-body">
+              <h5 class="card-title">Amber Oud Gold Edition</h5>
+              <p class="precio-elegante text-center"><span class="simbolo">$</span>105.00</p>
+              <p class="card-text">
+                Aroma lujoso y afrutado con un fondo ambarado y dulce, ofrece una presencia distinguida
+                y moderna para hombres y mujeres con carácter.
+              </p>
+              <a href="#" class="btn btn-dark">Comprar</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- Reseña de Reseña Jean Paul Gaultier Le Male Elixir -->
   <section class="py-5 bg-light">
     <div class="container text-center">

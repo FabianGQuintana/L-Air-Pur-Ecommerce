@@ -26,13 +26,12 @@
   </div>
 
   <!-- Redes sociales -->
-  <div class="col-md-4 mb-3 ">
+  <div class="col-md-4 mb-3 text-center">
     <h6>Seguinos En Nuestras Redes Sociales!</h6>
     <a href="#" class="text-light me-3 fs-4 "><i class="bi bi-facebook"></i></a>
     <a href="https://www.instagram.com/garavant.parfums?igsh=b3M3eDBpbHZ5Z2Nt" class="text-light me-3 fs-4"><i class="bi bi-instagram"></i></a>
-    <a href="https://www.linkedin.com/in/fabian-quintana-60a59a325?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="text-light me-3 fs-4"><i class="bi bi-linkedin"></i></a>
     <a href="#" class="text-light me-3 fs-4"><i class="bi bi-whatsapp"></i></a>
-    <a href="https://github.com/FabianGQuintana" class="text-light me-3 fs-4"><i class="bi bi-github"></i></a>
+  
   </div>
 
   </div>
