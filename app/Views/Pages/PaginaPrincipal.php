@@ -37,14 +37,111 @@
   </div>
 </div>
 
-<!-- Banner principal(Hero) -->
-<div class="container-fluid px-0 position-relative">
-  <img src="assets/img/Banner-Hero.jpg" class="img-fluid w-100" alt="Banner Creed-Aventus L’Air Pur">
+<!-- Banner principal (Hero) -->
+<div class="container-fluid px-0">
+  <div class="banner-wrapper">
+    <!-- Imagen para pantallas grandes -->
+    <img src="assets/img/Banner-Hero.jpg" class="img-fluid w-100 d-none d-md-block" alt="Banner Creed-Aventus L’Air Pur">
+
+    <!-- Imagen para pantallas pequeñas -->
+    <img src="assets/img/Banner-Hero-movil.jpg" class="img-fluid w-100 d-block d-md-none" alt="Banner Creed-Aventus L’Air Pur móvil">
+  </div>
 </div>
 
 
 
+<!-- Introduccion a la Pagina -->
+<hr>
+<div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-12 text-center">
+        <h1 class="Titulo-Principal display-5 mb-4">L'AIR PUR TIENDA ONLINE DE PERFUMES</h1>
+        <p class="lead">
+          En L'Air Pur te ofrecemos una cuidada selección de perfumes que se adaptan a todos los gustos y estilos.
+          Desde las casas de diseñador más reconocidas hasta las marcas nicho más exclusivas, cada fragancia es
+          una invitación a expresar tu personalidad.
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  <hr>
+  <h2 class="text-center text-uppercase mt-4 mb-4 display-6">Productos Destacados</h2>
+  <hr>
+
+  <!-- Cards de Perfumes Destacados -->
+  <section class="Perfumes-Destacados">
+    <div class="container text-center">
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
+        
+        <div class="col mb-4">
+          <div class="card h-100 d-flex flex-column mx-auto">
+            <img src="assets/img/JeanPaulElixir.jpg" class="card-img-top" alt="Jean Paul Gaultier Le Male Elixir">
+            <div class="card-body">
+              <h5 class="card-title">Jean Paul Gaultier Le Male Elixir</h5>
+              <p class="precio-elegante text-center"><span class="simbolo">$</span>160.00</p>
+              <p class="card-text">
+                Fragancia intensa y moderna con notas dulces y especiadas, ideal para destacar en noches especiales o
+                eventos importantes.
+              </p>
+              <a href="#" class="btn btn-dark">Comprar</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col mb-4">
+          <div class="card h-100 d-flex flex-column mx-auto">
+            <img src="assets/img/ErbaPura.jpg" class="card-img-top" alt="ErbaPura">
+            <div class="card-body">
+              <h5 class="card-title">Erba Pura Xerjoff Eau De Parfum</h5>
+              <p class="precio-elegante text-center"><span class="simbolo">$</span>180.00</p>
+              <p class="card-text">
+                Perfume afrutado y fresco con un toque oriental, ofrece elegancia y sofisticación
+                para quienes buscan una presencia encantadora.
+              </p>
+              <a href="#" class="btn btn-dark">Comprar</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col mb-4">
+          <div class="card h-100 d-flex flex-column mx-auto">
+            <img src="assets/img/BossUnited.png" class="card-img-top" alt="boss-bottled-united-eau-de-toilette">
+            <div class="card-body">
+              <h5 class="card-title">Hugo Boss Bottled Eau De Parfum</h5>
+              <p class="precio-elegante text-center"><span class="simbolo">$</span>130.00</p>
+              <p class="card-text">
+                Aroma masculino refinado y versátil, combina la frescura y calidez para acompañarte con estilo durante
+                el cualquier momento del dia.
+              </p>
+              <a href="#" class="btn btn-dark">Comprar</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col mb-4">
+          <div class="card h-100 d-flex flex-column mx-auto">
+            <img src="assets/img/CreedAventus.png" class="card-img-top" alt="Bharara King Eau de Parfum">
+            <div class="card-body">
+              <h5 class="card-title">Bharara King Eau de Parfum</h5>
+              <p class="precio-elegante text-center"><span class="simbolo">$</span>105.00</p>
+              <p class="card-text">
+                Fragancia intensa y exótica con notas orientales y amaderadas, perfecta para destacar con
+                elegancia y distinción para cualquier momento.
+              </p>
+              <a href="#" class="btn btn-dark">Comprar</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+ 
 <!-- Carrucel de Marcas -->
+<hr>
 <section class="Home-Carousel container">
   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
     <div class="carousel-indicators">
@@ -89,106 +186,12 @@
   </div>
 </section>
 
-<!-- Introduccion a la Pagina -->
-<hr>
-<div class="container py-5">
-    <div class="row justify-content-center">
-      <div class="col-lg-12 text-center">
-        <h1 class="Titulo-Principal display-5 mb-4">L'AIR PUR TIENDA ONLINE DE PERFUMES</h1>
-        <p class="lead">
-          En L'Air Pur te ofrecemos una cuidada selección de perfumes que se adaptan a todos los gustos y estilos.
-          Desde las casas de diseñador más reconocidas hasta las marcas nicho más exclusivas, cada fragancia es
-          una invitación a expresar tu personalidad.
-        </p>
-      </div>
-    </div>
-  </div>
-
-
-  <hr>
-  <h2 class="text-center text-uppercase mt-4 mb-4 display-6">Productos Destacados</h2>
-  <hr>
-
-    <!-- Cards de Perfumes Destacados -->
-    <section class="Perfumes-Destacados">
-      <div class="container text-center">
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
-          
-          <div class="col mb-4">
-            <div class="card h-100 d-flex flex-column mx-auto">
-              <img src="assets/img/JeanPaulElixir.jpg" class="card-img-top" alt="Jean Paul Gaultier Le Male Elixir">
-              <div class="card-body">
-                <h5 class="card-title">Jean Paul Gaultier Le Male Elixir</h5>
-                <p class="precio-elegante text-center"><span class="simbolo">$</span>160.00</p>
-                <p class="card-text">
-                  Fragancia intensa y moderna con notas dulces y especiadas, ideal para destacar en noches especiales o
-                  eventos importantes.
-                </p>
-                <a href="#" class="btn btn-dark">Comprar</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col mb-4">
-            <div class="card h-100 d-flex flex-column mx-auto">
-              <img src="assets/img/ErbaPura.jpg" class="card-img-top" alt="ErbaPura">
-              <div class="card-body">
-                <h5 class="card-title">Erba Pura Xerjoff Eau De Parfum</h5>
-                <p class="precio-elegante text-center"><span class="simbolo">$</span>180.00</p>
-                <p class="card-text">
-                  Perfume afrutado y fresco con un toque oriental, ofrece elegancia y sofisticación
-                  para quienes buscan una presencia encantadora.
-                </p>
-                <a href="#" class="btn btn-dark">Comprar</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col mb-4">
-            <div class="card h-100 d-flex flex-column mx-auto">
-              <img src="assets/img/BossUnited.png" class="card-img-top" alt="boss-bottled-united-eau-de-toilette">
-              <div class="card-body">
-                <h5 class="card-title">Hugo Boss Bottled Eau De Parfum</h5>
-                <p class="precio-elegante text-center"><span class="simbolo">$</span>130.00</p>
-                <p class="card-text">
-                  Aroma masculino refinado y versátil, combina la frescura y calidez para acompañarte con estilo durante
-                  el cualquier momento del dia.
-                </p>
-                <a href="#" class="btn btn-dark">Comprar</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col mb-4">
-            <div class="card h-100 d-flex flex-column mx-auto">
-              <img src="assets/img/CreedAventus.png" class="card-img-top" alt="Bharara King Eau de Parfum">
-              <div class="card-body">
-                <h5 class="card-title">Bharara King Eau de Parfum</h5>
-                <p class="precio-elegante text-center"><span class="simbolo">$</span>105.00</p>
-                <p class="card-text">
-                  Fragancia intensa y exótica con notas orientales y amaderadas, perfecta para destacar con
-                  elegancia y distinción para cualquier momento.
-                </p>
-                <a href="#" class="btn btn-dark">Comprar</a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-<!-- Descripcion De Fragancias Exoticas -->
-<hr>
-<div class="container-fluid px-0 mt-4 mb-4 shadow">
-  <img src="assets/img/BannerOferta.png" class="img-fluid w-100" alt="Banner de la página">
-</div>
-  
+  <!-- Descripcion de Fragancias Exoticas -->
   <hr>
   <div class="container py-5">
     <div class="row justify-content-center">
       <div class="col-lg-12 text-center">
-        <h2 class="Titulo-Principal display-6 mb-4">SUMERGETE EN LAS FRAGANCIAS AXOTICAS</h2>
+        <h2 class="Titulo-Principal display-6 mb-4">SUMERGETE EN LAS FRAGANCIAS EXOTICAS</h2>
         <p class="lead">
           Explora nuestro universo olfativo y déjate llevar por notas que evocan lugares lejanos, recuerdos intensos
           y emociones profundas. Porque cada fragancia tiene su magia... y la tuya te está esperando.
@@ -266,7 +269,22 @@
       <hr>
     </section>
 
-    <!-- Reseña de Reseña Jean Paul Gaultier Le Male Elixir -->
+
+    <div class="container-fluid px-0">
+      <div class="banner-wrapper">
+        <!-- Imagen para pantallas grandes -->
+        <img src="assets/img/BannerArabe.png" class="img-fluid w-100 d-none d-md-block" alt="Banner Perfumes Arabes">
+
+        <!-- Imagen para pantallas pequeñas -->
+        <img src="assets/img/BannerArabe-movil.png" class="img-fluid w-100 d-block d-md-none" alt="Banner Perfumes Arabes">
+      </div>
+    </div>
+    
+    <hr>
+    <h2 class="text-center text-uppercase mt-4 mb-4 display-6">Perfumes Arabes Destacados</h2>
+    <hr>
+
+  <!-- Reseña de Reseña Jean Paul Gaultier Le Male Elixir -->
   <section class="py-5 bg-light">
     <div class="container text-center">
       <h2 class="fw-semibold mb-4 border-bottom pb-2 d-inline-block text-dark">
@@ -284,10 +302,6 @@
       </div>
     </div>
   </section>
-
-  <hr>
-  <h2 class="text-center text-uppercase mt-4 mb-4 display-6">Perfumes Arabes Destacados</h2>
-  <hr>
 
   <ul>
       <li>Amplia variedad de marcas y fragancias</li>

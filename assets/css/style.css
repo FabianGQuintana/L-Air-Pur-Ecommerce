@@ -1,153 +1,130 @@
-
-.letter-navbar{
-    font-family: 'Inter', sans-serif !important;
+.letter-navbar {
+  font-family: "Inter", sans-serif !important;
 }
 
-.letter-navbar-Secondary{
-    font-family: 'Inter', sans-serif !important;
+.letter-navbar-Secondary {
+  font-family: "Inter", sans-serif !important;
 }
 
 .logo-animado {
-    padding: 5px;
-    border: 3px solid transparent;
-    border-radius: 15px;
-    background: linear-gradient(120deg, #171d1d, #50484f, #607f7b);
-    background-size: 300% 300%;
-    animation: borderFlow 5s linear infinite;
+  padding: 5px;
+  border: 3px solid transparent;
+  border-radius: 15px;
+  background: linear-gradient(120deg, #171d1d, #50484f, #607f7b);
+  background-size: 300% 300%;
+  animation: borderFlow 5s linear infinite;
 }
 
 @keyframes borderFlow {
-    0% {
+  0% {
     background-position: 0% 50%;
-    }
-    50% {
+  }
+  50% {
     background-position: 100% 50%;
-    }
-    100% {
+  }
+  100% {
     background-position: 0% 50%;
-    }
+  }
 }
 
 .logo-animado img {
-    display: block;
-    border-radius: 10px;
+  display: block;
+  border-radius: 10px;
 }
 
 .Titulo-Principal {
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    letter-spacing: 7px;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  letter-spacing: 7px;
 }
 
-.TitulosTipoPerfums{
-    font-family: 'Inter', sans-serif;
-    letter-spacing: 1px;
+.TitulosTipoPerfums {
+  font-family: "Inter", sans-serif;
+  letter-spacing: 1px;
 }
-
 
 .nav-link {
-    font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
 }
 
 .navbar-secondary-items:hover {
-    padding: 5px;
-    border: 3px solid transparent;
-    border-radius: 15px;
-    background: linear-gradient(120deg, #171d1d, #50484f, #607f7b);
-    background-size: 300% 300%;
-    animation: borderFlow 5s linear infinite;
+  padding: 5px;
+  border: 3px solid transparent;
+  border-radius: 15px;
+  background: linear-gradient(120deg, #171d1d, #50484f, #607f7b);
+  background-size: 300% 300%;
+  animation: borderFlow 5s linear infinite;
 }
 
+.banner-wrapper {
+  max-width: 1700px;
+  margin: 0 auto;
+}
 
 #carouselExampleIndicators {
-    margin-top: 40px;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .carousel-inner img {
-    height: 400px;
-    object-fit: cover;
-    width: 100%;
+  height: 400px;
+  object-fit: cover;
+  width: 100%;
 }
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-    filter: invert(56%) sepia(89%) saturate(393%) hue-rotate(135deg) brightness(98%) contrast(93%);
+  filter: invert(56%) sepia(89%) saturate(393%) hue-rotate(135deg)
+    brightness(98%) contrast(93%);
 }
 
 .card-title {
-    font-family: 'Inter', sans-serif;
-    letter-spacing: 1px;
-    font-weight: 700;
+  font-family: "Inter", sans-serif;
+  letter-spacing: 1px;
+  font-weight: 700;
 }
 
 .card-text {
-    font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 .precio-elegante {
-    font-size: 1.3rem;
-    font-weight: 600;
-    font-family: 'Playfair Display', serif;
-    color: #343a40;
-    margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  font-family: "Playfair Display", serif;
+  color: #343a40;
+  margin-bottom: 0.5rem;
 }
 
 .precio-elegante .simbolo {
-    font-size: 0.9rem;
-    margin-right: 5px;
+  font-size: 0.9rem;
+  margin-right: 5px;
 }
 
-
 .btn-dark {
-    transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .btn-dark:hover {
-    /* background-color: #607f7b; */
-    box-shadow: 0 4px 12px rgba(8, 185, 132, 0.3); /* Sombra suave */
-    transform: translateY(-2px); /* Efecto de levantar */
+  /* background-color: #607f7b; */
+  box-shadow: 0 4px 12px rgba(8, 185, 132, 0.3); /* Sombra suave */
+  transform: translateY(-2px); /* Efecto de levantar */
 }
 
-.subtitulo-enlases-footer{
-    text-align: center;
+.subtitulo-enlases-footer {
+  text-align: center;
 }
 
-.list-unstyled li{
-    transition: all 0.3s ease;
-    text-align: center;
-    letter-spacing: 2px;
+.list-unstyled li {
+  transition: all 0.3s ease;
+  text-align: center;
+  letter-spacing: 2px;
 }
 
-.list-unstyled li:hover{
-    box-shadow: 0 4px 12px rgba(8, 185, 132, 0.3);
-    transform: translate(-2px);
+.list-unstyled li:hover {
+  box-shadow: 0 4px 12px rgba(8, 185, 132, 0.3);
+  transform: translate(-2px);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
