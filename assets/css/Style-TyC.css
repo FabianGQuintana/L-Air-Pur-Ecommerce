@@ -1,0 +1,59 @@
+/* Aplicar tipografías */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Inter", sans-serif;
+}
+
+p,
+li,
+ul {
+  font-family: "Open Sans", sans-serif;
+}
+
+/* Estilos adicionales */
+#terminos-condiciones {
+  background-color: #f8f9fa; /* fondo claro */
+  border-radius: 10px;
+  padding: 3rem 1rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+#terminos-condiciones h2 {
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+#terminos-condiciones h5 {
+  font-weight: 600;
+  color: #34495e;
+  margin-top: 2rem;
+}
+
+#terminos-condiciones p,
+#terminos-condiciones li {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+#terminos-condiciones ul {
+  padding-left: 1.2rem;
+}
+
+#terminos-condiciones li {
+  margin-bottom: 0.5rem;
+}
+
+#terminos-condiciones a {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+#terminos-condiciones a:hover {
+  color: #0056b3;
+  text-decoration: none;
+}
