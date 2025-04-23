@@ -77,7 +77,7 @@
         
         <div class="col mb-4">
           <div class="card h-100 d-flex flex-column mx-auto">
-            <img src="assets/img/JeanPaulElixir.jpg" class="card-img-top" alt="Jean Paul Gaultier Le Male Elixir">
+            <img src="assets/img/JeanPaulElixir.png" class="card-img-top" alt="Jean Paul Gaultier Le Male Elixir">
             <div class="card-body">
               <h5 class="card-title">Jean Paul Gaultier Le Male Elixir</h5>
               <p class="precio-elegante text-center"><span class="simbolo">$</span>160.00</p>
@@ -92,7 +92,7 @@
 
         <div class="col mb-4">
           <div class="card h-100 d-flex flex-column mx-auto">
-            <img src="assets/img/ErbaPura.jpg" class="card-img-top" alt="ErbaPura">
+            <img src="assets/img/ErbaPura.png" class="card-img-top" alt="ErbaPura">
             <div class="card-body">
               <h5 class="card-title">Erba Pura Xerjoff Eau De Parfum</h5>
               <p class="precio-elegante text-center"><span class="simbolo">$</span>180.00</p>
@@ -122,7 +122,7 @@
 
         <div class="col mb-4">
           <div class="card h-100 d-flex flex-column mx-auto">
-            <img src="assets/img/CreedAventus.png" class="card-img-top" alt="Bharara King Eau de Parfum">
+            <img src="assets/img/DiorSauvage.png" class="card-img-top" alt="Bharara King Eau de Parfum">
             <div class="card-body">
               <h5 class="card-title">Dior Sauvage Eau de Parfum</h5>
               <p class="precio-elegante text-center"><span class="simbolo">$</span>105.00</p>
@@ -238,7 +238,7 @@
 
           <div class="col mb-4">
             <div class="card h-100 d-flex flex-column mx-auto">
-              <img src="assets/img/InitioParfums.jpg" class="card-img-top" alt="Side Effect Initio Eau de Parfum">
+              <img src="assets/img/InitioParfums.png" class="card-img-top" alt="Side Effect Initio Eau de Parfum">
               <div class="card-body">
                 <h5 class="card-title">Side Effect Initio Eau de Parfum</h5>
                 <p class="precio-elegante text-center"><span class="simbolo">$</span>400.00</p>
