@@ -44,7 +44,7 @@
     <img src="assets/img/Banner-Hero.jpg" class="img-fluid w-100 d-none d-md-block" alt="Banner Creed-Aventus L’Air Pur">
 
     <!-- Imagen para pantallas pequeñas -->
-    <img src="assets/img/Banner-Hero-movil.jpg" class="img-fluid w-100 d-block d-md-none" alt="Banner Creed-Aventus L’Air Pur móvil">
+    <img src="assets/img/Banner-Hero-movil.webp" class="img-fluid w-100 d-block d-md-none" alt="Banner Creed-Aventus L’Air Pur móvil">
   </div>
 </div>
 
@@ -124,11 +124,11 @@
           <div class="card h-100 d-flex flex-column mx-auto">
             <img src="assets/img/CreedAventus.png" class="card-img-top" alt="Bharara King Eau de Parfum">
             <div class="card-body">
-              <h5 class="card-title">Bharara King Eau de Parfum</h5>
+              <h5 class="card-title">Dior Sauvage Eau de Parfum</h5>
               <p class="precio-elegante text-center"><span class="simbolo">$</span>105.00</p>
               <p class="card-text">
-                Fragancia intensa y exótica con notas orientales y amaderadas, perfecta para destacar con
-                elegancia y distinción para cualquier momento.
+                Fragancia fresca e intensa con notas cítricas y ambaradas, diseñada para el hombre moderno
+                que transmite fuerza, libertad y elegancia natural.
               </p>
               <a href="#" class="btn btn-dark">Comprar</a>
             </div>
