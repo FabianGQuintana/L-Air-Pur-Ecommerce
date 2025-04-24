@@ -48,8 +48,6 @@
   </div>
 </div>
 
-
-
 <!-- Introduccion a la Pagina -->
 <hr>
 <div class="container py-5">
@@ -139,9 +137,11 @@
     </div>
   </section>
 
- 
-<!-- Carrucel de Marcas -->
 <hr>
+    <h2 class="text-center text-uppercase mt-4 mb-4 display-6">Nuestras Marcas</h2>
+<hr>
+
+<!-- Carrucel de Marcas -->
 <section class="Home-Carousel container">
   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
     <div class="carousel-indicators">
@@ -291,12 +291,12 @@
         
         <div class="col mb-4">
           <div class="card h-100 d-flex flex-column mx-auto">
-            <img src="assets/img/JeanPaulElixir.jpg" class="card-img-top" alt="Afnan 9PM Eau de Parfum">
+            <img src="assets/img/9pmAfnan.png" class="card-img-top" alt="Afnan 9PM Eau de Parfum">
             <div class="card-body">
               <h5 class="card-title">Afnan 9PM Eau de Parfum</h5>
               <p class="precio-elegante text-center"><span class="simbolo">$</span>160.00</p>
               <p class="card-text">
-                Fragancia dulce, cálida y envolvente con notas de vainilla y ámbar, ideal para destacar en salidas
+                9PM de Afnan es una fragancia dulce, cálida y envolvente con notas de vainilla y ámbar, ideal para destacar en salidas
                 nocturnas y dejar una impresión duradera.
               </p>
               <a href="#" class="btn btn-dark">Comprar</a>
@@ -306,7 +306,7 @@
 
         <div class="col mb-4">
           <div class="card h-100 d-flex flex-column mx-auto">
-            <img src="assets/img/ErbaPura.jpg" class="card-img-top" alt="ErbaPura">
+            <img src="assets/img/HonorAndGlory.png" class="card-img-top" alt="ErbaPura">
             <div class="card-body">
               <h5 class="card-title">Honor and Glory Eau de Parfum</h5>
               <p class="precio-elegante text-center"><span class="simbolo">$</span>180.00</p>
@@ -321,7 +321,7 @@
 
         <div class="col mb-4">
           <div class="card h-100 d-flex flex-column mx-auto">
-            <img src="assets/img/BossUnited.png" class="card-img-top" alt="boss-bottled-united-eau-de-toilette">
+            <img src="assets/img/LattafaKhanra.png" class="card-img-top" alt="boss-bottled-united-eau-de-toilette">
             <div class="card-body">
               <h5 class="card-title">Lattafa Khamrah Eau de Parfum</h5>
               <p class="precio-elegante text-center"><span class="simbolo">$</span>130.00</p>
@@ -336,13 +336,13 @@
 
         <div class="col mb-4">
           <div class="card h-100 d-flex flex-column mx-auto">
-            <img src="assets/img/CreedAventus.png" class="card-img-top" alt="Bharara King Eau de Parfum">
+            <img src="assets/img/BhararaKing.png" class="card-img-top" alt="Bharara King Eau de Parfum">
             <div class="card-body">
-              <h5 class="card-title">Amber Oud Gold Edition</h5>
+              <h5 class="card-title">Bharara King Eau de Parfum</h5>
               <p class="precio-elegante text-center"><span class="simbolo">$</span>105.00</p>
               <p class="card-text">
-                Aroma lujoso y afrutado con un fondo ambarado y dulce, ofrece una presencia distinguida
-                y moderna para hombres y mujeres con carácter.
+                Combina notas frescas y especiadas con un corazón amaderado y un fondo
+                cálido, creando una fragancia intensa y elegante para quienes buscan dejar huella.
               </p>
               <a href="#" class="btn btn-dark">Comprar</a>
             </div>
@@ -371,15 +371,5 @@
       </div>
     </div>
   </section>
-
-  <ul>
-      <li>Amplia variedad de marcas y fragancias</li>
-      <li>Productos 100% originales</li>
-      <li>Envíos a todo el país</li>
-      <li>Cuotas sin interés</li>
-      <li>Ofertas y promociones exclusivas</li>
-  </ul>
-  <h4>Explora nuestra categoría de perfumes de hombre y encontra la fragancia perfecta para cada ocasión en L’Air Pur.</h4>
-
 
 
