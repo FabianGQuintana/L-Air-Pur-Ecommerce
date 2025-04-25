@@ -1,43 +1,20 @@
-<!-- SECCIÓN PRINCIPAL -->
-<style>
-    body {
-    background-color: #111;
-    color: #eee;
-    font-family: 'Georgia', serif;
-    }
-    .about-section {
-    padding: 100px 20px;
-    }
-    .about-title {
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #f5f5dc;
-    }
-    .about-text {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    }
-    .highlight {
-      color: #d4af37; /* tono dorado */
-    }
-</style>
-<section class="about-section text-center">
-    <div class="container">
-    <h1 class="about-title">Sobre Nosotros</h1>
-    <p class="about-text">
-        En <span class="highlight">L’Air Pur</span>, creemos que el lujo no solo se huele, se siente.
-        Desde nuestra fundación, hemos trabajado con las mejores casas perfumistas para ofrecerte
-        fragancias que capturan momentos, emociones y estilo.
-    </p>
-    <p class="about-text mt-4">
-        Nuestro compromiso es ofrecer <span class="highlight">productos originales</span>
-        con una experiencia de compra
-        tan sofisticada como nuestros perfumes. Valoramos la autenticidad, la elegancia y el detalle.
-    </p>
-    <p class="about-text mt-4">
-        Ya seas amante de las notas cítricas, amaderadas o florales, en L’Air Pur encontrarás
-        tu esencia ideal.
-    </p>
+<div class="container-fluid vh-100 d-flex align-items-center">
+    <div class="row w-100">
+      <!-- Columna de texto -->
+      <div class="col-12 col-md-6 p-5 bg-light d-flex flex-column justify-content-center">
+        <h1 class="mb-4">Quiénes Somos</h1>
+        <p>
+        En L'Air Pur, nos dedicamos a ofrecer una experiencia única para los amantes de las
+        fragancias. A través de nuestra tienda online, te brindamos acceso a una amplia variedad
+        de perfumes de todas las marcas, para que encuentres el aroma que mejor se adapte a tu
+        estilo y personalidad. Desde nuestra sede en Corrientes Capital, trabajamos para hacer
+        llegar lo mejor de la perfumería mundial a tu hogar, con un servicio confiable y fácil de usar.
+        </p>
+      </div>
+
+      <!-- Columna de imagen -->
+      <div class="col-12 col-md-6 d-flex justify-content-center align-items-center bg-white">
+        <img src="assets/img/QuienesSomosDueños.jpg" alt="Imagen representativa" class="img-fluid rounded">
+      </div>
     </div>
-</section>
+  </div>

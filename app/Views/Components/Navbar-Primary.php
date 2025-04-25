@@ -26,10 +26,10 @@
       <!-- MENÚ NAV -->
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item mx-2"><a class="nav-link" href="<?= base_url('/') ?>">Inicio</a></li>
-        <li class="nav-item mx-2"><a class="nav-link" href="<?= base_url('QuienesSomos') ?>">Sobre Nosotros</a></li>
-        <li class="nav-item mx-2"><a class="nav-link" href="<?= base_url('Comercializacion') ?>">Ventas</a></li>
+        <li class="nav-item mx-2"><a class="nav-link" href="<?= base_url('QuienesSomos') ?>">Quienes Somos</a></li>
+        <li class="nav-item mx-2"><a class="nav-link" href="<?= base_url('Comercializacion') ?>">Comercializacion</a></li>
         <li class="nav-item mx-2"><a class="nav-link" href="<?= base_url('Contact') ?>">Contacto</a></li>
-        <li class="nav-item mx-2"><a class="nav-link" href="<?= base_url('TerminosYCondiciones') ?>">Terminos Y Condiciones</a></li>
+        <li class="nav-item mx-2"><a class="nav-link" href="<?= base_url('TerminosYCondiciones') ?>">Terminos Y Usos</a></li>
       </ul>
     </div>
   </div>
