@@ -61,3 +61,14 @@ in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
  6 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
  7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-04-25 18:56:49 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "errors/custom_404.php"
+[Method: GET, Route: assets/img/TarjetasAceptadas.png]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('errors/custom_404.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('errors/custom_404', [], true)
+ 3 APPPATH\Config\Routes.php(28): view('errors/custom_404')
+ 4 SYSTEMPATH\CodeIgniter.php(955): CodeIgniter\Router\RouteCollection->{closure}('Can\'t find a route for \'GET: assets/img/TarjetasAceptadas.png\'.')
+ 5 SYSTEMPATH\CodeIgniter.php(360): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 6 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

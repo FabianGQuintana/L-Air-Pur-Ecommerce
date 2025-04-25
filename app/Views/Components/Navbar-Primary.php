@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+<nav id="Home" class="navbar navbar-expand-lg navbar-dark bg-dark ">
   <div class="container-fluid">
     <!-- LOGO -->
     <a class="navbar-brand letter-navbar" href="<?= base_url('/') ?>">

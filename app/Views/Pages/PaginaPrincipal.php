@@ -13,7 +13,7 @@
 
     <!-- Menú visible solo en pantallas grandes -->
     <ul class="navbar-nav mx-auto d-none d-lg-flex">
-      <li class="nav-item mx-5"><a class="nav-link" href="#inicio">Inicio</a></li>
+      <li class="nav-item mx-5"><a class="nav-link" href="#Home">Inicio</a></li>
       <li class="nav-item mx-5"><a class="nav-link" href="#Destacados">Destacados</a></li>
       <li class="nav-item mx-5"><a class="nav-link" href="#marcas">Marcas</a></li>
       <li class="nav-item mx-5"><a class="nav-link" href="#Review">Review</a></li>
@@ -38,7 +38,7 @@
 </div>
 
 <!-- Banner principal (Hero) -->
-<div id="inicio" class="container-fluid px-0">
+<div  class="container-fluid px-0">
   <div class="banner-wrapper">
     <!-- Imagen para pantallas grandes -->
     <img src="assets/img/Banner-Hero.jpg" class="img-fluid w-100 d-none d-md-block" alt="Banner Creed-Aventus L’Air Pur">

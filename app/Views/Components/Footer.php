@@ -4,10 +4,10 @@
   <div class="row">
 
   <!-- Nombre o logo -->
-  <div class="col-md-4 mb-3">
+  <div class="col-md-4 mb-3 text-center">
     <h5 class="fw-bold">L’Air Pur</h5>
-    <span class="text-muted bg-secondary">Respirá estilo, viví natural.</span>
-    <p class="text-muted small fst-italic mt-5 bg-secondary">
+    <span>Respirá estilo, viví natural.</span>
+    <p class=" small fst-italic mt-5">
     "El perfume es la forma más intensa del recuerdo." <br>
     <span class="fw-light">— Jean-Paul Guerlain</span>
   </p>
@@ -17,11 +17,11 @@
   <div class="col-md-4 mb-3">
     <h6 class="subtitulo-enlases-footer">Enlaces</h6>
     <ul class="list-unstyled">
-      <li class="mb-2"><a href="#marcas" class="text-light text-decoration-none">Inicio</a></li>
-      <li class="mb-2"><a href="#marcas" class="text-light text-decoration-none">Marcas</a></li>
-      <li class="mb-2"><a href="#nuevos" class="text-light text-decoration-none">Nuevos</a></li>
-      <li class="mb-2"><a href="#ofertas" class="text-light text-decoration-none">Ofertas</a></li>
-      <li class="mb-2"><a href="#favoritos" class="text-light text-decoration-none">Favoritos</a></li>
+      <li class="mb-2"><a href="<?= base_url('/') ?>" class="text-light text-decoration-none">Inicio</a></li>
+      <li class="mb-2"><a href="<?= base_url('QuienesSomos') ?>" class="text-light text-decoration-none">Quienes Somos</a></li>
+      <li class="mb-2"><a href="<?= base_url('Comercializacion') ?>" class="text-light text-decoration-none">Comercializacion</a></li>
+      <li class="mb-2"><a href="<?= base_url('Contact') ?>" class="text-light text-decoration-none">Contacto</a></li>
+      <li class="mb-2"><a href="<?= base_url('TerminosYCondiciones') ?>" class="text-light text-decoration-none">Terminos Y Usos</a></li>
     </ul>
   </div>
 
@@ -37,5 +37,5 @@
   </div>
 
   <hr>
-  <p class="text-center mb-0 text-muted bg-secondary">&copy; 2025 L’Air Pur - Todos los derechos reservados.</p>
+  <p class="text-center mb-0">&copy; 2025 L’Air Pur - Todos los derechos reservados.</p>
 </div>
