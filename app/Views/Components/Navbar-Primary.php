@@ -16,15 +16,10 @@
     <!-- CONTENIDO QUE SE COLAPSA -->
     <div class="collapse navbar-collapse" id="navbarContent">
       <div class="d-flex flex-grow-1 justify-content-center">
-        <!-- BARRA DE BÚSQUEDA -->
-        <form class="d-flex w-75" role="search">
-          <input class="form-control me-2" type="search"  aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Buscar</button>
-        </form>
       </div>
 
       <!-- MENÚ NAV -->
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-5">
         <li class="nav-item mx-2"><a class="nav-link" href="<?= base_url('/') ?>">Inicio</a></li>
         <li class="nav-item mx-2"><a class="nav-link" href="<?= base_url('QuienesSomos') ?>">Quienes Somos</a></li>
         <li class="nav-item mx-2"><a class="nav-link" href="<?= base_url('Comercializacion') ?>">Comercializacion</a></li>

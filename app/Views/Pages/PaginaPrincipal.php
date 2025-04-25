@@ -13,10 +13,10 @@
 
     <!-- Menú visible solo en pantallas grandes -->
     <ul class="navbar-nav mx-auto d-none d-lg-flex">
-      <li class="nav-item mx-5"><a class="nav-link" href="<?= base_url('/') ?>">Inicio</a></li>
+      <li class="nav-item mx-5"><a class="nav-link" href="#inicio">Inicio</a></li>
+      <li class="nav-item mx-5"><a class="nav-link" href="#Destacados">Destacados</a></li>
       <li class="nav-item mx-5"><a class="nav-link" href="#marcas">Marcas</a></li>
-      <li class="nav-item mx-5"><a class="nav-link" href="#nuevos">Nuevos</a></li>
-      <li class="nav-item mx-5"><a class="nav-link" href="#ofertas">Review</a></li>
+      <li class="nav-item mx-5"><a class="nav-link" href="#Review">Review</a></li>
     </ul>
   </div>
 </nav>
@@ -38,7 +38,7 @@
 </div>
 
 <!-- Banner principal (Hero) -->
-<div class="container-fluid px-0">
+<div id="inicio" class="container-fluid px-0">
   <div class="banner-wrapper">
     <!-- Imagen para pantallas grandes -->
     <img src="assets/img/Banner-Hero.jpg" class="img-fluid w-100 d-none d-md-block" alt="Banner Creed-Aventus L’Air Pur">
@@ -69,7 +69,7 @@
   <hr>
 
   <!-- Cards de Perfumes Destacados -->
-  <section class="Perfumes-Destacados">
+  <section id="Destacados" class="Perfumes-Destacados">
     <div class="container text-center">
       <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
         
@@ -142,7 +142,7 @@
 <hr>
 
 <!-- Carrucel de Marcas -->
-<section class="Home-Carousel container">
+<section id="marcas" class="Home-Carousel container">
   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -281,7 +281,7 @@
     </div>
     
     <hr>
-    <h2 class="text-center text-uppercase mt-4 mb-4 display-6">Perfumes Arabes Destacados</h2>
+    <h2 id="nuevos" class="text-center text-uppercase mt-4 mb-4 display-6">Perfumes Arabes Destacados</h2>
     <hr>
 
     <!-- Cards de Perfumes Arabes Destacados -->
@@ -354,7 +354,7 @@
   </section>
 
   <!-- Reseña de Reseña Jean Paul Gaultier Le Male Elixir -->
-  <section class="py-5 bg-light">
+  <section id="Review" class="py-5 bg-light">
     <div class="container text-center">
       <h2 class="fw-semibold mb-4 border-bottom pb-2 d-inline-block text-dark">
         Reseña Jean Paul Gaultier Le Male Elixir - Andrés Perfume-Man
