@@ -1,0 +1,33 @@
+h1 {
+  color: rgb(186, 159, 7);
+  font-family: "Inter", sans-serif;
+  letter-spacing: 2px;
+  font-weight: 400;
+}
+
+h2 {
+  color: rgb(0, 0, 0);
+  font-family: "Inter", sans-serif;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.parrafo {
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: 1px;
+  font-weight: 400;
+}
+
+.seccionTexto {
+  border-radius: 3%;
+}
+
+.card-title {
+  font-family: "Inter", sans-serif;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.card-text {
+  font-family: "Open Sans", sans-serif;
+}
