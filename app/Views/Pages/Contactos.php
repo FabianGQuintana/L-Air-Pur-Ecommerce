@@ -32,6 +32,12 @@
             </ul>
             <p><strong>Teléfono:</strong> +3794123456</p>
             <p><strong>Email:</strong> soporte@lairpur.com</p>
+            <p><strong>Redes Sociales:</strong></p>
+            <div class="redes-sociales">
+                <a href="https://www.instagram.com/l.air_pur/" class="btn btn-dark" target="_blank">Instagram</a>
+                <a href="https://www.facebook.com/profile.php?id=61575285497052" class="btn btn-dark" target="_blank">Facebook</a>
+                <a href="https://wa.me/qr/6YGO3WKTYVWMA1" class="btn btn-dark" target="_blank">Whatsapp</a>
+            </div>
         </div>
     </div>
 </div>

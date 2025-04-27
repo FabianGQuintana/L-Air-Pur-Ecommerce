@@ -28,9 +28,9 @@
   <!-- Redes sociales -->
   <div class="col-md-4 mb-3 text-center">
     <h6>Seguinos En Nuestras Redes Sociales!</h6>
-    <a href="#" class="text-light me-3 fs-4 "><i class="bi bi-facebook"></i></a>
-    <a href="https://www.instagram.com/garavant.parfums?igsh=b3M3eDBpbHZ5Z2Nt" class="text-light me-3 fs-4"><i class="bi bi-instagram"></i></a>
-    <a href="#" class="text-light me-3 fs-4"><i class="bi bi-whatsapp"></i></a>
+    <a href="https://www.facebook.com/profile.php?id=61575285497052" class="text-light me-3 fs-4 " target="_blank"><i class="bi bi-facebook"></i></a>
+    <a href="https://www.instagram.com/l.air_pur/" class="text-light me-3 fs-4" target="_blank"><i class="bi bi-instagram"></i></a>
+    <a href="https://wa.me/qr/6YGO3WKTYVWMA1" class="text-light me-3 fs-4" target="_blank"><i class="bi bi-whatsapp"></i></a>
   
   </div>
 
