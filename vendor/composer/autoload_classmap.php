@@ -4049,7 +4049,6 @@ return array(
     'Symfony\\Component\\String\\Inflector\\InflectorInterface' => $vendorDir . '/symfony/string/Inflector/InflectorInterface.php',
     'Symfony\\Component\\String\\Inflector\\SpanishInflector' => $vendorDir . '/symfony/string/Inflector/SpanishInflector.php',
     'Symfony\\Component\\String\\LazyString' => $vendorDir . '/symfony/string/LazyString.php',
-    'Symfony\\Component\\String\\Resources\\WcswidthDataGenerator' => $vendorDir . '/symfony/string/Resources/WcswidthDataGenerator.php',
     'Symfony\\Component\\String\\Slugger\\AsciiSlugger' => $vendorDir . '/symfony/string/Slugger/AsciiSlugger.php',
     'Symfony\\Component\\String\\Slugger\\SluggerInterface' => $vendorDir . '/symfony/string/Slugger/SluggerInterface.php',
     'Symfony\\Component\\String\\TruncateMode' => $vendorDir . '/symfony/string/TruncateMode.php',
