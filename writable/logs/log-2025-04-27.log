@@ -545,3 +545,72 @@ in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
  6 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
  7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-04-27 22:14:17 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "pages/contact.php"
+[Method: GET, Route: Contact]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('pages/contact.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('pages/contact', [], true)
+ 3 APPPATH\Controllers\Contact.php(14): view('pages/contact')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Contact->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Contact))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-04-27 22:14:31 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "pages/contact.php"
+[Method: GET, Route: Contact]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('pages/contact.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('pages/contact', [], true)
+ 3 APPPATH\Controllers\Contact.php(14): view('pages/contact')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Contact->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Contact))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-04-27 22:58:32 --> ErrorException: include(Form_Contacto.php): Failed to open stream: No such file or directory
+[Method: GET, Route: Contact]
+in APPPATH\Views\Pages\Contactos.php on line 42.
+ 1 APPPATH\Views\Pages\Contactos.php(42): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(Form_Contacto.php): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\L-Air-Pur-Ecommerce\\app\\Views\\Pages\\Contactos.php', 42)
+ 2 APPPATH\Views\Pages\Contactos.php(42): include()
+ 3 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\L-Air-Pur-Ecommerce\\app\\Views\\Pages\\Contactos.php')
+ 4 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('Pages/Contactos', [], true)
+ 6 APPPATH\Controllers\Contact.php(14): view('Pages/Contactos')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Contact->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Contact))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-04-27 22:59:11 --> ErrorException: include(Components/Form_Contacto.php): Failed to open stream: No such file or directory
+[Method: GET, Route: Contact]
+in APPPATH\Views\Pages\Contactos.php on line 42.
+ 1 APPPATH\Views\Pages\Contactos.php(42): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(Components/Form_Contacto.php): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\L-Air-Pur-Ecommerce\\app\\Views\\Pages\\Contactos.php', 42)
+ 2 APPPATH\Views\Pages\Contactos.php(42): include()
+ 3 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\L-Air-Pur-Ecommerce\\app\\Views\\Pages\\Contactos.php')
+ 4 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('Pages/Contactos', [], true)
+ 6 APPPATH\Controllers\Contact.php(14): view('Pages/Contactos')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Contact->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Contact))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-04-27 22:59:13 --> ErrorException: include(Components/Form_Contacto.php): Failed to open stream: No such file or directory
+[Method: GET, Route: Contact]
+in APPPATH\Views\Pages\Contactos.php on line 42.
+ 1 APPPATH\Views\Pages\Contactos.php(42): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(Components/Form_Contacto.php): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\L-Air-Pur-Ecommerce\\app\\Views\\Pages\\Contactos.php', 42)
+ 2 APPPATH\Views\Pages\Contactos.php(42): include()
+ 3 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\L-Air-Pur-Ecommerce\\app\\Views\\Pages\\Contactos.php')
+ 4 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('Pages/Contactos', [], true)
+ 6 APPPATH\Controllers\Contact.php(14): view('Pages/Contactos')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Contact->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Contact))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

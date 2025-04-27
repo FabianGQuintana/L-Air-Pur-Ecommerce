@@ -38,35 +38,4 @@
 
 <hr>
 
-<!-- ============================
-    SECCIÓN: CONTACTO
-=============================== -->
-<div class="contact-form">
-    <h2>Envíanos un mensaje</h2>
-
-    <?php if (session()->getFlashdata('message')): ?>
-        <div class="alert alert-success">
-            <?= session()->getFlashdata('message') ?>
-        </div>
-    <?php endif; ?>
-
-    <form action="<?= base_url('Contact/send') ?>" method="post">
-        <div class="form-group">
-            <label for="name">Nombre:</label>
-            <input type="text" id="name" name="name" required>
-        </div>
-
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-        </div>
-
-        <div class="form-group">
-            <label for="message">Mensaje:</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Enviar</button>
-    </form>
-</div>
-
+<?= view('Components/Form_Contacto') ?>
