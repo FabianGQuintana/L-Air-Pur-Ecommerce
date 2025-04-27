@@ -91,6 +91,20 @@
   font-family: "Open Sans", sans-serif;
 }
 
+.card{
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave al inicio */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden; /* Para evitar que el contenido de la card se desborde */
+}
+
+.card:hover{
+  transform: scale(1.05); /*card se acerca un 5% (efecto zoom) */
+  box-shadow: 0 10px 20px  #607f7b; /* Sombra más pronunciada en el hover */
+}
+
 .precio-elegante {
   font-size: 1.3rem;
   font-weight: 600;
@@ -112,6 +126,15 @@
   /* background-color: #607f7b; */
   box-shadow: 0 4px 12px rgba(8, 185, 132, 0.3); /* Sombra suave */
   transform: translateY(-2px); /* Efecto de levantar */
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn {
+  margin-top: auto;
 }
 
 .subtitulo-enlases-footer {

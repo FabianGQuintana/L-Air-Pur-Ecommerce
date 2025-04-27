@@ -1,3 +1,4 @@
+
 <!-- SEGUNDO NAVBAR (Secundario o de categorías) -->
   
 <nav class="navbar navbar-expand-lg navbar-light bg-light border-top border-bottom sticky-top navbar-secondary-items letter-navbar-Secondary">
@@ -83,7 +84,7 @@
                 Fragancia intensa y moderna con notas dulces y especiadas, ideal para destacar en noches especiales o
                 eventos importantes.
               </p>
-              <a href="#" class="btn btn-dark">Comprar</a>
+              <a href="<?= base_url('EnConstruccion') ?>" class="btn btn-dark">Comprar</a>
             </div>
           </div>
         </div>
@@ -98,7 +99,7 @@
                 Perfume afrutado y fresco con un toque oriental, ofrece elegancia y sofisticación
                 para quienes buscan una presencia encantadora.
               </p>
-              <a href="#" class="btn btn-dark">Comprar</a>
+              <a href="<?= base_url('EnConstruccion') ?>" class="btn btn-dark">Comprar</a>
             </div>
           </div>
         </div>
@@ -113,7 +114,7 @@
                 Aroma masculino refinado y versátil, combina la frescura y calidez para acompañarte con estilo durante
                 el cualquier momento del dia.
               </p>
-              <a href="#" class="btn btn-dark">Comprar</a>
+              <a href="<?= base_url('EnConstruccion') ?>" class="btn btn-dark">Comprar</a>
             </div>
           </div>
         </div>
@@ -128,7 +129,7 @@
                 Fragancia fresca e intensa con notas cítricas y ambaradas, diseñada para el hombre moderno
                 que transmite fuerza, libertad y elegancia natural.
               </p>
-              <a href="#" class="btn btn-dark">Comprar</a>
+              <a href="<?= base_url('EnConstruccion') ?>" class="btn btn-dark">Comprar</a>
             </div>
           </div>
         </div>
@@ -143,7 +144,8 @@
 
 <!-- Carrucel de Marcas -->
 <section id="marcas" class="Home-Carousel container">
-  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-pause="hover"
+  data-bs-interval="3000">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -154,9 +156,9 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
         <!-- Imagen chica (visible hasta sm) -->
-        <img src="assets/img/GiorgioArmani-sm.png" class="d-block d-md-none w-100" alt="Giorgio Armani móvil">
+        <img src="assets/img/GiorgioArmani-sm.png" class="d-block d-md-none w-100" alt="Logo de Giorgio Armani">
         <!-- Imagen grande (visible desde md en adelante) -->
-        <img src="assets/img/GiorgioArmani.png" class="d-none d-md-block w-100" alt="Giorgio Armani movil">
+        <img src="assets/img/GiorgioArmani.png" class="d-none d-md-block w-100" alt="Logo de Giorgio Armani">
       </div>
       <div class="carousel-item">
           <img src="assets/img/BossHugo-sm.png" class="d-block d-md-none w-100" alt="Hugo Boss">
@@ -171,8 +173,8 @@
         <img src="assets/img/VersaceEros.png" class="d-none d-md-block w-100" alt="Versace Eros">
       </div>
       <div class="carousel-item">
-        <img src="assets/img/Valentino-sm.png" class="d-block d-md-none w-100" alt="Valentino movil">
-        <img src="assets/img/Valentino.png" class="d-none d-md-block w-100" alt="Valentino">
+        <img src="assets/img/Valentino-sm.png" class="d-block d-md-none w-100" alt="Logo de Valentino ">
+        <img src="assets/img/Valentino.png" class="d-none d-md-block w-100" alt="Logo de Valentino">
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -210,56 +212,56 @@
           
           <div class="col mb-4">
             <div class="card h-100 d-flex flex-column mx-auto">
-              <img src="assets/img/nishane.png" class="card-img-top" alt="Ani Nishane Extrait de Parfum">
+              <img src="assets/img/nishane.png" class="card-img-top" alt="Logo de Ani Nishane Extrait de Parfum">
               <div class="card-body">
                 <h5 class="card-title">Ani Nishane Extrait de Parfum</h5>
                 <p class="precio-elegante text-center"><span class="simbolo">$</span>250.00</p>
                 <p class="card-text">
                   Aroma cálido y especiado con notas orientales y un toque dulce, ideal para momentos sofisticados y memorables.
                 </p>
-                <a href="#" class="btn btn-dark">Comprar</a>
+                <a href="<?= base_url('EnConstruccion') ?>" class="btn btn-dark">Comprar</a>
               </div>
             </div>
           </div>
 
           <div class="col mb-4">
             <div class="card h-100 d-flex flex-column mx-auto">
-              <img src="assets/img/CreedAventus.png" class="card-img-top" alt="Creed Aventus Eau de Parfum">
+              <img src="assets/img/CreedAventus.png" class="card-img-top" alt="Logo de Creed Aventus Eau de Parfum">
               <div class="card-body">
                 <h5 class="card-title">Creed Aventus Eau de Parfum</h5>
                 <p class="precio-elegante text-center"><span class="simbolo">$</span>495.00</p>
                 <p class="card-text">
                   Fragancia masculina fresca y afrutada con un fondo amaderado, perfecta para líderes seguros y decididos.
                 </p>
-                <a href="#" class="btn btn-dark">Comprar</a>
+                <a href="<?= base_url('EnConstruccion') ?>" class="btn btn-dark">Comprar</a>
               </div>
             </div>
           </div>
 
           <div class="col mb-4">
             <div class="card h-100 d-flex flex-column mx-auto">
-              <img src="assets/img/InitioParfums.png" class="card-img-top" alt="Side Effect Initio Eau de Parfum">
+              <img src="assets/img/InitioParfums.png" class="card-img-top" alt="Logo de Side Effect Initio Eau de Parfum">
               <div class="card-body">
                 <h5 class="card-title">Side Effect Initio Eau de Parfum</h5>
                 <p class="precio-elegante text-center"><span class="simbolo">$</span>400.00</p>
                 <p class="card-text">
                   Intenso y sensual con matices ambarinos y especiados, diseñado para dejar una impresión inolvidable.
                 </p>
-                <small><a href="#" class="btn btn-dark">Comprar</a></small>
+                <a href="<?= base_url('EnConstruccion') ?>" class="btn btn-dark">Comprar</a>
               </div>
             </div>
           </div>
 
           <div class="col mb-4">
             <div class="card h-100 d-flex flex-column mx-auto">
-              <img src="assets/img/MaisonFrancisKurkdjian.jpg" class="card-img-top" alt="Side Effect Initio Eau de Parfum">
+              <img src="assets/img/MaisonFrancisKurkdjian.jpg" class="card-img-top" alt="Logo de Maison Francis Kurkdjian Eau de Parfum">
               <div class="card-body">
                 <h5 class="card-title">Maison Francis Kurkdjian Aqua Universalis</h5>
                 <p class="precio-elegante text-center"><span class="simbolo">$</span>144.00</p>
                 <p class="card-text">
                   Perfume fresco y limpio con notas cítricas y florales, ideal para un estilo sofisticado.
                 </p>
-                <small><a href="#" class="btn btn-dark">Comprar</a></small>
+                <a href="<?= base_url('EnConstruccion') ?>" class="btn btn-dark">Comprar</a>
               </div>
             </div>
           </div>
@@ -291,7 +293,7 @@
         
         <div class="col mb-4">
           <div class="card h-100 d-flex flex-column mx-auto">
-            <img src="assets/img/9pmAfnan.png" class="card-img-top" alt="Afnan 9PM Eau de Parfum">
+            <img src="assets/img/9pmAfnan.png" class="card-img-top" alt="Logo de Afnan 9PM Eau de Parfum">
             <div class="card-body">
               <h5 class="card-title">Afnan 9PM Eau de Parfum</h5>
               <p class="precio-elegante text-center"><span class="simbolo">$</span>160.00</p>
@@ -299,14 +301,14 @@
                 9PM de Afnan es una fragancia dulce, cálida y envolvente con notas de vainilla y ámbar, ideal para destacar en salidas
                 nocturnas y dejar una impresión duradera.
               </p>
-              <a href="#" class="btn btn-dark">Comprar</a>
+              <a href="<?= base_url('EnConstruccion') ?>" class="btn btn-dark">Comprar</a>
             </div>
           </div>
         </div>
 
         <div class="col mb-4">
           <div class="card h-100 d-flex flex-column mx-auto">
-            <img src="assets/img/HonorAndGlory.png" class="card-img-top" alt="ErbaPura">
+            <img src="assets/img/HonorAndGlory.png" class="card-img-top" alt="Logo de HonorAndGlory">
             <div class="card-body">
               <h5 class="card-title">Honor and Glory Eau de Parfum</h5>
               <p class="precio-elegante text-center"><span class="simbolo">$</span>180.00</p>
@@ -314,14 +316,14 @@
                 Perfume potente y vibrante con acordes especiados y amaderados, pensado para el hombre que
                 busca poder y sofisticación en su aroma diario.
               </p>
-              <a href="#" class="btn btn-dark">Comprar</a>
+              <a href="<?= base_url('EnConstruccion') ?>" class="btn btn-dark">Comprar</a>
             </div>
           </div>
         </div>
 
         <div class="col mb-4">
           <div class="card h-100 d-flex flex-column mx-auto">
-            <img src="assets/img/LattafaKhanra.png" class="card-img-top" alt="boss-bottled-united-eau-de-toilette">
+            <img src="assets/img/LattafaKhanra.png" class="card-img-top" alt="Logo de Lattafa Khanra eau de toilette">
             <div class="card-body">
               <h5 class="card-title">Lattafa Khamrah Eau de Parfum</h5>
               <p class="precio-elegante text-center"><span class="simbolo">$</span>130.00</p>
@@ -329,7 +331,7 @@
                 Fragancia oriental dulce con notas de canela, dátiles y vainilla, ofrece una estela cálida
                 y encantadora ideal para días fríos y ocasiones especiales.
               </p>
-              <a href="#" class="btn btn-dark">Comprar</a>
+              <a href="<?= base_url('EnConstruccion') ?>" class="btn btn-dark">Comprar</a>
             </div>
           </div>
         </div>
@@ -344,7 +346,7 @@
                 Combina notas frescas y especiadas con un corazón amaderado y un fondo
                 cálido, creando una fragancia intensa y elegante para quienes buscan dejar huella.
               </p>
-              <a href="#" class="btn btn-dark">Comprar</a>
+              <a href="<?= base_url('EnConstruccion') ?>" class="btn btn-dark">Comprar</a>
             </div>
           </div>
         </div>

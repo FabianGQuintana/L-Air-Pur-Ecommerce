@@ -39,4 +39,13 @@ class Pages extends BaseController
             'content' => view('Pages/TerminosYCondiciones')
         ]);
     }
+
+    public function EnConstruccion()
+    {
+        // Cargar la página de "En Construccion"
+        return view('Templates/main_layout', [
+            'title' => 'En Construcción - L’Air Pur',
+            'content' => view('errors/En_Construccion')
+        ]);
+    }
 }

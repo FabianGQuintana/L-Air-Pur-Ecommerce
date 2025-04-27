@@ -15,6 +15,7 @@ class Contact extends BaseController
     
     public function send()
     {
+        
         // Validar el formulario
         $rules = [
             'name' => 'required|min_length[3]',
@@ -36,7 +37,7 @@ class Contact extends BaseController
         // aquí se enviaría un email)
         
         // Redirigir con mensaje de éxito
-        return redirect()->to('/Contactos')->with('message',
+        return redirect()->to('/Contact')->with('message',
             'Gracias por contactarnos. Te responderemos a la brevedad.');
     }
 }

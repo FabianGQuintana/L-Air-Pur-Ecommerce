@@ -19,12 +19,12 @@
       </div>
 
       <!-- MENÚ NAV -->
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-5">
-        <li class="nav-item mx-2"><a class="nav-link" href="<?= base_url('/') ?>">Inicio</a></li>
-        <li class="nav-item mx-2"><a class="nav-link" href="<?= base_url('QuienesSomos') ?>">Quienes Somos</a></li>
-        <li class="nav-item mx-2"><a class="nav-link" href="<?= base_url('Comercializacion') ?>">Comercializacion</a></li>
-        <li class="nav-item mx-2"><a class="nav-link" href="<?= base_url('Contact') ?>">Contacto</a></li>
-        <li class="nav-item mx-2"><a class="nav-link" href="<?= base_url('TerminosYCondiciones') ?>">Terminos Y Usos</a></li>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-5 list-unstyled">
+        <li class="nav-item mx-2"><a class="nav-link" href="<?= base_url('/') ?>" class="text-light text-decoration-none">Inicio</a></li>
+        <li class="nav-item mx-2"><a class="nav-link" href="<?= base_url('QuienesSomos') ?>" class="text-light text-decoration-none">Quienes Somos</a></li>
+        <li class="nav-item mx-2"><a class="nav-link" href="<?= base_url('Comercializacion') ?>" class="text-light text-decoration-none">Comercializacion</a></li>
+        <li class="nav-item mx-2"><a class="nav-link" href="<?= base_url('Contact') ?>" class="text-light text-decoration-none">Contacto</a></li>
+        <li class="nav-item mx-2"><a class="nav-link" href="<?= base_url('TerminosYCondiciones') ?>" class="text-light text-decoration-none">Terminos Y Usos</a></li>
       </ul>
     </div>
   </div>

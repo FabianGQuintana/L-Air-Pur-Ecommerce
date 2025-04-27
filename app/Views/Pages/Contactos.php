@@ -23,6 +23,7 @@
                 pedido desde cualquier parte del país. Nuestra misión es acercarte la esencia del lujo, estés donde estés.
             </p>
             <h4 class="titulo-destacado">Nuestra tienda</h4>
+            <p><strong>Titular:</strong> Sebastián Armand</p>
             <p><strong>Dirección:</strong> 9 de Julio 1198, W3400CCP Corrientes, Argentina</p>
             <p><strong>Horario:</strong></p>
             <ul>
@@ -36,3 +37,36 @@
 </div>
 
 <hr>
+
+<!-- ============================
+    SECCIÓN: CONTACTO
+=============================== -->
+<div class="contact-form">
+    <h2>Envíanos un mensaje</h2>
+
+    <?php if (session()->getFlashdata('message')): ?>
+        <div class="alert alert-success">
+            <?= session()->getFlashdata('message') ?>
+        </div>
+    <?php endif; ?>
+
+    <form action="<?= base_url('Contact/send') ?>" method="post">
+        <div class="form-group">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="message">Mensaje:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+</div>
+
