@@ -36,11 +36,17 @@
   font-family: "Inter", sans-serif;
   font-weight: 400;
   letter-spacing: 7px;
+  color: #444;
+}
+
+.titulosSeccion {
+  color: #444;
 }
 
 .TitulosTipoPerfums {
   font-family: "Inter", sans-serif;
   letter-spacing: 1px;
+  color: #444;
 }
 
 .nav-link {
@@ -85,13 +91,15 @@
   font-family: "Inter", sans-serif;
   letter-spacing: 1px;
   font-weight: 700;
+  color: #444;
 }
 
 .card-text {
+  color: #444;
   font-family: "Open Sans", sans-serif;
 }
 
-.card{
+.card {
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -100,9 +108,9 @@
   overflow: hidden; /* Para evitar que el contenido de la card se desborde */
 }
 
-.card:hover{
+.card:hover {
   transform: scale(1.05); /*card se acerca un 5% (efecto zoom) */
-  box-shadow: 0 10px 20px  #607f7b; /* Sombra más pronunciada en el hover */
+  box-shadow: 0 10px 20px #607f7b; /* Sombra más pronunciada en el hover */
 }
 
 .precio-elegante {

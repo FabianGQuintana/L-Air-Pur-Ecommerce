@@ -1,30 +1,31 @@
-
 h2 {
-    color: rgb(186, 159, 7);
-    font-family: "Inter", sans-serif;
-    letter-spacing: 2px;
-    font-weight: 600;
+  color: rgb(186, 159, 7);
+  font-family: "Inter", sans-serif;
+  letter-spacing: 2px;
+  font-weight: 600;
 }
 
-p {
-    text-align: justify;
-    font-family: "Open Sans", sans-serif;
-    color: #444;
+.parrafoComercializacion {
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: 1px;
+  font-weight: 400;
+  color: #444;
 }
-
 
 img.object-fit-contain {
-    object-fit: contain;
+  object-fit: contain;
 }
 
 /* Efecto hover para imagen */
-img.hover-effect, iframe.hover-effect {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-radius: 10px; /* Bordes redondeados */
+img.hover-effect,
+iframe.hover-effect {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 10px; /* Bordes redondeados */
 }
 
 /* Cuando el mouse pasa encima */
-img.hover-effect:hover, iframe.hover-effect:hover {
-    transform: scale(1.03); /* Le da una ligera ampliación */
-    box-shadow: 0 8px 16px rgb(186, 159, 7); /* Sombra elegante */
+img.hover-effect:hover,
+iframe.hover-effect:hover {
+  transform: scale(1.03); /* Le da una ligera ampliación */
+  box-shadow: 0 8px 16px rgb(186, 159, 7); /* Sombra elegante */
 }

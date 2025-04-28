@@ -64,9 +64,8 @@
     </div>
   </div>
 
-
   <hr>
-  <h2 class="text-center text-uppercase mt-4 mb-4 display-6">Productos Destacados</h2>
+  <h2 class="titulosSeccion text-center text-uppercase mt-4 mb-4 display-6">Productos Destacados</h2>
   <hr>
 
   <!-- Cards de Perfumes Destacados -->
@@ -139,7 +138,7 @@
   </section>
 
 <hr>
-    <h2 class="text-center text-uppercase mt-4 mb-4 display-6">Nuestras Marcas</h2>
+    <h2 class="titulosSeccion text-center text-uppercase mt-4 mb-4 display-6">Nuestras Marcas</h2>
 <hr>
 
 <!-- Carrucel de Marcas -->
@@ -204,7 +203,7 @@
 
   <!-- Cards de Perfumes de Nicho -->
   <hr>
-    <h2 class="text-center text-uppercase mt-4 mb-4 display-6">Perfumes Exclusivos</h2>
+    <h2 class="titulosSeccion text-center text-uppercase mt-4 mb-4 display-6">Perfumes Exclusivos</h2>
   <hr>
     <section class="Primavera/Verano">
       <div class="container text-center">
@@ -283,7 +282,7 @@
     </div>
     
     <hr>
-    <h2 id="nuevos" class="text-center text-uppercase mt-4 mb-4 display-6">Perfumes Arabes Destacados</h2>
+    <h2 id="nuevos" class="titulosSeccion text-center text-uppercase mt-4 mb-4 display-6">Perfumes Arabes Destacados</h2>
     <hr>
 
     <!-- Cards de Perfumes Arabes Destacados -->

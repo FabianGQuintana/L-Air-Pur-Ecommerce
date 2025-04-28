@@ -18,21 +18,21 @@
         <!-- Texto -->
         <div class="seccionTexto col bg-light d-flex flex-column justify-content-center p-4">
             <h2 class="mb-2">Dónde encontrarnos</h2>
-            <p class="parrafo">
+            <p class="parrafoContactos">
                 Nos apasiona ofrecer fragancias exclusivas que definen tu estilo. Podés visitarnos en nuestro local o hacer tu
                 pedido desde cualquier parte del país. Nuestra misión es acercarte la esencia del lujo, estés donde estés.
             </p>
             <h4 class="titulo-destacado">Nuestra tienda</h4>
-            <p><strong>Titular:</strong> Sebastián Armand</p>
-            <p><strong>Dirección:</strong> 9 de Julio 1198, W3400CCP Corrientes, Argentina</p>
-            <p><strong>Horario:</strong></p>
+            <p class="parrafoContactos"><strong>Titular:</strong> Sebastián Armand</p>
+            <p class="parrafoContactos"><strong>Dirección:</strong> 9 de Julio 1198, W3400CCP Corrientes, Argentina</p>
+            <p class="parrafoContactos"><strong>Horario:</strong></p>
             <ul>
                 <li>Lunes a Viernes de 9:00 a 21:00 hs</li>
                 <li>Sábado de 9:00 a 13:00 hs</li>
             </ul>
-            <p><strong>Teléfono:</strong> +3794123456</p>
-            <p><strong>Email:</strong> l.air.purr.com</p>
-            <p><strong>Redes Sociales:</strong></p>
+            <p class="parrafoContactos"><strong>Teléfono:</strong> +3794123456</p>
+            <p class="parrafoContactos"><strong>Email:</strong> l.air.purr.com</p>
+            <p class="parrafoContactos"><strong>Redes Sociales:</strong></p>
             <div class="redes-sociales">
                 <a href="https://www.instagram.com/l.air_pur/" class="btn btn-dark" target="_blank">Instagram</a>
                 <a href="https://www.facebook.com/profile.php?id=61575285497052" class="btn btn-dark" target="_blank">Facebook</a>

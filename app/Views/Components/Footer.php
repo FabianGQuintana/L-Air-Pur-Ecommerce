@@ -1,13 +1,13 @@
 
 <!-- FOOTER -->
-<div class="container">
-  <div class="row">
+<div class="container ">
+  <div class="row justify-content-center align-items-center py-4">
 
   <!-- Nombre o logo -->
   <div class="col-md-4 mb-3 text-center">
     <h5 class="fw-bold">L’Air Pur</h5>
     <span>Respirá estilo, viví natural.</span>
-    <p class=" small fst-italic mt-5">
+    <p class="text-light small fst-italic text-center mt-5">
     "El perfume es la forma más intensa del recuerdo." <br>
     <span class="fw-light">— Jean-Paul Guerlain</span>
   </p>
@@ -26,7 +26,7 @@
   </div>
 
   <!-- Redes sociales -->
-  <div class="col-md-4 mb-3 text-center">
+  <div class="col-md-4 mb-3 text-center ">
     <h6>Seguinos En Nuestras Redes Sociales!</h6>
     <a href="https://www.facebook.com/profile.php?id=61575285497052" class="text-light me-3 fs-4 " target="_blank"><i class="bi bi-facebook"></i></a>
     <a href="https://www.instagram.com/l.air_pur/" class="text-light me-3 fs-4" target="_blank"><i class="bi bi-instagram"></i></a>
@@ -37,5 +37,5 @@
   </div>
 
   <hr>
-  <p class="text-center mb-0">&copy; 2025 L’Air Pur - Todos los derechos reservados.</p>
+  <p class="text-light text-center mb-0">&copy; 2025 L’Air Pur - Todos los derechos reservados.</p>
 </div>

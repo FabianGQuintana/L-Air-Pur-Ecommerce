@@ -9,7 +9,7 @@
         <!-- Texto -->
         <div class="seccionTexto col d-flex flex-column justify-content-center p-4">
             <h2 class="mb-2 display-6">Métodos de pago</h2>
-            <p class="parrafo">
+            <p class="parrafoComercializacion">
                 En nuestra tienda te ofrecemos múltiples opciones de pago para que elijas la que más te convenga:
                 tarjetas de crédito y débito, transferencias, Mercado Pago y más. Comprá con tranquilidad y seguridad.
             </p>
@@ -40,13 +40,13 @@
         <!-- Texto -->
         <div class="seccionTexto col mb-4 d-flex flex-column justify-content-center">
             <h2 class="display-6 mb-4">Tipos de entrega</h2>
-            <p class="text-justificado">
+            <p class="parrafoComercializacion">
                 Te ofrecemos distintas formas de entrega para adaptarnos a tus necesidades:
             </p>
             <ul>
-                <li><strong>Retiro en tienda:</strong> Podés retirar tu compra en nuestro local sin costo adicional.</li>
-                <li><strong>Envío estándar:</strong> Entregamos en todo el país dentro de 3 a 7 días hábiles.</li>
-                <li><strong>Envío exprés:</strong> Para compras en zonas cercanas, entregamos en 24 a 48 hs.</li>
+                <li class="parrafoComercializacion"><strong>Retiro en tienda:</strong> Podés retirar tu compra en nuestro local sin costo adicional.</li>
+                <li class="parrafoComercializacion"><strong>Envío estándar:</strong> Entregamos en todo el país dentro de 3 a 7 días hábiles.</li>
+                <li class="parrafoComercializacion"><strong>Envío exprés:</strong> Para compras en zonas cercanas, entregamos en 24 a 48 hs.</li>
             </ul>
         </div>
     </div>
@@ -62,15 +62,15 @@
         <!-- Texto -->
         <div class="seccionTexto col mb-4 d-flex flex-column justify-content-center">
             <h2 class="display-6 mb-4">Formas de envío</h2>
-            <p class="text-justificado">
+            <p class="parrafoComercializacion">
                 Realizamos envíos a través de:
             </p>
             <ul>
-                <li>Correo Argentino</li>
-                <li>OCA</li>
-                <li>Mensajería privada para zonas cercanas</li>
+                <li class="parrafoComercializacion">Correo Argentino</li>
+                <li class="parrafoComercializacion">OCA</li>
+                <li class="parrafoComercializacion">Mensajería privada para zonas cercanas</li>
             </ul>
-            <p>
+            <p class="parrafoComercializacion">
                 Podés seguir tu pedido con el código de seguimiento que te enviamos por email una vez despachado.
             </p>
         </div>
@@ -95,20 +95,20 @@
     <div id="carouselTestimonios" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner text-center">
             <div class="carousel-item active">
-                <p class="text-muted text-center">“¡Increíble servicio! Hice mi pedido por la mañana y en menos de 24 horas ya lo tenía en la puerta de mi casa. ¡Muy recomendables!”</p>
+                <p class="parrafoComercializacion text-muted text-center">“¡Increíble servicio! Hice mi pedido por la mañana y en menos de 24 horas ya lo tenía en la puerta de mi casa. ¡Muy recomendables!”</p>
                 <small>- Micaela Gomez.</small>
             </div>
             <div class="carousel-item">
-                <p class="text-muted text-center">“La entrega fue puntual y el paquete llegó en perfectas condiciones. Sin dudas volvería a comprar, todo muy profesional.”</p>
+                <p class="parrafoComercializacion text-muted text-center">“La entrega fue puntual y el paquete llegó en perfectas condiciones. Sin dudas volvería a comprar, todo muy profesional.”</p>
                 <small>- Lucas Galarza.</small>
             </div>
             <div class="carousel-item">
-                <p class="text-muted text-center">“No esperaba que llegara tan rápido. Compré un viernes y el lunes ya lo estaba usando. ¡Excelente atención y envío exprés!”</p>
+                <p class="parrafoComercializacion text-muted text-center">“No esperaba que llegara tan rápido. Compré un viernes y el lunes ya lo estaba usando. ¡Excelente atención y envío exprés!”</p>
                 <small>- Facundo Spika.</small>
             </div>
             <div class="carousel-item">
-                <p class="text-muted text-center">“Muy conforme con el envío. Me enviaron el código de seguimiento enseguida y pude ver todo el recorrido de mi pedido hasta que llegó.”</p>
-                <small>- Lisandro Hetler Gomez.</small>
+                <p class="parrafoComercializacion text-muted text-center">“Muy conforme con el envío. Me enviaron el código de seguimiento enseguida y pude ver todo el recorrido de mi pedido hasta que llegó.”</p>
+                <small >- Lisandro Hetler Gomez.</small>
             </div>
         </div>
     </div>
