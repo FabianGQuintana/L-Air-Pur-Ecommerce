@@ -79,7 +79,7 @@
             <img src="assets/img/JeanPaulElixir.png" class="card-img-top" alt="Jean Paul Gaultier Le Male Elixir">
             <div class="card-body">
               <h5 class="card-title">Jean Paul Gaultier Le Male Elixir</h5>
-              <p class="precio-elegante text-center"><span class="simbolo">$</span>160.00</p>
+              <p class="precio-elegante text-center"><span class="simbolo">$</span>160.000,00</p>
               <p class="card-text">
                 Fragancia intensa y moderna con notas dulces y especiadas, ideal para destacar en noches especiales o
                 eventos importantes.
@@ -94,7 +94,7 @@
             <img src="assets/img/ErbaPura.png" class="card-img-top" alt="ErbaPura">
             <div class="card-body">
               <h5 class="card-title">Erba Pura Xerjoff Eau De Parfum</h5>
-              <p class="precio-elegante text-center"><span class="simbolo">$</span>180.00</p>
+              <p class="precio-elegante text-center"><span class="simbolo">$</span>180.000,00</p>
               <p class="card-text">
                 Perfume afrutado y fresco con un toque oriental, ofrece elegancia y sofisticación
                 para quienes buscan una presencia encantadora.
@@ -109,7 +109,7 @@
             <img src="assets/img/BossUnited.png" class="card-img-top" alt="boss-bottled-united-eau-de-toilette">
             <div class="card-body">
               <h5 class="card-title">Hugo Boss Bottled Eau De Parfum</h5>
-              <p class="precio-elegante text-center"><span class="simbolo">$</span>130.00</p>
+              <p class="precio-elegante text-center"><span class="simbolo">$</span>130.000,00</p>
               <p class="card-text">
                 Aroma masculino refinado y versátil, combina la frescura y calidez para acompañarte con estilo durante
                 el cualquier momento del dia.
@@ -124,7 +124,7 @@
             <img src="assets/img/DiorSauvage.png" class="card-img-top" alt="Bharara King Eau de Parfum">
             <div class="card-body">
               <h5 class="card-title">Dior Sauvage Eau de Parfum</h5>
-              <p class="precio-elegante text-center"><span class="simbolo">$</span>105.00</p>
+              <p class="precio-elegante text-center"><span class="simbolo">$</span>105.000,00</p>
               <p class="card-text">
                 Fragancia fresca e intensa con notas cítricas y ambaradas, diseñada para el hombre moderno
                 que transmite fuerza, libertad y elegancia natural.
@@ -215,7 +215,7 @@
               <img src="assets/img/nishane.png" class="card-img-top" alt="Logo de Ani Nishane Extrait de Parfum">
               <div class="card-body">
                 <h5 class="card-title">Ani Nishane Extrait de Parfum</h5>
-                <p class="precio-elegante text-center"><span class="simbolo">$</span>250.00</p>
+                <p class="precio-elegante text-center"><span class="simbolo">$</span>250.000,00</p>
                 <p class="card-text">
                   Aroma cálido y especiado con notas orientales y un toque dulce, ideal para momentos sofisticados y memorables.
                 </p>
@@ -229,7 +229,7 @@
               <img src="assets/img/CreedAventus.png" class="card-img-top" alt="Logo de Creed Aventus Eau de Parfum">
               <div class="card-body">
                 <h5 class="card-title">Creed Aventus Eau de Parfum</h5>
-                <p class="precio-elegante text-center"><span class="simbolo">$</span>495.00</p>
+                <p class="precio-elegante text-center"><span class="simbolo">$</span>495.000,00</p>
                 <p class="card-text">
                   Fragancia masculina fresca y afrutada con un fondo amaderado, perfecta para líderes seguros y decididos.
                 </p>
@@ -243,7 +243,7 @@
               <img src="assets/img/InitioParfums.png" class="card-img-top" alt="Logo de Side Effect Initio Eau de Parfum">
               <div class="card-body">
                 <h5 class="card-title">Side Effect Initio Eau de Parfum</h5>
-                <p class="precio-elegante text-center"><span class="simbolo">$</span>400.00</p>
+                <p class="precio-elegante text-center"><span class="simbolo">$</span>400.000,00</p>
                 <p class="card-text">
                   Intenso y sensual con matices ambarinos y especiados, diseñado para dejar una impresión inolvidable.
                 </p>
@@ -257,7 +257,7 @@
               <img src="assets/img/MaisonFrancisKurkdjian.jpg" class="card-img-top" alt="Logo de Maison Francis Kurkdjian Eau de Parfum">
               <div class="card-body">
                 <h5 class="card-title">Maison Francis Kurkdjian Aqua Universalis</h5>
-                <p class="precio-elegante text-center"><span class="simbolo">$</span>144.00</p>
+                <p class="precio-elegante text-center"><span class="simbolo">$</span>144.000,00</p>
                 <p class="card-text">
                   Perfume fresco y limpio con notas cítricas y florales, ideal para un estilo sofisticado.
                 </p>
@@ -296,7 +296,7 @@
             <img src="assets/img/9pmAfnan.png" class="card-img-top" alt="Logo de Afnan 9PM Eau de Parfum">
             <div class="card-body">
               <h5 class="card-title">Afnan 9PM Eau de Parfum</h5>
-              <p class="precio-elegante text-center"><span class="simbolo">$</span>160.00</p>
+              <p class="precio-elegante text-center"><span class="simbolo">$</span>70.000,00</p>
               <p class="card-text">
                 9PM de Afnan es una fragancia dulce, cálida y envolvente con notas de vainilla y ámbar, ideal para destacar en salidas
                 nocturnas y dejar una impresión duradera.
@@ -311,7 +311,7 @@
             <img src="assets/img/HonorAndGlory.png" class="card-img-top" alt="Logo de HonorAndGlory">
             <div class="card-body">
               <h5 class="card-title">Honor and Glory Eau de Parfum</h5>
-              <p class="precio-elegante text-center"><span class="simbolo">$</span>180.00</p>
+              <p class="precio-elegante text-center"><span class="simbolo">$</span>55.000,00</p>
               <p class="card-text">
                 Perfume potente y vibrante con acordes especiados y amaderados, pensado para el hombre que
                 busca poder y sofisticación en su aroma diario.
@@ -326,7 +326,7 @@
             <img src="assets/img/LattafaKhanra.png" class="card-img-top" alt="Logo de Lattafa Khanra eau de toilette">
             <div class="card-body">
               <h5 class="card-title">Lattafa Khamrah Eau de Parfum</h5>
-              <p class="precio-elegante text-center"><span class="simbolo">$</span>130.00</p>
+              <p class="precio-elegante text-center"><span class="simbolo">$</span>60.000,00</p>
               <p class="card-text">
                 Fragancia oriental dulce con notas de canela, dátiles y vainilla, ofrece una estela cálida
                 y encantadora ideal para días fríos y ocasiones especiales.
@@ -341,7 +341,7 @@
             <img src="assets/img/BhararaKing.png" class="card-img-top" alt="Bharara King Eau de Parfum">
             <div class="card-body">
               <h5 class="card-title">Bharara King Eau de Parfum</h5>
-              <p class="precio-elegante text-center"><span class="simbolo">$</span>105.00</p>
+              <p class="precio-elegante text-center"><span class="simbolo">$</span>110.000,00</p>
               <p class="card-text">
                 Combina notas frescas y especiadas con un corazón amaderado y un fondo
                 cálido, creando una fragancia intensa y elegante para quienes buscan dejar huella.
