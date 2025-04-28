@@ -1,6 +1,8 @@
 <link rel="stylesheet" href="assets/css/Style-QuienesSomos.css">
 
-
+<!-- ============================
+    SECCIÓN: QUIÉNES SOMOS
+============================= -->
 <div class="container-fluid">
     <div class="row row-cols-1 row-cols-md-2 justify-content-center m-3">
         <div class="col mb-4 d-flex justify-content-center align-items-center">
@@ -18,6 +20,9 @@
     </div>
 </div>
 
+<!-- ============================
+    SECCIÓN: NUESTRA TRAYECTORIA
+============================= -->
 <div class="container-fluid">
     <div class="row row-cols-1 row-cols-md-2 justify-content-center m-3">
         <div class="seccionTexto col mb-4 bg-light d-flex flex-column justify-content-center">
@@ -35,7 +40,9 @@
     </div>
 </div>
 
-
+<!-- ============================
+    SECCIÓN: STAFF
+============================= -->
 <hr>
     <h2 class="text-center text-uppercase mt-4 mb-4 display-6">Staff</h2>
 <hr class="mb-4">

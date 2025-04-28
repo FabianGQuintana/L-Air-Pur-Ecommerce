@@ -22,6 +22,7 @@
   </div>
 </nav>
 
+<!-- Offcanvas para pantallas pequeñas -->
 <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">L’Air Pur</h5>
@@ -64,6 +65,7 @@
     </div>
   </div>
 
+  <!-- Cards de Perfumes de Perfumes Destacados -->  
   <hr>
   <h2 class="titulosSeccion text-center text-uppercase mt-4 mb-4 display-6">Productos Destacados</h2>
   <hr>
@@ -137,6 +139,7 @@
     </div>
   </section>
 
+  <!-- Titulo de Carrucel de Marcas -->
 <hr>
     <h2 class="titulosSeccion text-center text-uppercase mt-4 mb-4 display-6">Nuestras Marcas</h2>
 <hr>
@@ -270,7 +273,7 @@
       <hr>
     </section>
 
-
+    <!-- BANNER PERFUMES ARABES -->
     <div class="container-fluid px-0">
       <div class="banner-wrapper">
         <!-- Imagen para pantallas grandes -->
@@ -280,12 +283,13 @@
         <img src="assets/img/BannerArabe-movil.png" class="img-fluid w-100 d-block d-md-none" alt="Banner Perfumes Arabes">
       </div>
     </div>
-    
-    <hr>
-    <h2 id="nuevos" class="titulosSeccion text-center text-uppercase mt-4 mb-4 display-6">Perfumes Arabes Destacados</h2>
-    <hr>
+  
+   <!-- Titulo de PERFUMES ARABES DESTACADOS -->
+  <hr>
+  <h2 id="nuevos" class="titulosSeccion text-center text-uppercase mt-4 mb-4 display-6">Perfumes Arabes Destacados</h2>
+  <hr>
 
-    <!-- Cards de Perfumes Arabes Destacados -->
+  <!-- Cards de Perfumes Arabes Destacados -->
   <section class="Perfumes-Arabes-Destacados">
     <div class="container text-center">
       <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
