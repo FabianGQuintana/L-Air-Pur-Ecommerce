@@ -5,7 +5,7 @@
 <div class="container my-5">
     <div class="card shadow">
         <div class="card-body">
-            <h2 class="card-title mb-4 text-center">Envíanos un mensaje</h2>
+            <h2 class="card-title mb-4 text-center">Contactanos</h2>
 
             <?php if (session()->getFlashdata('message')): ?>
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
