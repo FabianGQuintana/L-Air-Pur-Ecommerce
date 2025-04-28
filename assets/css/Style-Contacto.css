@@ -8,6 +8,16 @@ img {
   height: 100%;
 }
 
-h2 {
+h2,
+h4 {
   font-family: "Inter", sans-serif;
+  letter-spacing: 2px;
+  color: #444;
+}
+
+p {
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: 1px;
+  font-weight: 400;
+  color: #444;
 }

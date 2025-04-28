@@ -31,7 +31,7 @@
                 <li>Sábado de 9:00 a 13:00 hs</li>
             </ul>
             <p><strong>Teléfono:</strong> +3794123456</p>
-            <p><strong>Email:</strong> soporte@lairpur.com</p>
+            <p><strong>Email:</strong> l.air.purr.com</p>
             <p><strong>Redes Sociales:</strong></p>
             <div class="redes-sociales">
                 <a href="https://www.instagram.com/l.air_pur/" class="btn btn-dark" target="_blank">Instagram</a>

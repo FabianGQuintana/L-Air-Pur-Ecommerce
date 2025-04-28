@@ -1,4 +1,4 @@
-
+<link rel="stylesheet" href="assets/css/Style-Contacto.css">
 <!-- ============================
     SECCIÓN: CONTACTO
 =============================== -->
@@ -46,7 +46,7 @@
                 </div>
 
                 <div class="d-grid">
-                    <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+                    <button type="submit" class="btn btn-dark btn-lg">Enviar</button>
                 </div>
             </form>
         </div>

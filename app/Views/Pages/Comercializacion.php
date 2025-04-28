@@ -8,7 +8,7 @@
 
         <!-- Texto -->
         <div class="seccionTexto col d-flex flex-column justify-content-center p-4">
-            <h2 class="mb-2">Métodos de pago</h2>
+            <h2 class="mb-2 display-6">Métodos de pago</h2>
             <p class="parrafo">
                 En nuestra tienda te ofrecemos múltiples opciones de pago para que elijas la que más te convenga:
                 tarjetas de crédito y débito, transferencias, Mercado Pago y más. Comprá con tranquilidad y seguridad.
@@ -39,7 +39,7 @@
         </div>
         <!-- Texto -->
         <div class="seccionTexto col mb-4 d-flex flex-column justify-content-center">
-            <h2 class="text-center mb-4">Tipos de entrega</h2>
+            <h2 class="display-6 mb-4">Tipos de entrega</h2>
             <p class="text-justificado">
                 Te ofrecemos distintas formas de entrega para adaptarnos a tus necesidades:
             </p>
@@ -61,7 +61,7 @@
     <div class="row row-cols-1 row-cols-md-2 justify-content-center m-3">
         <!-- Texto -->
         <div class="seccionTexto col mb-4 d-flex flex-column justify-content-center">
-            <h2 class="text-center mb-4">Formas de envío</h2>
+            <h2 class="display-6 mb-4">Formas de envío</h2>
             <p class="text-justificado">
                 Realizamos envíos a través de:
             </p>
@@ -91,7 +91,7 @@
     SECCIÓN: CARRUSEL / GALERÍA
 ============================= -->
 <div class="container mb-5">
-    <h2 class="text-center mb-4 titulo-seccion">La experiencia de nuestros clientes</h2>
+    <h2 class="text-center display-6 mb-4 titulo-seccion">La experiencia de nuestros clientes</h2>
     <div id="carouselTestimonios" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner text-center">
             <div class="carousel-item active">
