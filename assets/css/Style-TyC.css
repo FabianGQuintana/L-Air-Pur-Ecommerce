@@ -48,12 +48,3 @@ ul {
   margin-bottom: 0.5rem;
 }
 
-#terminos-condiciones a {
-  color: #007bff;
-  text-decoration: underline;
-}
-
-#terminos-condiciones a:hover {
-  color: #0056b3;
-  text-decoration: none;
-}
