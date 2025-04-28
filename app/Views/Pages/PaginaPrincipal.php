@@ -73,7 +73,7 @@
   <!-- Cards de Perfumes Destacados -->
   <section id="Destacados" class="Perfumes-Destacados">
     <div class="container text-center">
-      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
+      <div class="row row-cols-2 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
         
         <div class="col mb-4">
           <div class="card h-100 d-flex flex-column mx-auto">
@@ -82,8 +82,7 @@
               <h5 class="card-title">Jean Paul Gaultier Le Male Elixir</h5>
               <p class="precio-elegante text-center"><span class="simbolo">$</span>160.000,00</p>
               <p class="card-text">
-                Fragancia intensa y moderna con notas dulces y especiadas, ideal para destacar en noches especiales o
-                eventos importantes.
+                Fragancia intensa y moderna con notas dulces.
               </p>
               <a href="<?= base_url('EnConstruccion') ?>" class="btn btn-dark">Comprar</a>
             </div>
@@ -97,8 +96,7 @@
               <h5 class="card-title">Erba Pura Xerjoff Eau De Parfum</h5>
               <p class="precio-elegante text-center"><span class="simbolo">$</span>180.000,00</p>
               <p class="card-text">
-                Perfume afrutado y fresco con un toque oriental, ofrece elegancia y sofisticación
-                para quienes buscan una presencia encantadora.
+                Perfume afrutado y fresco con un toque oriental.
               </p>
               <a href="<?= base_url('EnConstruccion') ?>" class="btn btn-dark">Comprar</a>
             </div>
@@ -112,8 +110,7 @@
               <h5 class="card-title">Hugo Boss Bottled Eau De Parfum</h5>
               <p class="precio-elegante text-center"><span class="simbolo">$</span>130.000,00</p>
               <p class="card-text">
-                Aroma masculino refinado y versátil, combina la frescura y calidez para acompañarte con estilo durante
-                el cualquier momento del dia.
+                Aroma masculino refinado y versátil.
               </p>
               <a href="<?= base_url('EnConstruccion') ?>" class="btn btn-dark">Comprar</a>
             </div>
@@ -127,8 +124,7 @@
               <h5 class="card-title">Dior Sauvage Eau de Parfum</h5>
               <p class="precio-elegante text-center"><span class="simbolo">$</span>105.000,00</p>
               <p class="card-text">
-                Fragancia fresca e intensa con notas cítricas y ambaradas, diseñada para el hombre moderno
-                que transmite fuerza, libertad y elegancia natural.
+                Fragancia fresca e intensa con notas cítricas.
               </p>
               <a href="<?= base_url('EnConstruccion') ?>" class="btn btn-dark">Comprar</a>
             </div>
@@ -210,7 +206,7 @@
   <hr>
     <section class="Primavera/Verano">
       <div class="container text-center">
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
+        <div class="row row-cols-2 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
           
           <div class="col mb-4">
             <div class="card h-100 d-flex flex-column mx-auto">
@@ -219,7 +215,7 @@
                 <h5 class="card-title">Ani Nishane Extrait de Parfum</h5>
                 <p class="precio-elegante text-center"><span class="simbolo">$</span>250.000,00</p>
                 <p class="card-text">
-                  Aroma cálido y especiado con notas orientales y un toque dulce, ideal para momentos sofisticados y memorables.
+                  Aroma cálido y especiado con notas orientales y dulce.
                 </p>
                 <a href="<?= base_url('EnConstruccion') ?>" class="btn btn-dark">Comprar</a>
               </div>
@@ -233,7 +229,7 @@
                 <h5 class="card-title">Creed Aventus Eau de Parfum</h5>
                 <p class="precio-elegante text-center"><span class="simbolo">$</span>495.000,00</p>
                 <p class="card-text">
-                  Fragancia masculina fresca y afrutada con un fondo amaderado, perfecta para líderes seguros y decididos.
+                  Fragancia masculina fresca y afrutada con un fondo amaderado.
                 </p>
                 <a href="<?= base_url('EnConstruccion') ?>" class="btn btn-dark">Comprar</a>
               </div>
@@ -247,7 +243,7 @@
                 <h5 class="card-title">Side Effect Initio Eau de Parfum</h5>
                 <p class="precio-elegante text-center"><span class="simbolo">$</span>400.000,00</p>
                 <p class="card-text">
-                  Intenso y sensual con matices ambarinos y especiados, diseñado para dejar una impresión inolvidable.
+                  Intenso y sensual con matices ambarinos y especiados.
                 </p>
                 <a href="<?= base_url('EnConstruccion') ?>" class="btn btn-dark">Comprar</a>
               </div>
@@ -258,10 +254,10 @@
             <div class="card h-100 d-flex flex-column mx-auto">
               <img src="assets/img/MaisonFrancisKurkdjian.jpg" class="card-img-top" alt="Logo de Maison Francis Kurkdjian Eau de Parfum">
               <div class="card-body">
-                <h5 class="card-title">Maison Francis Kurkdjian Aqua Universalis</h5>
+                <h5 class="card-title">Maison Francis Kurkdjian</h5>
                 <p class="precio-elegante text-center"><span class="simbolo">$</span>144.000,00</p>
                 <p class="card-text">
-                  Perfume fresco y limpio con notas cítricas y florales, ideal para un estilo sofisticado.
+                  Perfume fresco y limpio con notas cítricas y florales
                 </p>
                 <a href="<?= base_url('EnConstruccion') ?>" class="btn btn-dark">Comprar</a>
               </div>
@@ -292,7 +288,7 @@
   <!-- Cards de Perfumes Arabes Destacados -->
   <section class="Perfumes-Arabes-Destacados">
     <div class="container text-center">
-      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
+      <div class="row row-cols-2 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
         
         <div class="col mb-4">
           <div class="card h-100 d-flex flex-column mx-auto">
@@ -301,8 +297,7 @@
               <h5 class="card-title">Afnan 9PM Eau de Parfum</h5>
               <p class="precio-elegante text-center"><span class="simbolo">$</span>70.000,00</p>
               <p class="card-text">
-                9PM de Afnan es una fragancia dulce, cálida y envolvente con notas de vainilla y ámbar, ideal para destacar en salidas
-                nocturnas y dejar una impresión duradera.
+                9PM de Afnan es una fragancia dulce, cálida y envolvente.
               </p>
               <a href="<?= base_url('EnConstruccion') ?>" class="btn btn-dark">Comprar</a>
             </div>
@@ -316,8 +311,7 @@
               <h5 class="card-title">Honor and Glory Eau de Parfum</h5>
               <p class="precio-elegante text-center"><span class="simbolo">$</span>55.000,00</p>
               <p class="card-text">
-                Perfume potente y vibrante con acordes especiados y amaderados, pensado para el hombre que
-                busca poder y sofisticación en su aroma diario.
+                Perfume potente y vibrante con acordes especiados y amaderados.
               </p>
               <a href="<?= base_url('EnConstruccion') ?>" class="btn btn-dark">Comprar</a>
             </div>
@@ -331,8 +325,7 @@
               <h5 class="card-title">Lattafa Khamrah Eau de Parfum</h5>
               <p class="precio-elegante text-center"><span class="simbolo">$</span>60.000,00</p>
               <p class="card-text">
-                Fragancia oriental dulce con notas de canela, dátiles y vainilla, ofrece una estela cálida
-                y encantadora ideal para días fríos y ocasiones especiales.
+                Fragancia oriental dulce con notas de canela, dátiles y vainilla.
               </p>
               <a href="<?= base_url('EnConstruccion') ?>" class="btn btn-dark">Comprar</a>
             </div>
@@ -346,8 +339,7 @@
               <h5 class="card-title">Bharara King Eau de Parfum</h5>
               <p class="precio-elegante text-center"><span class="simbolo">$</span>110.000,00</p>
               <p class="card-text">
-                Combina notas frescas y especiadas con un corazón amaderado y un fondo
-                cálido, creando una fragancia intensa y elegante para quienes buscan dejar huella.
+                Combina notas frescas y especiadas con un corazón amaderado.
               </p>
               <a href="<?= base_url('EnConstruccion') ?>" class="btn btn-dark">Comprar</a>
             </div>
