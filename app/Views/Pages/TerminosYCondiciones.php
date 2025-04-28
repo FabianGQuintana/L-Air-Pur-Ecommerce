@@ -45,7 +45,7 @@
       <div class="mb-5">
         <h5 class="fw-semibold">5. Productos, Precios y Disponibilidad</h5>
         <p>
-          Todos los precios están expresados en <strong>[moneda local]</strong> e incluyen impuestos, salvo que se indique lo contrario. La disponibilidad está sujeta a stock y puede cambiar sin previo aviso.
+          Todos los precios están expresados en <strong>Pesos</strong> e incluyen impuestos, salvo que se indique lo contrario. La disponibilidad está sujeta a stock y puede cambiar sin previo aviso.
         </p>
       </div>
 
@@ -85,7 +85,7 @@
       <div class="mb-5">
         <h5 class="fw-semibold">10. Protección de Datos Personales</h5>
         <p>
-          Sus datos personales serán tratados conforme a nuestra <a href="#" class="text-decoration-underline">Política de Privacidad</a>. Nunca compartiremos su información con terceros sin su consentimiento.
+          Sus datos personales serán tratados conforme a nuestra Política de Privacidad. Nunca compartiremos su información con terceros sin su consentimiento.
         </p>
       </div>
 
@@ -109,7 +109,7 @@
       <div class="mb-5">
         <h5 class="fw-semibold">13. Legislación Aplicable y Jurisdicción</h5>
         <p>
-          Estos términos se rigen por las leyes de <strong>[país]</strong>. Cualquier disputa será resuelta por los tribunales ordinarios con jurisdicción en <strong>[ciudad o provincia]</strong>.
+          Estos términos se rigen por las leyes de <strong>Argentina</strong>. Cualquier disputa será resuelta por los tribunales ordinarios con jurisdicción en <strong>Corrientes</strong>.
         </p>
       </div>
 
@@ -118,9 +118,9 @@
         <h5 class="fw-semibold">14. Contacto</h5>
         <p>Si tiene preguntas o desea más información, puede contactarnos a través de:</p>
         <ul>
-          <li><strong>Email:</strong> contacto@lairpur.com</li>
+          <li><strong>Email:</strong> l.air.purr@gmail.com</li>
           <li><strong>Teléfono:</strong> +54 11 1234-5678</li>
-          <li><strong>Dirección:</strong> Av. Belleza 123, Ciudad Fragancia</li>
+          <li><strong>Dirección:</strong> 9 de Julio 1198, W3400CCP Corrientes, Argentina</li>
         </ul>
       </div>
 
