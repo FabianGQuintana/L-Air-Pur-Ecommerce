@@ -4,7 +4,7 @@
   <div class="row justify-content-center">
     <div class="col-12 col-md-10 col-lg-8">
 
-      <h2 class="mb-5 text-center fw-bold display-5">Términos y Condiciones</h2>
+      <h2 class="mb-5 text-center fw-bold display-5">Términos y Usos</h2>
 
       <!-- 1. Aceptación de los términos -->
       <div class="mb-5">
