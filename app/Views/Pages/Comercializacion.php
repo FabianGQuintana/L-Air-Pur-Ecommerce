@@ -96,11 +96,11 @@
         <div class="carousel-inner text-center">
             <div class="carousel-item active">
                 <p class="parrafoComercializacion text-muted text-center">“¡Increíble servicio! Hice mi pedido por la mañana y en menos de 24 horas ya lo tenía en la puerta de mi casa. ¡Muy recomendables!”</p>
-                <small>- Micaela Gomez.</small>
+                <small>- Mónica Sánchez.</small>
             </div>
             <div class="carousel-item">
                 <p class="parrafoComercializacion text-muted text-center">“La entrega fue puntual y el paquete llegó en perfectas condiciones. Sin dudas volvería a comprar, todo muy profesional.”</p>
-                <small>- Lucas Galarza.</small>
+                <small>- Conor McGregor.</small>
             </div>
             <div class="carousel-item">
                 <p class="parrafoComercializacion text-muted text-center">“No esperaba que llegara tan rápido. Compré un viernes y el lunes ya lo estaba usando. ¡Excelente atención y envío exprés!”</p>
