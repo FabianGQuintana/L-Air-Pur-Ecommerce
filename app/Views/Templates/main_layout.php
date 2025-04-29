@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/png" href="<?= base_url('assets/img/LogoPrincipal.png') ?>">
         <link rel="stylesheet" href="assets/css/Style-Home.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" />
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" integrity="" crossorigin="">
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
         </head>
@@ -27,7 +27,6 @@
         <?= view('Components/Footer') ?>
         </footer>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
-        
+        <script src="assets/js/bootstrap.bundle.min.js" integrity="" crossorigin=""></script>
     </body>
 </html>
