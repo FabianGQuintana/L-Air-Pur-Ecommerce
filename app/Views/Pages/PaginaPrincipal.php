@@ -31,10 +31,9 @@
   <div class="offcanvas-body">
     <ul class="navbar-nav">
       <li class="nav-item"><a class="nav-link" href="#Home">Inicio</a></li>
+      <li class="nav-item"><a class="nav-link" href="#Destacados">Destacados</a></li>
       <li class="nav-item"><a class="nav-link" href="#marcas">Marcas</a></li>
-      <li class="nav-item"><a class="nav-link" href="#nuevos">Nuevos</a></li>
-      <li class="nav-item"><a class="nav-link" href="#ofertas">Ofertas</a></li>
-      <li class="nav-item"><a class="nav-link" href="#favoritos">Favoritos</a></li>
+      <li class="nav-item"><a class="nav-link" href="#Review">Review</a></li>
     </ul>
   </div>
 </div>

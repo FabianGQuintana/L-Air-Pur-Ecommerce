@@ -15,9 +15,6 @@
 
     <!-- CONTENIDO QUE SE COLAPSA -->
     <div class="collapse navbar-collapse" id="navbarContent">
-      <div class="d-flex flex-grow-1 justify-content-center">
-      </div>
-
       <!-- MENÚ NAV -->
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-5 list-unstyled">
         <li class="nav-item mx-2"><a class="nav-link" href="<?= base_url('/') ?>" class="text-light text-decoration-none">Inicio</a></li>
@@ -29,3 +26,4 @@
     </div>
   </div>
 </nav>
+
