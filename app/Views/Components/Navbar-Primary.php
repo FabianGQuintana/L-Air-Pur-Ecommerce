@@ -3,7 +3,7 @@
     <!-- LOGO -->
     <a class="navbar-brand letter-navbar" href="<?= base_url('/') ?>">
       <div class="logo-animado">
-        <img src="assets/img/LogoPrincipal.png" alt="L’Air Pur-logo" width="80" height="80">
+        <img src="<?= base_url('assets/img/LogoPrincipal.png') ?>" alt="L’Air Pur-logo" width="80" height="80">
       </div>
     </a>
 

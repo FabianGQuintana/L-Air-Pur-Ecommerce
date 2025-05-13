@@ -16,6 +16,10 @@ $routes->get('/EnConstruccion', 'Pages::EnConstruccion');
 $routes->get('/Contact', 'Contact::index');
 $routes->post('/Contact/send', 'Contact::send');
 
+// Rutas para productos
+$routes->resource('Productos', ['placeholder' => '(:num)']);
+
+
 
 // Establecer controlador por defecto
 $routes->setDefaultController('Pages');
