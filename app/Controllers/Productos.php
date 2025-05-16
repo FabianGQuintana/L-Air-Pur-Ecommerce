@@ -18,8 +18,30 @@ class Productos extends BaseController
      */
     public function index()
     {
-        echo 'index';
+        $categoriasModel = new CategoriasModel();
+        $data['categorias'] = $categoriasModel->findAll();
+
+        $marcasModel = new MarcasModel();
+        $data['marcas'] = $marcasModel->findAll();
+
+        $productosModel = new ProductosModel();
+
+        // Tomar filtros desde GET
+        $filtros = [
+            'marcas'     => $this->request->getGet('marcas') ?? [],
+            'categorias' => $this->request->getGet('categorias') ?? [],
+        ];
+
+        $productos = $productosModel->filtrar($filtros);
+
+        $data['productos'] = $productos;
+        $data['filtros'] = $filtros; // para que la vista sepa qué checkboxes marcar
+        $data['title'] = 'Productos - L’Air Pur';
+        $data['content'] = view('Pages/Catalogo', $data);
+
+        return view('Templates/main_layout', $data);
     }
+
 
     /**
      * Return the properties of a resource object.
@@ -30,7 +52,18 @@ class Productos extends BaseController
      */
     public function show($id = null)
     {
-        //
+        $modelo = new ProductosModel();
+        $producto = $modelo->obtenerProductoConDetalles($id);
+
+        if (!$producto) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Producto no encontrado");
+        }
+        
+        $data['producto'] = $producto;
+        $data['title'] = 'Producto - L’Air Pur';
+        $data['content'] = view('Pages/DetalleProducto', $data);
+
+        return view('Templates/main_layout', $data);
     }
 
     /**
@@ -122,7 +155,7 @@ class Productos extends BaseController
         $imagen = $this->request->getFile('imagen');
         if ($imagen->isValid() && !$imagen->hasMoved()) {
             // Generar nombre único para la imagen
-            $nombreImagen = $imagen->getRandomName();
+            $nombreImagen = $imagen->getName();
             // Mover la imagen a la carpeta 'public/uploads/'
             $imagen->move('assets/img', $nombreImagen);
         } else {

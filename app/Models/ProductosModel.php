@@ -24,4 +24,33 @@ class ProductosModel extends Model
     // Dates
     protected $useTimestamps = false;
 
+    /**
+     * Filtra productos por marca y categoría.
+     *
+     * @param array $filtros ['marcas' => [], 'categorias' => [], 'precio_min' => 0, 'precio_max' => 9999]
+     * @return array
+     */
+    public function filtrar(array $filtros = [])
+    {
+        if (!empty($filtros['marcas']) && is_array($filtros['marcas'])) {
+            $this->whereIn('id_marca', $filtros['marcas']);
+        }
+
+        if (!empty($filtros['categorias']) && is_array($filtros['categorias'])) {
+            $this->whereIn('id_categoria', $filtros['categorias']);
+        }
+
+        return $this->findAll();
+    }
+
+    public function obtenerProductoConDetalles($id)
+    {
+        return $this->select('productos.*, marcas.nombre_marca AS marca, categorias.nombre AS categoria')
+                    ->join('marcas', 'marcas.id_marca = productos.id_marca')
+                    ->join('categorias', 'categorias.id_categoria = productos.id_categoria')
+                    ->where('productos.id_producto', $id)
+                    ->first();
+    }
 }
+
+
