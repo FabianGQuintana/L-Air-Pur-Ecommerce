@@ -12,14 +12,19 @@ $routes->get('/Comercializacion', 'Pages::Comercializacion');
 $routes->get('/TerminosYCondiciones', 'Pages::TerminosYCondiciones');
 $routes->get('/EnConstruccion', 'Pages::EnConstruccion');
 
+// Ruta para el login de usuarios
+$routes->get('/Auth/Login', 'LoginController::index');
+$routes->post('/Auth/Login', 'LoginController::auth');
+$routes->get('/logout', 'LoginController::logout');
+
+
+
 // Rutas para contacto
 $routes->get('/Contact', 'Contact::index');
 $routes->post('/Contact/send', 'Contact::send');
 
 // Rutas para productos
 $routes->resource('Productos', ['placeholder' => '(:num)']);
-
-
 
 // Establecer controlador por defecto
 $routes->setDefaultController('Pages');

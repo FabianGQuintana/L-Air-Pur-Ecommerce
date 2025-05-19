@@ -48,4 +48,11 @@ class Pages extends BaseController
             'content' => view('errors/En_Construccion')
         ]);
     }
+
+    public function Auth(){
+        return view('Templates/main_layout',[
+            'title' => 'Login - L’Air Pur',
+            'content' => view('Pages/Auth/Login')
+        ]);
+    }
 }
