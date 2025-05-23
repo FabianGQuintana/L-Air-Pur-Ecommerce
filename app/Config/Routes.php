@@ -13,10 +13,19 @@ $routes->get('/TerminosYCondiciones', 'Pages::TerminosYCondiciones');
 $routes->get('/EnConstruccion', 'Pages::EnConstruccion');
 
 // Ruta para el login de usuarios
-$routes->get('/Auth/Login', 'LoginController::index');
-$routes->post('/Auth/Login', 'LoginController::auth');
-$routes->get('/logout', 'LoginController::logout');
+// $routes->get('/Auth/Login', 'LoginController::index');
+// $routes->post('/Auth/Login', 'LoginController::auth');
+// $routes->get('/logout', 'LoginController::logout');
 
+$routes->get('/Auth/Login', 'LoginController::login');
+$routes->post('/Auth/doLogin', 'LoginController::doLogin');
+$routes->get('/Auth/Register', 'LoginController::register');
+$routes->post('/Auth/doRegister', 'LoginController::doRegister');
+$routes->get('/Logout', 'LoginController::logout');
+
+$routes->group('', ['filter' => 'auth'], function($routes) {
+    $routes->get('/dashboard', 'Dashboard::index');
+});
 
 
 // Rutas para contacto

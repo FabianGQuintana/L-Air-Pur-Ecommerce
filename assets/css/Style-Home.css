@@ -32,6 +32,15 @@
   border-radius: 10px;
 }
 
+.icono-login {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
 .Titulo-Principal {
   font-family: "Inter", sans-serif;
   font-weight: 400;
