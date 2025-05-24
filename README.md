@@ -1,6 +1,6 @@
 
 # L-Air-Pur-Ecommerce
-Proyecto ecommerce relacionado a perfumes y destinado hacia perfumerias (Proyecto En Proceso).
+Proyecto ecommerce relacionado a perfumes y destinado hacia perfumerias (Proyecto En Proceso). página web hecha en php, Codeigniter4,Html,Css, Bootstrap 5.
 
 # CodeIgniter 4 Framework
 
