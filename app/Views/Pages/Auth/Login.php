@@ -1,11 +1,3 @@
-<h2 class="text-center mb-4">Iniciar sesión</h2>
-
-<?php if (session()->getFlashdata('error')): ?>
-    <div class="alert alert-danger">
-        <?= session()->getFlashdata('error') ?>
-    </div>
-<?php endif; ?>
-
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6 col-lg-5">
@@ -16,6 +8,12 @@
                     <?php if (session()->getFlashdata('error')): ?>
                         <div class="alert alert-danger text-center">
                             <?= session()->getFlashdata('error') ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if (session()->getFlashdata('success')): ?>
+                        <div class="alert alert-success text-center">
+                            <?= session()->getFlashdata('success') ?>
                         </div>
                     <?php endif; ?>
 
@@ -41,4 +39,3 @@
         </div>
     </div>
 </div>
-

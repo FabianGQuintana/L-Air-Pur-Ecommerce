@@ -8,5 +8,17 @@ class UsuarioModel extends Model
 {
     protected $table = 'usuarios';
     protected $primaryKey = 'id_usuario';
-    protected $allowedFields = ['nombre', 'email', 'password'];
+    protected $protectFields = true;
+    protected $useSoftDeletes = false;
+    protected $returnType       = 'array';
+    protected $allowedFields = ['nombre','apellido','telefono', 'email', 'password_hash'];
+
+    protected bool $allowEmptyInserts = false;
+    protected bool $updateOnlyChanged = true;
+
+    protected array $casts = [];
+    protected array $castHandlers = [];
+
+    //Dates
+    protected $useTimestamps = false;
 }

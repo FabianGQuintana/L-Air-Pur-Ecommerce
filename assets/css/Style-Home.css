@@ -27,10 +27,30 @@
   }
 }
 
+.navbar {
+  padding-top: 0.4rem !important;
+  padding-bottom: 0.4rem !important;
+  min-height: 60px;
+}
+
 .logo-animado img {
   display: block;
   border-radius: 10px;
+  height: 55px;
+  width: auto;
 }
+
+/* Espacio entre el logo y el menú principal */
+.navbar-nav.me-auto {
+  margin-left: 19.5rem;
+}
+
+/* Asegura que el dropdown esté por encima de cualquier otro navbar */
+.dropdown-menu {
+  z-index: 1051 !important; /* Más alto que sticky-top (1030) */
+  position: absolute;
+}
+
 
 .icono-login {
   font-size: 2rem;

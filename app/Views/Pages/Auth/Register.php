@@ -19,25 +19,45 @@
 
                     <form action="<?= base_url('/Auth/doRegister') ?>" method="post">
                         <div class="mb-3">
-                            <label for="nombre" class="form-label">Nombre completo</label>
+                            <label for="nombre" class="form-label">Nombre</label>
                             <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Tu nombre" required>
                         </div>
 
                         <div class="mb-3">
-                            <label for="email" class="form-label">Correo electrónico</label>
-                            <input type="email" class="form-control" name="email" id="email" placeholder="ejemplo@correo.com" required>
+                            <label for="nombre" class="form-label">Apellido</label>
+                            <input type="text" class="form-control" name="apellido" id="apellido" placeholder="Tu Apellido" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Telefono (Opcional)</label>
+                            <input type="text" class="form-control" name="telefono" id="telefono" placeholder="Tu Telefono">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Correo electrónico</label>
+                            <input type="text" class="form-control" name="email" id="email" placeholder="ejemplo@correo.com" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Confirmar Correo</label>
+                            <input type="email" class="form-control" name="emailConfirmar" id="emailConfirmar" placeholder="ejemplo@correo.com" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="password" class="form-label">Contraseña</label>
-                            <input type="password" class="form-control" name="password" id="password" placeholder="••••••••" required>
+                            <input type="password" class="form-control" name="password_hash" id="password_hash" placeholder="••••••••" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password" class="form-label"> Confirmar Contraseña</label>
+                            <input type="password" class="form-control" name="passwordConfirmar" id="passwordConfirmar" placeholder="••••••••" required>
                         </div>
 
                         <div class="d-grid mb-3">
                             <button type="submit" class="btn btn-success">Registrarse</button>
                         </div>
 
-                        <p class="text-center">¿Ya tienes una cuenta? <a href="<?= base_url('/login') ?>">Inicia sesión</a></p>
+                        <p class="text-center">¿Ya tienes una cuenta? <a href="<?= base_url('/Auth/Login') ?>">Inicia sesión</a></p>
                     </form>
                 </div>
             </div>

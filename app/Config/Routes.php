@@ -12,11 +12,7 @@ $routes->get('/Comercializacion', 'Pages::Comercializacion');
 $routes->get('/TerminosYCondiciones', 'Pages::TerminosYCondiciones');
 $routes->get('/EnConstruccion', 'Pages::EnConstruccion');
 
-// Ruta para el login de usuarios
-// $routes->get('/Auth/Login', 'LoginController::index');
-// $routes->post('/Auth/Login', 'LoginController::auth');
-// $routes->get('/logout', 'LoginController::logout');
-
+//Rutas para Registrar&Loguearse
 $routes->get('/Auth/Login', 'LoginController::login');
 $routes->post('/Auth/doLogin', 'LoginController::doLogin');
 $routes->get('/Auth/Register', 'LoginController::register');
