@@ -21,17 +21,27 @@ public function doLogin()
 
     $email = $this->request->getPost('email');
     $pass = $this->request->getPost('password');
+    $remember = $this->request->getPost('remember');
 
     $usuario = $model->where('email', $email)->first();
 
     if ($usuario && password_verify($pass, $usuario['password_hash'])) {
-        $session->set('usuario_logueado', [
+        $datosSesion = [
             'id_usuario' => $usuario['id_usuario'],
             'nombre'     => $usuario['nombre'],
             'apellido'   => $usuario['apellido'],
             'telefono'   => $usuario['telefono'],
             'email'      => $usuario['email']
-        ]);
+        ];
+        $session->set('usuario_logueado', $datosSesion);
+
+        // Si el usuario quiere que lo recuerden
+        if ($remember) {
+            helper('cookie');
+            set_cookie('remember_email', $email, 60*60*24*30); // 30 días
+        } else {
+            delete_cookie('remember_email');
+        }
 
         return redirect()->to('/')->with('success', '¡Inicio de sesión exitoso!');
     } else {

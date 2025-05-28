@@ -1,7 +1,9 @@
+<link rel="stylesheet" href="<?= base_url('assets/css/StyleRegister.css') ?>">
+
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6 col-lg-5">
-            <div class="card shadow-lg">
+            <div class="card shadow-lg formulario-register">
                 <div class="card-body p-4">
                     <h2 class="text-center mb-4">Registrarse</h2>
 

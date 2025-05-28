@@ -1,0 +1,18 @@
+body {
+    background: url('../img/FondoAuth.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+/* Estilo del formulario borroso */
+.formulario-login {
+    background-color: rgba(255, 255, 255, 0.25) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    backdrop-filter: blur(10px) !important;
+    border-radius: 1rem !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
