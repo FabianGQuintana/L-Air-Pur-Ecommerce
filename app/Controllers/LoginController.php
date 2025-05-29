@@ -35,13 +35,13 @@ public function doLogin()
         ];
         $session->set('usuario_logueado', $datosSesion);
 
-        // Si el usuario quiere que lo recuerden
-        if ($remember) {
-            helper('cookie');
-            set_cookie('remember_email', $email, 60*60*24*30); // 30 días
-        } else {
-            delete_cookie('remember_email');
-        }
+        // // Si el usuario quiere que lo recuerden
+        // if ($remember) {
+        //     helper('cookie');
+        //     set_cookie('remember_email', $email, 60*60*24*30); // 30 días
+        // } else {
+        //     delete_cookie('remember_email');
+        // }
 
         return redirect()->to('/')->with('success', '¡Inicio de sesión exitoso!');
     } else {

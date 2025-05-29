@@ -3,7 +3,7 @@
 
     <!-- LOGO -->
     <a class="navbar-brand letter-navbar" href="<?= base_url('/') ?>">
-      <div class="logo-animado">
+      <div class="logo-animado" id="Home">
         <img src="<?= base_url('assets/img/LogoPrincipal.png') ?>" alt="L’Air Pur-logo" width="80" height="80">
       </div>
     </a>
@@ -27,15 +27,30 @@
     <!-- MENÚ COLAPSABLE -->
     <div class="collapse navbar-collapse order-4 order-lg-1 justify-content-center" id="navbarContent">
       <ul class="navbar-nav mb-2 mb-lg-0 gap-4">
+        
         <li class="nav-item">
           <a class="nav-link" href="<?= base_url('/') ?>">Inicio</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="<?= base_url('Productos') ?>">Perfumes</a>
+        
+        <!-- PERFUMES -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+            Perfumes
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="<?= base_url('Productos') ?>">Todos</a></li>
+            <li><a class="dropdown-item" href="<?= base_url('Productos?categorias[]=1') ?>">Nicho</a></li>
+            <li><a class="dropdown-item" href="<?= base_url('Productos?categorias[]=2') ?>">Árabes</a></li>
+            <li><a class="dropdown-item" href="<?= base_url('Productos?categorias[]=3') ?>">Diseñador</a></li>
+          </ul>
         </li>
+
+        <!-- CONTACTO -->
         <li class="nav-item">
           <a class="nav-link" href="<?= base_url('Contact') ?>">Contacto</a>
         </li>
+
+        <!-- MÁS INFO -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
             Más Info
@@ -46,6 +61,7 @@
             <li><a class="dropdown-item" href="<?= base_url('TerminosYCondiciones') ?>">Términos y Usos</a></li>
           </ul>
         </li>
+
       </ul>
     </div>
 
