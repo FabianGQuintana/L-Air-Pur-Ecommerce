@@ -81,7 +81,7 @@ class Productos extends BaseController
         $data['title'] = 'Nuevo producto - L’Air Pur';
         $data['content'] = view('Components/Form_Producto', $data);
 
-        return view('Templates/main_layout', $data);
+        return view('Templates/admin_layout', $data);
     }
 
     /**

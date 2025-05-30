@@ -1,0 +1,421 @@
+DEBUG - 2025-05-30 05:00:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-05-30 05:00:31 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "errors/custom_404.php"
+[Method: GET, Route: Carrito]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('errors/custom_404.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('errors/custom_404', [], true)
+ 3 APPPATH\Config\Routes.php(43): view('errors/custom_404')
+ 4 SYSTEMPATH\CodeIgniter.php(955): CodeIgniter\Router\RouteCollection->{closure}('Can\'t find a route for \'GET: Carrito\'.')
+ 5 SYSTEMPATH\CodeIgniter.php(360): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 6 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-30 05:02:22 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "errors/custom_404.php"
+[Method: GET, Route: Admin]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('errors/custom_404.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('errors/custom_404', [], true)
+ 3 APPPATH\Config\Routes.php(43): view('errors/custom_404')
+ 4 SYSTEMPATH\CodeIgniter.php(955): CodeIgniter\Router\RouteCollection->{closure}('Can\'t find a route for \'GET: Admin\'.')
+ 5 SYSTEMPATH\CodeIgniter.php(360): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 6 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-30 05:10:13 --> ErrorException: Undefined array key "marca"
+[Method: GET, Route: Admin/Productos]
+in APPPATH\Views\Pages\AdminProductos.php on line 75.
+ 1 APPPATH\Views\Pages\AdminProductos.php(75): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "marca"', 'C:\\xampp\\htdocs\\L-Air-Pur-Ecommerce\\app\\Views\\Pages\\AdminProductos.php', 75)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\L-Air-Pur-Ecommerce\\app\\Views\\Pages\\AdminProductos.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('Pages/AdminProductos', [], true)
+ 5 APPPATH\Controllers\AdminController.php(38): view('Pages/AdminProductos', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AdminController->administrarProductos()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-05-30 05:19:23 --> mysqli_sql_exception: Unknown column 'marcas.nombre' in 'field list' in C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `product...', 0)
+#1 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product...')
+#2 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product...')
+#3 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `product...', Array, false)
+#4 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\L-Air-Pur-Ecommerce\app\Models\ProductosModel.php(47): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\L-Air-Pur-Ecommerce\app\Controllers\AdminController.php(33): App\Models\ProductosModel->filtrar(Array)
+#8 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\CodeIgniter.php(933): App\Controllers\AdminController->administrarProductos()
+#9 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+#10 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\L-Air-Pur-Ecommerce\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-05-30 05:19:23 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'marcas.nombre' in 'field list'
+[Method: GET, Route: Admin/Productos]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `productos`.*, `marcas`.`nombre` AS `marca`, `categorias`.`nombre` AS `categoria`
+FROM `productos`
+JOIN `marcas` ON `marcas`.`id_marca` = `productos`.`id_marca`
+JOIN `categorias` ON `categorias`.`id_categoria` = `productos`.`id_categoria`', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\ProductosModel.php(47): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\AdminController.php(33): App\Models\ProductosModel->filtrar([...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AdminController->administrarProductos()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-30 05:19:23 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'marcas.nombre' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `productos`.*, `marcas`.`nombre` AS `marca`, `categorias`.`nombre` AS `categoria`
+FROM `productos`
+JOIN `marcas` ON `marcas`.`id_marca` = `productos`.`id_marca`
+JOIN `categorias` ON `categorias`.`id_categoria` = `productos`.`id_categoria`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `productos`.*, `marcas`.`nombre` AS `marca`, `categorias`.`nombre` AS `categoria`
+FROM `productos`
+JOIN `marcas` ON `marcas`.`id_marca` = `productos`.`id_marca`
+JOIN `categorias` ON `categorias`.`id_categoria` = `productos`.`id_categoria`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `productos`.*, `marcas`.`nombre` AS `marca`, `categorias`.`nombre` AS `categoria`
+FROM `productos`
+JOIN `marcas` ON `marcas`.`id_marca` = `productos`.`id_marca`
+JOIN `categorias` ON `categorias`.`id_categoria` = `productos`.`id_categoria`', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\ProductosModel.php(47): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\AdminController.php(33): App\Models\ProductosModel->filtrar([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AdminController->administrarProductos()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-30 05:19:23 --> [Caused by] mysqli_sql_exception: Unknown column 'marcas.nombre' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `productos`.*, `marcas`.`nombre` AS `marca`, `categorias`.`nombre` AS `categoria`
+FROM `productos`
+JOIN `marcas` ON `marcas`.`id_marca` = `productos`.`id_marca`
+JOIN `categorias` ON `categorias`.`id_categoria` = `productos`.`id_categoria`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `productos`.*, `marcas`.`nombre` AS `marca`, `categorias`.`nombre` AS `categoria`
+FROM `productos`
+JOIN `marcas` ON `marcas`.`id_marca` = `productos`.`id_marca`
+JOIN `categorias` ON `categorias`.`id_categoria` = `productos`.`id_categoria`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `productos`.*, `marcas`.`nombre` AS `marca`, `categorias`.`nombre` AS `categoria`
+FROM `productos`
+JOIN `marcas` ON `marcas`.`id_marca` = `productos`.`id_marca`
+JOIN `categorias` ON `categorias`.`id_categoria` = `productos`.`id_categoria`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `productos`.*, `marcas`.`nombre` AS `marca`, `categorias`.`nombre` AS `categoria`
+FROM `productos`
+JOIN `marcas` ON `marcas`.`id_marca` = `productos`.`id_marca`
+JOIN `categorias` ON `categorias`.`id_categoria` = `productos`.`id_categoria`', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\ProductosModel.php(47): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\AdminController.php(33): App\Models\ProductosModel->filtrar([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AdminController->administrarProductos()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-05-30 05:20:09 --> mysqli_sql_exception: Column 'id_categoria' in where clause is ambiguous in C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `product...', 0)
+#1 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product...')
+#2 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product...')
+#3 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `product...', Array, false)
+#4 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\L-Air-Pur-Ecommerce\app\Models\ProductosModel.php(47): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\L-Air-Pur-Ecommerce\app\Controllers\AdminController.php(33): App\Models\ProductosModel->filtrar(Array)
+#8 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\CodeIgniter.php(933): App\Controllers\AdminController->administrarProductos()
+#9 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+#10 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\L-Air-Pur-Ecommerce\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-05-30 05:20:09 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_categoria' in where clause is ambiguous
+[Method: GET, Route: Admin/Productos]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `productos`.*, `marcas`.`nombre_marca` AS `marca`, `categorias`.`nombre` AS `categoria`
+FROM `productos`
+JOIN `marcas` ON `marcas`.`id_marca` = `productos`.`id_marca`
+JOIN `categorias` ON `categorias`.`id_categoria` = `productos`.`id_categoria`
+WHERE `id_categoria` IN :id_categoria:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\ProductosModel.php(47): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\AdminController.php(33): App\Models\ProductosModel->filtrar([...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AdminController->administrarProductos()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-30 05:20:09 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_categoria' in where clause is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `productos`.*, `marcas`.`nombre_marca` AS `marca`, `categorias`.`nombre` AS `categoria`
+FROM `productos`
+JOIN `marcas` ON `marcas`.`id_marca` = `productos`.`id_marca`
+JOIN `categorias` ON `categorias`.`id_categoria` = `productos`.`id_categoria`
+WHERE `id_categoria` IN (\'1\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `productos`.*, `marcas`.`nombre_marca` AS `marca`, `categorias`.`nombre` AS `categoria`
+FROM `productos`
+JOIN `marcas` ON `marcas`.`id_marca` = `productos`.`id_marca`
+JOIN `categorias` ON `categorias`.`id_categoria` = `productos`.`id_categoria`
+WHERE `id_categoria` IN (\'1\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `productos`.*, `marcas`.`nombre_marca` AS `marca`, `categorias`.`nombre` AS `categoria`
+FROM `productos`
+JOIN `marcas` ON `marcas`.`id_marca` = `productos`.`id_marca`
+JOIN `categorias` ON `categorias`.`id_categoria` = `productos`.`id_categoria`
+WHERE `id_categoria` IN :id_categoria:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\ProductosModel.php(47): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\AdminController.php(33): App\Models\ProductosModel->filtrar([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AdminController->administrarProductos()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-30 05:20:09 --> [Caused by] mysqli_sql_exception: Column 'id_categoria' in where clause is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `productos`.*, `marcas`.`nombre_marca` AS `marca`, `categorias`.`nombre` AS `categoria`
+FROM `productos`
+JOIN `marcas` ON `marcas`.`id_marca` = `productos`.`id_marca`
+JOIN `categorias` ON `categorias`.`id_categoria` = `productos`.`id_categoria`
+WHERE `id_categoria` IN (\'1\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `productos`.*, `marcas`.`nombre_marca` AS `marca`, `categorias`.`nombre` AS `categoria`
+FROM `productos`
+JOIN `marcas` ON `marcas`.`id_marca` = `productos`.`id_marca`
+JOIN `categorias` ON `categorias`.`id_categoria` = `productos`.`id_categoria`
+WHERE `id_categoria` IN (\'1\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `productos`.*, `marcas`.`nombre_marca` AS `marca`, `categorias`.`nombre` AS `categoria`
+FROM `productos`
+JOIN `marcas` ON `marcas`.`id_marca` = `productos`.`id_marca`
+JOIN `categorias` ON `categorias`.`id_categoria` = `productos`.`id_categoria`
+WHERE `id_categoria` IN (\'1\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `productos`.*, `marcas`.`nombre_marca` AS `marca`, `categorias`.`nombre` AS `categoria`
+FROM `productos`
+JOIN `marcas` ON `marcas`.`id_marca` = `productos`.`id_marca`
+JOIN `categorias` ON `categorias`.`id_categoria` = `productos`.`id_categoria`
+WHERE `id_categoria` IN :id_categoria:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\ProductosModel.php(47): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\AdminController.php(33): App\Models\ProductosModel->filtrar([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AdminController->administrarProductos()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-30 05:21:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-05-30 05:22:24 --> mysqli_sql_exception: Column 'id_categoria' in where clause is ambiguous in C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `product...', 0)
+#1 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product...')
+#2 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product...')
+#3 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `product...', Array, false)
+#4 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\L-Air-Pur-Ecommerce\app\Models\ProductosModel.php(47): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\L-Air-Pur-Ecommerce\app\Controllers\Productos.php(35): App\Models\ProductosModel->filtrar(Array)
+#8 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\CodeIgniter.php(933): App\Controllers\Productos->index()
+#9 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Productos))
+#10 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\L-Air-Pur-Ecommerce\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-05-30 05:22:24 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_categoria' in where clause is ambiguous
+[Method: GET, Route: Productos]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `productos`.*, `marcas`.`nombre_marca` AS `marca`, `categorias`.`nombre` AS `categoria`
+FROM `productos`
+JOIN `marcas` ON `marcas`.`id_marca` = `productos`.`id_marca`
+JOIN `categorias` ON `categorias`.`id_categoria` = `productos`.`id_categoria`
+WHERE `id_categoria` IN :id_categoria:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\ProductosModel.php(47): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Productos.php(35): App\Models\ProductosModel->filtrar([...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Productos->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Productos))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-30 05:22:24 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_categoria' in where clause is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `productos`.*, `marcas`.`nombre_marca` AS `marca`, `categorias`.`nombre` AS `categoria`
+FROM `productos`
+JOIN `marcas` ON `marcas`.`id_marca` = `productos`.`id_marca`
+JOIN `categorias` ON `categorias`.`id_categoria` = `productos`.`id_categoria`
+WHERE `id_categoria` IN (\'1\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `productos`.*, `marcas`.`nombre_marca` AS `marca`, `categorias`.`nombre` AS `categoria`
+FROM `productos`
+JOIN `marcas` ON `marcas`.`id_marca` = `productos`.`id_marca`
+JOIN `categorias` ON `categorias`.`id_categoria` = `productos`.`id_categoria`
+WHERE `id_categoria` IN (\'1\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `productos`.*, `marcas`.`nombre_marca` AS `marca`, `categorias`.`nombre` AS `categoria`
+FROM `productos`
+JOIN `marcas` ON `marcas`.`id_marca` = `productos`.`id_marca`
+JOIN `categorias` ON `categorias`.`id_categoria` = `productos`.`id_categoria`
+WHERE `id_categoria` IN :id_categoria:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\ProductosModel.php(47): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Productos.php(35): App\Models\ProductosModel->filtrar([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Productos->index()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Productos))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-30 05:22:24 --> [Caused by] mysqli_sql_exception: Column 'id_categoria' in where clause is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `productos`.*, `marcas`.`nombre_marca` AS `marca`, `categorias`.`nombre` AS `categoria`
+FROM `productos`
+JOIN `marcas` ON `marcas`.`id_marca` = `productos`.`id_marca`
+JOIN `categorias` ON `categorias`.`id_categoria` = `productos`.`id_categoria`
+WHERE `id_categoria` IN (\'1\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `productos`.*, `marcas`.`nombre_marca` AS `marca`, `categorias`.`nombre` AS `categoria`
+FROM `productos`
+JOIN `marcas` ON `marcas`.`id_marca` = `productos`.`id_marca`
+JOIN `categorias` ON `categorias`.`id_categoria` = `productos`.`id_categoria`
+WHERE `id_categoria` IN (\'1\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `productos`.*, `marcas`.`nombre_marca` AS `marca`, `categorias`.`nombre` AS `categoria`
+FROM `productos`
+JOIN `marcas` ON `marcas`.`id_marca` = `productos`.`id_marca`
+JOIN `categorias` ON `categorias`.`id_categoria` = `productos`.`id_categoria`
+WHERE `id_categoria` IN (\'1\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `productos`.*, `marcas`.`nombre_marca` AS `marca`, `categorias`.`nombre` AS `categoria`
+FROM `productos`
+JOIN `marcas` ON `marcas`.`id_marca` = `productos`.`id_marca`
+JOIN `categorias` ON `categorias`.`id_categoria` = `productos`.`id_categoria`
+WHERE `id_categoria` IN :id_categoria:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\ProductosModel.php(47): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Productos.php(35): App\Models\ProductosModel->filtrar([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Productos->index()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Productos))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-05-30 05:23:49 --> mysqli_sql_exception: Column 'id_categoria' in where clause is ambiguous in C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `product...', 0)
+#1 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product...')
+#2 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product...')
+#3 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `product...', Array, false)
+#4 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\L-Air-Pur-Ecommerce\app\Models\ProductosModel.php(47): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\L-Air-Pur-Ecommerce\app\Controllers\Productos.php(35): App\Models\ProductosModel->filtrar(Array)
+#8 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\CodeIgniter.php(933): App\Controllers\Productos->index()
+#9 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Productos))
+#10 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\L-Air-Pur-Ecommerce\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\L-Air-Pur-Ecommerce\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-05-30 05:23:49 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_categoria' in where clause is ambiguous
+[Method: GET, Route: Productos]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `productos`.*, `marcas`.`nombre_marca` AS `marca`, `categorias`.`nombre` AS `categoria`
+FROM `productos`
+JOIN `marcas` ON `marcas`.`id_marca` = `productos`.`id_marca`
+JOIN `categorias` ON `categorias`.`id_categoria` = `productos`.`id_categoria`
+WHERE `id_categoria` IN :id_categoria:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\ProductosModel.php(47): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Productos.php(35): App\Models\ProductosModel->filtrar([...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Productos->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Productos))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-30 05:23:49 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_categoria' in where clause is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `productos`.*, `marcas`.`nombre_marca` AS `marca`, `categorias`.`nombre` AS `categoria`
+FROM `productos`
+JOIN `marcas` ON `marcas`.`id_marca` = `productos`.`id_marca`
+JOIN `categorias` ON `categorias`.`id_categoria` = `productos`.`id_categoria`
+WHERE `id_categoria` IN (\'2\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `productos`.*, `marcas`.`nombre_marca` AS `marca`, `categorias`.`nombre` AS `categoria`
+FROM `productos`
+JOIN `marcas` ON `marcas`.`id_marca` = `productos`.`id_marca`
+JOIN `categorias` ON `categorias`.`id_categoria` = `productos`.`id_categoria`
+WHERE `id_categoria` IN (\'2\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `productos`.*, `marcas`.`nombre_marca` AS `marca`, `categorias`.`nombre` AS `categoria`
+FROM `productos`
+JOIN `marcas` ON `marcas`.`id_marca` = `productos`.`id_marca`
+JOIN `categorias` ON `categorias`.`id_categoria` = `productos`.`id_categoria`
+WHERE `id_categoria` IN :id_categoria:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\ProductosModel.php(47): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Productos.php(35): App\Models\ProductosModel->filtrar([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Productos->index()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Productos))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-30 05:23:49 --> [Caused by] mysqli_sql_exception: Column 'id_categoria' in where clause is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `productos`.*, `marcas`.`nombre_marca` AS `marca`, `categorias`.`nombre` AS `categoria`
+FROM `productos`
+JOIN `marcas` ON `marcas`.`id_marca` = `productos`.`id_marca`
+JOIN `categorias` ON `categorias`.`id_categoria` = `productos`.`id_categoria`
+WHERE `id_categoria` IN (\'2\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `productos`.*, `marcas`.`nombre_marca` AS `marca`, `categorias`.`nombre` AS `categoria`
+FROM `productos`
+JOIN `marcas` ON `marcas`.`id_marca` = `productos`.`id_marca`
+JOIN `categorias` ON `categorias`.`id_categoria` = `productos`.`id_categoria`
+WHERE `id_categoria` IN (\'2\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `productos`.*, `marcas`.`nombre_marca` AS `marca`, `categorias`.`nombre` AS `categoria`
+FROM `productos`
+JOIN `marcas` ON `marcas`.`id_marca` = `productos`.`id_marca`
+JOIN `categorias` ON `categorias`.`id_categoria` = `productos`.`id_categoria`
+WHERE `id_categoria` IN (\'2\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `productos`.*, `marcas`.`nombre_marca` AS `marca`, `categorias`.`nombre` AS `categoria`
+FROM `productos`
+JOIN `marcas` ON `marcas`.`id_marca` = `productos`.`id_marca`
+JOIN `categorias` ON `categorias`.`id_categoria` = `productos`.`id_categoria`
+WHERE `id_categoria` IN :id_categoria:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\ProductosModel.php(47): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Productos.php(35): App\Models\ProductosModel->filtrar([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Productos->index()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Productos))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-30 05:30:45 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "errors/custom_404.php"
+[Method: GET, Route: Am]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('errors/custom_404.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('errors/custom_404', [], true)
+ 3 APPPATH\Config\Routes.php(47): view('errors/custom_404')
+ 4 SYSTEMPATH\CodeIgniter.php(955): CodeIgniter\Router\RouteCollection->{closure}('Can\'t find a route for \'GET: Am\'.')
+ 5 SYSTEMPATH\CodeIgniter.php(360): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 6 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-30 05:36:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 05:38:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 05:38:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 05:47:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

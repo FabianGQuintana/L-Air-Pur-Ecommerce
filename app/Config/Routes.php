@@ -23,6 +23,10 @@ $routes->group('', ['filter' => 'auth'], function($routes) {
     $routes->get('/dashboard', 'Dashboard::index');
 });
 
+// Rutas para Admin
+$routes->get('/Admin', 'AdminController::index');
+$routes->get('/Admin/Productos', 'AdminController::administrarProductos');
+
 
 // Rutas para contacto
 $routes->get('/Contact', 'Contact::index');

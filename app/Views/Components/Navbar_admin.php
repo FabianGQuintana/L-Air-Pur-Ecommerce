@@ -22,7 +22,7 @@
           <a class="nav-link" href="<?= base_url('/Admin') ?>">Panel de Control</a>
         </li>
         <li class="nav-item mx-1 px-3 py-2 rounded-pill">
-          <a class="nav-link" href="<?= base_url('/Admin/AdmProductos') ?>">Productos</a>
+          <a class="nav-link" href="<?= base_url('/Admin/Productos') ?>">Productos</a>
         </li>
         <li class="nav-item mx-1 px-3 py-2 rounded-pill">
           <a class="nav-link" href="<?= base_url('Admin/Usuarios') ?>">Usuarios</a>
