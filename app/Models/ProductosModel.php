@@ -31,23 +31,23 @@ class ProductosModel extends Model
      * @return array
      */
     public function filtrar(array $filtros = [])
-{
-    // Agrego los JOIN para que vengan los datos de marcas y categorías
-    $this->select('productos.*, marcas.nombre_marca AS marca, categorias.nombre AS categoria')
-         ->join('marcas', 'marcas.id_marca = productos.id_marca')
-         ->join('categorias', 'categorias.id_categoria = productos.id_categoria');
+    {
+        // Agrego los JOIN para que vengan los datos de marcas y categorías
+        $this->select('productos.*, marcas.nombre_marca AS marca, categorias.nombre AS categoria')
+            ->join('marcas', 'marcas.id_marca = productos.id_marca')
+            ->join('categorias', 'categorias.id_categoria = productos.id_categoria');
 
-    // Aplico los filtros si están presentes
-    if (!empty($filtros['marcas']) && is_array($filtros['marcas'])) {
-        $this->whereIn('productos.id_marca', $filtros['marcas']);
+        // Aplico los filtros si están presentes
+        if (!empty($filtros['marcas']) && is_array($filtros['marcas'])) {
+            $this->whereIn('productos.id_marca', $filtros['marcas']);
+        }
+
+        if (!empty($filtros['categorias']) && is_array($filtros['categorias'])) {
+            $this->whereIn('productos.id_categoria', $filtros['categorias']);
+        }
+
+        return $this->findAll();
     }
-
-    if (!empty($filtros['categorias']) && is_array($filtros['categorias'])) {
-        $this->whereIn('productos.id_categoria', $filtros['categorias']);
-    }
-
-    return $this->findAll();
-}
 
     public function obtenerProductoConDetalles($id)
     {
