@@ -29,6 +29,12 @@ $routes->group('', ['filter' => 'auth'], function($routes) {
 $routes->get('/Admin', 'AdminController::index');
 $routes->get('/Admin/Productos', 'AdminController::administrarProductos');
 
+// Rutas para el carrito de compras
+$routes->get('/Carrito', 'CarritoController::index');
+$routes->post('/Carrito/agregar/(:num)', 'CarritoController::agregar/$1');
+$routes->get('/Carrito/eliminar/(:num)', 'CarritoController::eliminar/$1');
+$routes->get('/Carrito/quitar/(:num)', 'CarritoController::quitar/$1');
+$routes->get('/Carrito/vaciar', 'CarritoController::vaciar');
 
 // Rutas para contacto
 $routes->get('/Contact', 'Contact::index');
