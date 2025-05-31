@@ -6,16 +6,6 @@
   font-family: "Inter", sans-serif !important;
 }
 
-.navbar .dropdown-menu .dropdown-item {
-  color: white;
-}
-.navbar .dropdown-menu {
-  background-color: #343a40;
-}
-.navbar .dropdown-menu .dropdown-item:hover {
-  background-color: #495057;
-}
-
 .logo-animado {
   padding: 5px;
   border: 3px solid transparent;
