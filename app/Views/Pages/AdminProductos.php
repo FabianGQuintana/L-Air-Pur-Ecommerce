@@ -1,55 +1,7 @@
 <!-- ============================
     SECCIÓN: LISTADO DE PRODUCTOS
 =============================== -->
-<style>
-  .filtros-card {
-    border: 1px solid #dee2e6;
-    border-radius: 0.5rem;
-    background: #f8f9fa;
-  }
-
-  .card-producto {
-    border: 1px solid #dee2e6;
-    border-radius: 0.5rem;
-  }
-
-  .card-producto .card-body {
-    padding: 1rem;
-  }
-
-  .btn-custom-dark {
-    background-color: #343a40;
-    color: #fff;
-  }
-
-  .btn-custom-dark:hover {
-    background-color: #23272b;
-  }
-
-  .btn-custom-danger {
-    background-color: #dc3545;
-    color: #fff;
-  }
-
-  .btn-custom-danger:hover {
-    background-color: #b02a37;
-  }
-
-  .img-miniatura {
-    max-width: 60px;
-    height: auto;
-  }
-
-  .img-miniatura-movil {
-    max-width: 80px;
-    height: auto;
-  }
-
-  /* Opcional: sombreado en tabla */
-  table.table-hover tbody tr:hover {
-    background-color: #f1f1f1;
-  }
-</style>
+<link rel="stylesheet" href="<?= base_url('assets/css/Style-AdminProductos.css') ?>">
 
 <div class="container my-4">
   <h2 class="mb-4 text-center fw-light">Listado de Productos</h2>
