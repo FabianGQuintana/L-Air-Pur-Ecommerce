@@ -186,8 +186,21 @@ class Productos extends BaseController
      * @return ResponseInterface
      */
     public function edit($id = null)
-    {
-        //
+    {   
+        $productosModel = new ProductosModel();
+        $producto = $productosModel->find($id);
+
+        $marcasModel = new MarcasModel();
+        $data['marcas'] = $marcasModel->findAll();
+
+        $categoriasModel = new CategoriasModel();
+        $data['categorias'] = $categoriasModel->findAll();
+
+        $data['producto'] = $producto;
+        $data['title'] = 'Editar producto - L’Air Pur';
+        $data['content'] = view('Components/Form_EditProducto', $data);
+
+        return view('Templates/admin_layout', $data);
     }
 
     /**
@@ -199,8 +212,104 @@ class Productos extends BaseController
      */
     public function update($id = null)
     {
-        //
+
+        // Definir las reglas base
+        $reglas = [
+            'nombre' => 'required',
+            'categoria' => 'required',
+            'descripcion' => 'required|min_length[15]',
+            'precio' => 'required|decimal',
+            'cantidad' => 'required|integer',
+            'mililitros' => 'required|integer',
+            'marca' => 'required',
+        ];
+
+        // Verificar si se subió una nueva imagen
+        $imagen = $this->request->getFile('imagen');
+        if ($imagen && $imagen->isValid() && !$imagen->hasMoved()) {
+            // Solo si se sube una nueva imagen, agregar las reglas de validación de la imagen
+            $reglas['imagen'] = 'is_image[imagen]|max_size[imagen,2048]';
+        }
+
+        // Mensajes personalizados
+        $mensajes = [
+            'nombre' => [
+                'required' => 'El nombre del producto es obligatorio.',
+                'is_unique' => 'El nombre del producto ya existe.',
+                'min_length' => 'El nombre debe tener al menos 3 caracteres.',
+            ],
+            'categoria' => [
+                'required' => 'La categoría es obligatoria.',
+            ],
+            'descripcion' => [
+                'required' => 'La descripción es obligatoria.',
+                'min_length' => 'La descripción debe tener al menos 15 caracteres.',
+            ],
+            'precio' => [
+                'required' => 'El precio es obligatorio.',
+                'decimal' => 'El precio debe ser un número decimal válido.',
+            ],
+            'cantidad' => [
+                'required' => 'La cantidad es obligatoria.',
+                'integer' => 'La cantidad debe ser un número entero.',
+            ],
+            'mililitros' => [
+                'required' => 'Los mililitros son obligatorios.',
+                'integer' => 'Los mililitros deben ser un número entero.',
+            ],
+            'marca' => [
+                'required' => 'La marca es obligatoria.',
+            ],
+            'imagen' => [
+                'is_image' => 'El archivo debe ser una imagen válida.',
+                'max_size' => 'La imagen no debe superar los 2MB.',
+            ],
+        ];
+
+        // Validar datos
+        if (!$this->validate($reglas, $mensajes)) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        // Obtener datos del formulario
+        $post = $this->request->getPost([
+            'nombre',
+            'categoria',
+            'descripcion',
+            'precio',
+            'cantidad',
+            'mililitros',
+            'marca',
+        ]);
+
+        // Procesar imagen
+        if ($imagen && $imagen->isValid() && !$imagen->hasMoved()) {
+            $nombreImagen = $imagen->getName();
+            $imagen->move('assets/img', $nombreImagen);
+        } else {
+            // Mantener la imagen existente si no se subió una nueva
+            $productoActual = (new ProductosModel())->find($id);
+            $nombreImagen = $productoActual['imagen'] ?? 'default.png';
+        }
+
+        // Actualizar el producto en la base de datos
+        $productosModel = new ProductosModel();
+        $productosModel->update($id, [
+            'nombre' => trim($post['nombre']),
+            'id_categoria' => $post['categoria'],
+            'descripcion' => trim($post['descripcion']),
+            'precio' => $post['precio'],
+            'cantidad' => $post['cantidad'],
+            'mililitros' => $post['mililitros'],
+            'id_marca' => $post['marca'],
+            'imagen' => $nombreImagen,
+        ]);
+
+        // Redirigir con éxito
+        return redirect()->to('Productos/' . $id . '/edit')
+                         ->with('message', 'Producto actualizado satisfactoriamente.');
     }
+
 
     /**
      * Delete the designated resource object from the model.
