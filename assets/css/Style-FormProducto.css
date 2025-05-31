@@ -1,0 +1,118 @@
+/* Fondo general con un gradiente suave */
+body {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+}
+
+/* Contenedor del formulario con sombra y redondeado */
+.formulario-producto {
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.8rem 1.5rem rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+  transition: transform 0.3s ease;
+}
+
+.formulario-producto:hover {
+  transform: translateY(-5px);
+}
+
+/* Título del formulario */
+.formulario-producto h2 {
+  font-weight: 300;
+  letter-spacing: 0.05rem;
+  color: #343a40;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+
+/* Labels más claros y espaciados */
+.formulario-producto .form-label {
+  font-weight: 500;
+  color: #495057;
+}
+
+/* Inputs y selects */
+.formulario-producto .form-control,
+.formulario-producto .form-select {
+  border-radius: 0.5rem;
+  border: 1px solid #ced4da;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.formulario-producto .form-control:focus,
+.formulario-producto .form-select:focus {
+  border-color: #6c757d;
+  box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.25);
+}
+
+/* Botones: estilo uniforme y animado */
+.formulario-producto .btn-dark {
+  background-color: #343a40;
+  border-color: #343a40;
+  color: #ffffff;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.formulario-producto .btn-dark:hover {
+  background-color: #23272b;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.formulario-producto .btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  color: #ffffff;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.formulario-producto .btn-secondary:hover {
+  background-color: #545b62;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+/* Alertas: más suaves y redondeadas */
+.formulario-producto .alert {
+  border-radius: 0.5rem;
+}
+
+/* Botón cerrar alerta: tono gris */
+.formulario-producto .btn-close {
+  filter: invert(0.4);
+}
+
+/* Campos de archivo */
+.formulario-producto input[type="file"] {
+  cursor: pointer;
+}
+
+/* Mejora de los campos de textarea */
+.formulario-producto textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Pequeño efecto en los campos al pasar el mouse */
+.formulario-producto .form-control:hover,
+.formulario-producto .form-select:hover {
+  border-color: #adb5bd;
+}
+
+/* Opcional: íconos para inputs (si quieres agregar iconos en el futuro) */
+.formulario-producto .input-group-text {
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+
+/* Ajustes generales */
+.formulario-producto .d-grid {
+  gap: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .formulario-producto {
+    padding: 1.5rem;
+  }
+}

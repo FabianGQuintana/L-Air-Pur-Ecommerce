@@ -25,7 +25,7 @@
           <a class="nav-link" href="<?= base_url('/Admin/Productos') ?>">Productos</a>
         </li>
         <li class="nav-item mx-1 px-3 py-2 rounded-pill">
-          <a class="nav-link" href="<?= base_url('Admin/Usuarios') ?>">Usuarios</a>
+          <a class="nav-link" href="<?= base_url('UsuarioController') ?>">Usuarios</a>
         </li>
         <li class="nav-item mx-1 px-3 py-2 rounded-pill">
           <a class="nav-link" href="<?= base_url('Admin/Ordenes') ?>">Órdenes</a>

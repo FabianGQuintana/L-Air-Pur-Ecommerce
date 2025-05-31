@@ -30,7 +30,7 @@ class ProductosModel extends Model
      * @param array $filtros ['marcas' => [], 'categorias' => [], 'precio_min' => 0, 'precio_max' => 9999]
      * @return array
      */
-    public function filtrar(array $filtros = [])
+    public function filtrar(array $filtros = [], string $busqueda = '')
     {
         // Agrego los JOIN para que vengan los datos de marcas y categorías
         $this->select('productos.*, marcas.nombre_marca AS marca, categorias.nombre AS categoria')
@@ -46,8 +46,18 @@ class ProductosModel extends Model
             $this->whereIn('productos.id_categoria', $filtros['categorias']);
         }
 
+        // Aplico la búsqueda si está presente
+        if (!empty($busqueda)) {
+            $this->groupStart()
+                ->like('productos.nombre', $busqueda)
+                ->orLike('marcas.nombre_marca', $busqueda)
+                ->orLike('categorias.nombre', $busqueda)
+                ->groupEnd();
+        }
+
         return $this->findAll();
     }
+
 
     public function obtenerProductoConDetalles($id)
     {

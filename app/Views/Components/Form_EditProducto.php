@@ -1,7 +1,10 @@
 <!-- ============================
     SECCIÓN: FORMULARIO DE PRODUCTO
 =============================== -->
-<div class="container my-5">
+
+<link rel="stylesheet" href="<?= base_url('assets/css/Style-FormProducto.css') ?>">
+
+<div class="container my-5 formulario-producto">
   <h2 class="card-title mb-4 text-center fw-light display-6">Modificar Producto</h2>
 
   <?php if (session()->getFlashdata('message')): ?>

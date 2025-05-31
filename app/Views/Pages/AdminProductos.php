@@ -6,8 +6,21 @@
 <div class="container my-4">
   <h2 class="mb-4 text-center fw-light">Listado de Productos</h2>
 
-  <!-- Botón para desplegar filtros -->
+  <!-- Barra de búsqueda + botones -->
   <div class="mb-3 d-flex gap-2 justify-content-between">
+    <form method="get" action="<?= base_url('/Admin/Productos') ?>" class="flex-grow-1 me-2">
+      <div class="input-group">
+        <input type="text"
+               name="busqueda"
+               class="form-control"
+               placeholder="Buscar productos, marcas o categorías..."
+               value="<?= esc($busqueda ?? '') ?>">
+        <button class="btn btn-outline-secondary" type="submit">
+          <i class="bi bi-search"></i> Buscar
+        </button>
+      </div>
+    </form>
+
     <button class="btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#filtrosCollapse" aria-expanded="false" aria-controls="filtrosCollapse">
       <i class="bi bi-funnel-fill me-1"></i> Filtros
     </button>
@@ -17,7 +30,7 @@
   </div>
 
   <!-- Sección de filtros -->
-  <div class="collapse mb-4 <?= (!empty($filtrosSeleccionados['categorias']) || !empty($filtrosSeleccionados['marca'])) ? 'show' : '' ?>" id="filtrosCollapse">
+  <div class="collapse mb-4 <?= (!empty($filtros['categorias']) || !empty($filtros['marcas'])) ? 'show' : '' ?>" id="filtrosCollapse">
     <div class="card filtros-card p-3">
       <form method="get" action="">
         <div class="row">

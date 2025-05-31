@@ -13,11 +13,13 @@ $routes->get('/TerminosYCondiciones', 'Pages::TerminosYCondiciones');
 $routes->get('/EnConstruccion', 'Pages::EnConstruccion');
 
 //Rutas para Registrar&Loguearse
-$routes->get('/Auth/Login', 'LoginController::login');
-$routes->post('/Auth/doLogin', 'LoginController::doLogin');
-$routes->get('/Auth/Register', 'LoginController::register');
-$routes->post('/Auth/doRegister', 'LoginController::doRegister');
-$routes->get('/Logout', 'LoginController::logout');
+$routes->get('/Auth/Login', 'UsuarioController::login');
+$routes->post('/Auth/doLogin', 'UsuarioController::doLogin');
+$routes->get('/Auth/Register', 'UsuarioController::register');
+$routes->post('/Auth/doRegister', 'UsuarioController::doRegister');
+$routes->get('/Logout', 'UsuarioController::logout');
+
+$routes->resource('UsuarioController', ['placeholder' => '(:num)']);
 
 $routes->group('', ['filter' => 'auth'], function($routes) {
     $routes->get('/dashboard', 'Dashboard::index');

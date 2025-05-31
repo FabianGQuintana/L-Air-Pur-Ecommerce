@@ -32,16 +32,20 @@ class Productos extends BaseController
             'categorias' => $this->request->getGet('categorias') ?? [],
         ];
 
-        $productos = $productosModel->filtrar($filtros);
+        // Tomar término de búsqueda
+        $busqueda = $this->request->getGet('busqueda') ?? '';
+        $data['busqueda'] = $busqueda;
+
+        // Obtener productos filtrados y con búsqueda
+        $productos = $productosModel->filtrar($filtros, $busqueda);
 
         $data['productos'] = $productos;
-        $data['filtros'] = $filtros; // para que la vista sepa qué checkboxes marcar
+        $data['filtros'] = $filtros; // para la vista
         $data['title'] = 'Productos - L’Air Pur';
         $data['content'] = view('Pages/Catalogo', $data);
 
         return view('Templates/main_layout', $data);
     }
-
 
     /**
      * Return the properties of a resource object.
@@ -215,7 +219,7 @@ class Productos extends BaseController
 
         // Definir las reglas base
         $reglas = [
-            'nombre' => 'required',
+            'nombre' => 'required|min_length[3]',
             'categoria' => 'required',
             'descripcion' => 'required|min_length[15]',
             'precio' => 'required|decimal',

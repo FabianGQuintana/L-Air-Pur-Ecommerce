@@ -6,6 +6,16 @@
   font-family: "Inter", sans-serif !important;
 }
 
+.navbar .dropdown-menu .dropdown-item {
+  color: white;
+}
+.navbar .dropdown-menu {
+  background-color: #343a40;
+}
+.navbar .dropdown-menu .dropdown-item:hover {
+  background-color: #495057;
+}
+
 .logo-animado {
   padding: 5px;
   border: 3px solid transparent;
@@ -45,7 +55,6 @@
   margin-left: 19.5rem;
 }
 
-
 .dropdown-menu {
   z-index: 1051 !important; /*  Asegura que el dropdown esté por encima de cualquier otro navbar . Más alto que sticky-top (1030) */
   position: absolute;
@@ -59,14 +68,12 @@
   min-width: 200px;
 }
 
-
 .icono-login {
   font-size: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 
 .Titulo-Principal {
   font-family: "Inter", sans-serif;
@@ -121,7 +128,6 @@
   color: #607f7b;
   text-decoration: underline;
 }
-
 
 .banner-wrapper {
   max-width: 1700px;
