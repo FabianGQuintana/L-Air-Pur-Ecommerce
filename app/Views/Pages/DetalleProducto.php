@@ -22,10 +22,14 @@
                 <li class="list-group-item"><strong>Stock disponible:</strong> <?= esc($producto['cantidad']) ?></li>
             </ul>
 
-            <div class="d-grid gap-3">
-                <button class="btn btn-dark btn-lg">Comprar ahora</button>
-                <button class="btn btn-outline-secondary btn-lg">Agregar al carrito</button>
-            </div>
+            <!-- Formulario para agregar al carrito -->
+            <form action="<?= base_url('Carrito/agregar/' . $producto['id_producto']) ?>" method="post" class="d-grid gap-3">
+                <div class="mb-3">
+                    <label for="cantidad" class="form-label">Cantidad:</label>
+                    <input type="number" name="cantidad" id="cantidad" value="1" min="1" max="<?= esc($producto['cantidad']) ?>" class="form-control w-50">
+                </div>
+                <button type="submit" class="btn btn-outline-secondary btn-lg">Agregar al carrito</button>
+            </form>
         </div>
     </div>
 </div>
