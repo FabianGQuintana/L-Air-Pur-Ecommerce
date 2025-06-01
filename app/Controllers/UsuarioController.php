@@ -6,26 +6,20 @@ use App\Models\UsuarioModel;
 
 class UsuarioController extends BaseController
 {
-    
     public function index()
     {
         $usuarioModel = new UsuarioModel();
-
-        // Obtener el término de búsqueda desde GET
         $busqueda = $this->request->getGet('busqueda');
 
         if ($busqueda) {
-            // Búsqueda por nombre, apellido o email
             $usuarios = $usuarioModel->like('nombre', $busqueda)
-                                    ->orLike('apellido', $busqueda)
-                                    ->orLike('email', $busqueda)
-                                    ->findAll();
+                                       ->orLike('apellido', $busqueda)
+                                       ->orLike('email', $busqueda)
+                                       ->findAll();
         } else {
-            // Si no hay búsqueda, traer todos los usuarios
             $usuarios = $usuarioModel->findAll();
         }
 
-        // Cargar la vista dentro del layout
         return view('Templates/admin_layout', [
             'title' => 'Lista de Usuarios',
             'content' => view('Pages/UsuariosList', [
@@ -38,103 +32,125 @@ class UsuarioController extends BaseController
     public function login()
     {
         return view('Templates/login_layout', [
-        'title' => 'Iniciar sesión',
-        'content' => view('/Pages/Auth/Login')
-    ]);
+            'title' => 'Iniciar sesión',
+            'content' => view('/Pages/Auth/Login')
+        ]);
     }
 
     public function doLogin()
     {
+        $rules = [
+            'email'    => 'required|valid_email',
+            'password' => 'required|min_length[6]'
+        ];
+
+        $messages = [
+            'email' => [
+                'required'    => 'El correo electrónico es obligatorio.',
+                'valid_email' => 'Por favor, introduce un correo electrónico válido.'
+            ],
+            'password' => [
+                'required'    => 'La contraseña es obligatoria.',
+                'min_length'  => 'La contraseña debe tener al menos 6 caracteres.'
+            ]
+        ];
+
+        if (! $this->validate($rules, $messages)) {
+            return redirect()->back()->withInput()->with('validation', $this->validator);
+        }
+
         $session = session();
         $model = new UsuarioModel();
-
         $email = $this->request->getPost('email');
         $pass = $this->request->getPost('password');
-        $remember = $this->request->getPost('remember');
 
         $usuario = $model->where('email', $email)->first();
 
         if ($usuario && password_verify($pass, $usuario['password_hash'])) {
-            $datosSesion = [
+            $session->set('usuario_logueado', [
                 'id_usuario' => $usuario['id_usuario'],
                 'nombre'     => $usuario['nombre'],
                 'apellido'   => $usuario['apellido'],
                 'telefono'   => $usuario['telefono'],
                 'email'      => $usuario['email']
-            ];
-            $session->set('usuario_logueado', $datosSesion);
-
-            // // Si el usuario quiere que lo recuerden
-            // if ($remember) {
-            //     helper('cookie');
-            //     set_cookie('remember_email', $email, 60*60*24*30); // 30 días
-            // } else {
-            //     delete_cookie('remember_email');
-            // }
-
+            ]);
             return redirect()->to('/')->with('success', '¡Inicio de sesión exitoso!');
-        } else {
-            return redirect()->back()->with('error', 'Email o contraseña incorrectos');
         }
-    }
 
+        return redirect()->back()->withInput()->with('error', 'Email o contraseña incorrectos');
+    }
 
     public function register()
     {
         return view('Templates/login_layout', [
-        'title' => 'Registrarse',
-        'content' => view('/Pages/Auth/Register')
+            'title' => 'Registrarse',
+            'content' => view('/Pages/Auth/Register')
         ]);
     }
 
     public function doRegister()
     {
-        $session = session();
+        $rules = [
+            'nombre'            => 'required|min_length[3]',
+            'apellido'          => 'required|min_length[3]',
+            'telefono'          => 'permit_empty|regex_match[/^[0-9\-\s\(\)]+$/]',
+            'email'             => 'required|valid_email',
+            'emailConfirmar'    => 'required|matches[email]',
+            'password_hash'     => 'required|min_length[6]',
+            'passwordConfirmar' => 'required|matches[password_hash]'
+        ];
+
+        $messages = [
+            'nombre' => [
+                'required'    => 'El nombre es obligatorio.',
+                'min_length'  => 'El nombre debe tener al menos 3 caracteres.'
+            ],
+            'apellido' => [
+                'required'    => 'El apellido es obligatorio.',
+                'min_length'  => 'El apellido debe tener al menos 3 caracteres.'
+            ],
+            'telefono' => [
+                'regex_match' => 'El teléfono solo puede contener números, espacios y paréntesis.'
+            ],
+            'email' => [
+                'required'    => 'El correo electrónico es obligatorio.',
+                'valid_email' => 'Por favor, introduce un correo electrónico válido.'
+            ],
+            'emailConfirmar' => [
+                'required' => 'Debes confirmar el correo.',
+                'matches'  => 'Los correos electrónicos no coinciden.'
+            ],
+            'password_hash' => [
+                'required'   => 'La contraseña es obligatoria.',
+                'min_length' => 'La contraseña debe tener al menos 6 caracteres.'
+            ],
+            'passwordConfirmar' => [
+                'required' => 'Debes confirmar la contraseña.',
+                'matches'  => 'Las contraseñas no coinciden.'
+            ]
+        ];
+
+        if (! $this->validate($rules, $messages)) {
+            return redirect()->back()->withInput()->with('validation', $this->validator);
+        }
+
         $model = new UsuarioModel();
-
-        $nombre = $this->request->getPost('nombre');
-        $apellido = $this->request->getPost('apellido');
         $email = $this->request->getPost('email');
-        $emailConfirmar = $this->request->getPost('emailConfirmar');
-        $telefono = $this->request->getPost('telefono');
-        $password = $this->request->getPost('password_hash');
-        $passwordConfirmar = $this->request->getPost('passwordConfirmar');
 
-        // Validaciones
-        if ($email !== $emailConfirmar) {
-            return redirect()->back()
-                            ->withInput()
-                            ->with('error', 'Los correos electrónicos no coinciden.');
-        }
-
-        if ($password !== $passwordConfirmar) {
-            return redirect()->back()
-                            ->withInput()
-                            ->with('error', 'Las contraseñas no coinciden.');
-        }
-
-        // Verifica si el email ya está registrado
         if ($model->where('email', $email)->first()) {
-            return redirect()->back()
-                            ->withInput()
-                            ->with('error', 'El correo electrónico ya está registrado.');
+            return redirect()->back()->withInput()->with('error', 'El correo electrónico ya está registrado.');
         }
 
-        // Inserta el nuevo usuario
         $data = [
-            'nombre' => $nombre,
-            'apellido' => $apellido,
-            'email' => $email,
-            'telefono' => $telefono,
-            'password_hash' => password_hash($password, PASSWORD_DEFAULT)
+            'nombre'        => $this->request->getPost('nombre'),
+            'apellido'      => $this->request->getPost('apellido'),
+            'telefono'      => $this->request->getPost('telefono'),
+            'email'         => $email,
+            'password_hash' => password_hash($this->request->getPost('password_hash'), PASSWORD_DEFAULT)
         ];
 
         $model->insert($data);
-
         return redirect()->to('/Auth/Login')->with('success', 'Usuario registrado correctamente');
     }
-
-
-
 
 }

@@ -1,6 +1,5 @@
-<?php helper('cookie'); ?>
+<?php helper(['cookie', 'form']); ?>
 <link rel="stylesheet" href="<?= base_url('assets/css/StyleLogin.css') ?>">
-
 
 <div class="container mt-5">
     <div class="row justify-content-center">
@@ -21,14 +20,18 @@
                         </div>
                     <?php endif; ?>
 
+                    <?php if (isset($validation)) : ?>
+                        <div class="alert alert-danger">
+                            <?= $validation->listErrors() ?>
+                        </div>
+                    <?php endif; ?>
+
                     <form action="<?= base_url('/Auth/doLogin') ?>" method="post">
                         <div class="mb-3">
                             <label for="email" class="form-label">Correo electrónico</label>
                             <input type="email" class="form-control" name="email" id="email" 
-                            placeholder="ejemplo@correo.com" 
-                            value="<?= get_cookie('remember_email') ?>" 
-                            required>
-                            <!-- <input type="email" class="form-control" name="email" id="email" placeholder="ejemplo@correo.com" required> -->
+                                placeholder="ejemplo@correo.com"
+                                value="<?= old('email', get_cookie('remember_email')) ?>" required>
                         </div>
 
                         <div class="mb-3">
@@ -52,6 +55,3 @@
         </div>
     </div>
 </div>
-
-
-
