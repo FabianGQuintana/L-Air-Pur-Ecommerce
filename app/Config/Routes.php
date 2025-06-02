@@ -36,6 +36,7 @@ $routes->get('/Carrito/eliminar/(:num)', 'CarritoController::eliminar/$1');
 $routes->get('/Carrito/quitar/(:num)', 'CarritoController::quitar/$1');
 $routes->get('/Carrito/vaciar', 'CarritoController::vaciar');
 
+
 // Rutas para contacto
 $routes->get('/Contact', 'Contact::index');
 $routes->post('/Contact/send', 'Contact::send');

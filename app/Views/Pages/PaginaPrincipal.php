@@ -74,19 +74,23 @@
     <div class="container text-center">
       <div class="row row-cols-2 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
         
-        <div class="col mb-4">
-          <div class="card h-100 d-flex flex-column mx-auto">
-            <img src="assets/img/JeanPaulElixir.png" class="card-img-top" alt="Jean Paul Gaultier Le Male Elixir">
-            <div class="card-body">
-              <h5 class="card-title">Jean Paul Gaultier Le Male Elixir</h5>
-              <p class="precio-elegante text-center"><span class="simbolo">$</span>160.000,00</p>
-              <p class="card-text">
-                Fragancia intensa y moderna con notas dulces.
-              </p>
-              <a href="<?= base_url('EnConstruccion') ?>" class="btn btn-dark">Comprar</a>
-            </div>
+      <div class="col mb-4">
+        <div class="card h-100 d-flex flex-column mx-auto">
+          <img src="assets/img/JeanPaulElixir.png" class="card-img-top" alt="Jean Paul Gaultier Le Male Elixir">
+          <div class="card-body">
+            <h5 class="card-title">Jean Paul Gaultier Le Male Elixir</h5>
+            <p class="precio-elegante text-center"><span class="simbolo">$</span>160.000,00</p>
+            <p class="card-text">
+              Fragancia intensa y moderna con notas dulces.
+            </p>
+            <form action="<?= base_url('Carrito/agregar/1') ?>" method="post">
+            <input type="hidden" name="cantidad" value="1">
+            <button type="submit" class="btn btn-dark">Comprar</button>
+            </form>
           </div>
         </div>
+      </div>
+
 
         <div class="col mb-4">
           <div class="card h-100 d-flex flex-column mx-auto">
@@ -97,7 +101,10 @@
               <p class="card-text">
                 Perfume afrutado y fresco con un toque oriental.
               </p>
-              <a href="<?= base_url('EnConstruccion') ?>" class="btn btn-dark">Comprar</a>
+            <form action="<?= base_url('Carrito/agregar/2') ?>" method="post">
+            <input type="hidden" name="cantidad" value="1">
+            <button type="submit" class="btn btn-dark">Comprar</button>
+            </form>
             </div>
           </div>
         </div>
@@ -111,7 +118,10 @@
               <p class="card-text">
                 Aroma masculino refinado y versátil.
               </p>
-              <a href="<?= base_url('EnConstruccion') ?>" class="btn btn-dark">Comprar</a>
+            <form action="<?= base_url('Carrito/agregar/3') ?>" method="post">
+            <input type="hidden" name="cantidad" value="1">
+            <button type="submit" class="btn btn-dark">Comprar</button>
+            </form>
             </div>
           </div>
         </div>
@@ -125,7 +135,10 @@
               <p class="card-text">
                 Fragancia fresca e intensa con notas cítricas.
               </p>
-              <a href="<?= base_url('EnConstruccion') ?>" class="btn btn-dark">Comprar</a>
+            <form action="<?= base_url('Carrito/agregar/4') ?>" method="post">
+            <input type="hidden" name="cantidad" value="1">
+            <button type="submit" class="btn btn-dark">Comprar</button>
+            </form>
             </div>
           </div>
         </div>
@@ -216,7 +229,10 @@
                 <p class="card-text">
                   Aroma cálido y especiado con notas orientales y dulce.
                 </p>
-                <a href="<?= base_url('EnConstruccion') ?>" class="btn btn-dark">Comprar</a>
+            <form action="<?= base_url('Carrito/agregar/5') ?>" method="post">
+            <input type="hidden" name="cantidad" value="1">
+            <button type="submit" class="btn btn-dark">Comprar</button>
+            </form>
               </div>
             </div>
           </div>
@@ -230,7 +246,10 @@
                 <p class="card-text">
                   Fragancia masculina fresca y afrutada con un fondo amaderado.
                 </p>
-                <a href="<?= base_url('EnConstruccion') ?>" class="btn btn-dark">Comprar</a>
+            <form action="<?= base_url('Carrito/agregar/6') ?>" method="post">
+            <input type="hidden" name="cantidad" value="1">
+            <button type="submit" class="btn btn-dark">Comprar</button>
+            </form>
               </div>
             </div>
           </div>
@@ -244,7 +263,10 @@
                 <p class="card-text">
                   Intenso y sensual con matices ambarinos y especiados.
                 </p>
-                <a href="<?= base_url('EnConstruccion') ?>" class="btn btn-dark">Comprar</a>
+            <form action="<?= base_url('Carrito/agregar/7') ?>" method="post">
+            <input type="hidden" name="cantidad" value="1">
+            <button type="submit" class="btn btn-dark">Comprar</button>
+            </form>
               </div>
             </div>
           </div>
@@ -258,7 +280,10 @@
                 <p class="card-text">
                   Perfume fresco y limpio con notas cítricas y florales
                 </p>
-                <a href="<?= base_url('EnConstruccion') ?>" class="btn btn-dark">Comprar</a>
+            <form action="<?= base_url('Carrito/agregar/8') ?>" method="post">
+            <input type="hidden" name="cantidad" value="1">
+            <button type="submit" class="btn btn-dark">Comprar</button>
+            </form>
               </div>
             </div>
           </div>
@@ -298,7 +323,10 @@
               <p class="card-text">
                 9PM de Afnan es una fragancia dulce, cálida y envolvente.
               </p>
-              <a href="<?= base_url('EnConstruccion') ?>" class="btn btn-dark">Comprar</a>
+            <form action="<?= base_url('Carrito/agregar/9') ?>" method="post">
+            <input type="hidden" name="cantidad" value="1">
+            <button type="submit" class="btn btn-dark">Comprar</button>
+            </form>
             </div>
           </div>
         </div>
@@ -312,7 +340,10 @@
               <p class="card-text">
                 Perfume potente y vibrante con acordes especiados y amaderados.
               </p>
-              <a href="<?= base_url('EnConstruccion') ?>" class="btn btn-dark">Comprar</a>
+            <form action="<?= base_url('Carrito/agregar/10') ?>" method="post">
+            <input type="hidden" name="cantidad" value="1">
+            <button type="submit" class="btn btn-dark">Comprar</button>
+            </form>
             </div>
           </div>
         </div>
@@ -326,7 +357,10 @@
               <p class="card-text">
                 Fragancia oriental dulce con notas de canela, dátiles y vainilla.
               </p>
-              <a href="<?= base_url('EnConstruccion') ?>" class="btn btn-dark">Comprar</a>
+            <form action="<?= base_url('Carrito/agregar/11') ?>" method="post">
+            <input type="hidden" name="cantidad" value="1">
+            <button type="submit" class="btn btn-dark">Comprar</button>
+            </form>
             </div>
           </div>
         </div>
@@ -340,8 +374,10 @@
               <p class="card-text">
                 Combina notas frescas y especiadas con un corazón amaderado.
               </p>
-              <a href="<?= base_url('EnConstruccion') ?>" class="btn btn-dark">Comprar</a>
-            </div>
+            <form action="<?= base_url('Carrito/agregar/12') ?>" method="post">
+            <input type="hidden" name="cantidad" value="1">
+            <button type="submit" class="btn btn-dark">Comprar</button>
+            </form>
           </div>
         </div>
 

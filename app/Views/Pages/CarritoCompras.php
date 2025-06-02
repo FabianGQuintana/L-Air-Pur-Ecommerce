@@ -7,7 +7,7 @@
 
     <?php if (empty($items)): ?>
         <div class="alert alert-info">
-            <p>El carrito está vacío. ¡Explora nuestra tienda y encuentra tus productos favoritos!</p>
+            <p>El carrito está vacío. ¡Explora nuestra tienda y encuentra tus perfumes favoritos!</p>
         </div>
         <a href="/" class="btn btn-primary">
             <i class="bi bi-arrow-left-circle"></i> Seguir comprando
