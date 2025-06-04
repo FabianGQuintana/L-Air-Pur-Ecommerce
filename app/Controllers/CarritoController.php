@@ -53,24 +53,32 @@ class CarritoController extends BaseController
         $session = session();
         $carrito = $session->get('carrito') ?? [];
 
-        // Obtener la cantidad enviada desde el formulario
-        $cantidad = $this->request->getPost('cantidad');
-        $cantidad = ($cantidad && is_numeric($cantidad) && $cantidad > 0) ? intval($cantidad) : 1;
+        $cantidadSolicitada = $this->request->getPost('cantidad');
+        $cantidadSolicitada = (is_numeric($cantidadSolicitada) && $cantidadSolicitada > 0) ? intval($cantidadSolicitada) : 1;
 
-        if (isset($carrito[$idProducto])) {
-            // Sumar la cantidad al existente
-            $carrito[$idProducto]['cantidad'] += $cantidad;
-        } else {
-            // Agregar el producto con la cantidad solicitada
-            $carrito[$idProducto] = [
-                'id' => $idProducto,
-                'cantidad' => $cantidad
-            ];
+        $productosModel = new \App\Models\ProductosModel();
+        $producto = $productosModel->obtenerProductoConDetalles($idProducto);
+
+        if (!$producto) {
+            return $this->response->setStatusCode(400)->setBody('Producto no encontrado');
         }
+
+        $stockDisponible = intval($producto['cantidad']);
+        $cantidadActualEnCarrito = isset($carrito[$idProducto]) ? $carrito[$idProducto]['cantidad'] : 0;
+        $cantidadFinal = $cantidadActualEnCarrito + $cantidadSolicitada;
+
+        if ($cantidadFinal > $stockDisponible) {
+            return $this->response->setStatusCode(400)->setBody('No hay suficiente stock disponible');
+        }
+
+        $carrito[$idProducto] = [
+            'id' => $idProducto,
+            'cantidad' => $cantidadFinal
+        ];
 
         $session->set('carrito', $carrito);
 
-        return redirect()->back()->with('success', 'Producto agregado al carrito');
+        return $this->response->setStatusCode(200)->setBody('Producto agregado al carrito');
     }
 
     public function quitar($idProducto)
@@ -116,4 +124,84 @@ class CarritoController extends BaseController
 
         return redirect()->back()->with('success', 'Carrito vaciado');
     }
+
+    private function obtenerDatosCarrito()
+    {
+        $session = session();
+        $carrito = $session->get('carrito') ?? [];
+        $productosModel = new \App\Models\ProductosModel();
+
+        $items = [];
+        $total = 0;
+
+        foreach ($carrito as $idProducto => $item) {
+            $producto = $productosModel->obtenerProductoConDetalles($idProducto);
+            if ($producto) {
+                $subtotal = $producto['precio'] * $item['cantidad'];
+                $total += $subtotal;
+
+                $items[] = [
+                    'id' => $idProducto,
+                    'nombre' => $producto['nombre'],
+                    'marca' => $producto['marca'],
+                    'categoria' => $producto['categoria'],
+                    'precio' => $producto['precio'],
+                    'cantidad' => $item['cantidad'],
+                    'subtotal' => $subtotal,
+                    'imagen' => $producto['imagen'],
+                ];
+            }
+        }
+
+        return ['items' => $items, 'total' => $total];
+    }
+
+    public function agregarAjax($id)
+    {
+        $session = session();
+        $carrito = $session->get('carrito') ?? [];
+
+        $carrito[$id]['cantidad'] = ($carrito[$id]['cantidad'] ?? 0) + 1;
+        $session->set('carrito', $carrito);
+
+        return $this->response->setJSON($this->obtenerFragmentos());
+    }
+
+    public function quitarAjax($id)
+    {
+        $session = session();
+        $carrito = $session->get('carrito') ?? [];
+
+        if (isset($carrito[$id])) {
+            $carrito[$id]['cantidad']--;
+            if ($carrito[$id]['cantidad'] <= 0) {
+                unset($carrito[$id]);
+            }
+        }
+
+        $session->set('carrito', $carrito);
+        return $this->response->setJSON($this->obtenerFragmentos());
+    }
+
+    public function eliminarAjax($id)
+    {
+        $session = session();
+        $carrito = $session->get('carrito') ?? [];
+
+        unset($carrito[$id]);
+        $session->set('carrito', $carrito);
+
+        return $this->response->setJSON($this->obtenerFragmentos());
+    }
+
+    private function obtenerFragmentos()
+    {
+        $datos = $this->obtenerDatosCarrito();
+
+        return [
+            'productos' => view('Fragments/ItemsCarrito', $datos),
+            'resumen' => view('Fragments/ResumenCarrito', $datos)
+        ];
+    }
+
 }

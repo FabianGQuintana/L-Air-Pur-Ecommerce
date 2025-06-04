@@ -36,6 +36,12 @@ $routes->get('/Carrito/eliminar/(:num)', 'CarritoController::eliminar/$1');
 $routes->get('/Carrito/quitar/(:num)', 'CarritoController::quitar/$1');
 $routes->get('/Carrito/vaciar', 'CarritoController::vaciar');
 
+$routes->post('carrito/agregarAjax/(:num)', 'CarritoController::agregarAjax/$1');
+$routes->post('carrito/quitarAjax/(:num)', 'CarritoController::quitarAjax/$1');
+$routes->post('carrito/eliminarAjax/(:num)', 'CarritoController::eliminarAjax/$1');
+$routes->get('carrito/fragmento', 'CarritoController::obtenerFragmentos');
+
+
 
 // Rutas para contacto
 $routes->get('/Contact', 'Contact::index');

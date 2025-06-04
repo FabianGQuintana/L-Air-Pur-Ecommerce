@@ -51,8 +51,8 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="<?= base_url('Productos') ?>">Todos</a></li>
             <li><a class="dropdown-item" href="<?= base_url('Productos?categorias[]=1') ?>">Nicho</a></li>
-            <li><a class="dropdown-item" href="<?= base_url('Productos?categorias[]=2') ?>">Árabes</a></li>
-            <li><a class="dropdown-item" href="<?= base_url('Productos?categorias[]=3') ?>">Diseñador</a></li>
+            <li><a class="dropdown-item" href="<?= base_url('Productos?categorias[]=2') ?>">Diseñador</a></li>
+            <li><a class="dropdown-item" href="<?= base_url('Productos?categorias[]=3') ?>">Arabes</a></li>
           </ul>
         </li>
 

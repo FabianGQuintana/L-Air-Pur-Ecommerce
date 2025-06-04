@@ -22,8 +22,13 @@
                 <li class="list-group-item"><strong>Stock disponible:</strong> <?= esc($producto['cantidad']) ?></li>
             </ul>
 
+            <!-- Mensaje de estado -->
+            <div id="mensajeCarrito"></div>
+
             <!-- Formulario para agregar al carrito -->
-            <form action="<?= base_url('Carrito/agregar/' . $producto['id_producto']) ?>" method="post" class="d-grid gap-3">
+            <form id="formAgregarCarrito" class="d-grid gap-3">
+                <input type="hidden" name="id_producto" value="<?= $producto['id_producto'] ?>">
+
                 <div class="mb-3">
                     <label for="cantidad" class="form-label">Cantidad:</label>
                     <input type="number" name="cantidad" id="cantidad" value="1" min="1" max="<?= esc($producto['cantidad']) ?>" class="form-control w-50">
@@ -33,3 +38,50 @@
         </div>
     </div>
 </div>
+
+<!-- Script AJAX -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('formAgregarCarrito');
+    const mensajeDiv = document.getElementById('mensajeCarrito');
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+        const idProducto = formData.get('id_producto');
+
+        fetch(`<?= base_url('Carrito/agregar/') ?>${idProducto}`, {
+            method: 'POST',
+            body: formData,
+        })
+        .then(async response => {
+            const text = await response.text();
+
+            if (response.ok && text.includes('Producto agregado')) {
+                mostrarMensaje(text, 'success');
+            } else {
+                mostrarMensaje(text || 'Error inesperado', 'danger');
+            }
+        })
+        .catch(error => {
+            console.error(error);
+            mostrarMensaje('Error al procesar la solicitud', 'danger');
+        });
+    });
+
+    function mostrarMensaje(mensaje, tipo) {
+        mensajeDiv.innerHTML = `
+            <div class="alert alert-${tipo} alert-dismissible fade show mt-3" role="alert">
+                ${mensaje}
+                <button type="button" class="btn-close" aria-label="Cerrar"></button>
+            </div>
+        `;
+
+        const btnCerrar = mensajeDiv.querySelector('.btn-close');
+        btnCerrar.addEventListener('click', () => {
+            mensajeDiv.innerHTML = '';
+        });
+    }
+});
+</script>
