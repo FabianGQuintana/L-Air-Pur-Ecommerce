@@ -67,6 +67,30 @@ class ProductosModel extends Model
                     ->where('productos.id_producto', $id)
                     ->first();
     }
+
+    //Limitadores de productos en cards por secciones
+    public function obtenerDestacados(){
+
+    return $this->where('categoria', 'Diseñador')
+                ->limit(4)
+                ->findAll();
+    }
+
+    public function obtenerExclusivos(){
+
+        return $this->where('categoria','Nicho')
+                    ->limit(4)
+                    ->findAll();
+
+    }
+
+        public function obtenerArabes(){
+
+        return $this->where('categoria','Arabes')
+                    ->limit(4)
+                    ->findAll();
+
+    }
 }
 
 

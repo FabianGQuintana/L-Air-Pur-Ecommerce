@@ -24,22 +24,25 @@ $routes->resource('UsuarioController', ['placeholder' => '(:num)']);
 $routes->group('', ['filter' => 'auth'], function($routes) {
     $routes->get('/dashboard', 'Dashboard::index');
 });
+//Perfil de usuario
+$routes->get('/Pages/PerfilUsuario', 'Pages::PerfilUsuario', ['filter' => 'auth']);
+
 
 // Rutas para Admin
-$routes->get('/Admin', 'AdminController::index');
-$routes->get('/Admin/Productos', 'AdminController::administrarProductos');
+$routes->get('/Admin', 'AdminController::index',['filter' => 'admin']);
+$routes->get('/Admin/Productos', 'AdminController::administrarProductos',['filter' => 'admin']);
 
 // Rutas para el carrito de compras
-$routes->get('/Carrito', 'CarritoController::index');
-$routes->post('/Carrito/agregar/(:num)', 'CarritoController::agregar/$1');
-$routes->get('/Carrito/eliminar/(:num)', 'CarritoController::eliminar/$1');
-$routes->get('/Carrito/quitar/(:num)', 'CarritoController::quitar/$1');
-$routes->get('/Carrito/vaciar', 'CarritoController::vaciar');
+$routes->get('/Carrito', 'CarritoController::index',['filter' => 'auth']);
+$routes->post('/Carrito/agregar/(:num)', 'CarritoController::agregar/$1',['filter' => 'auth']);
+$routes->get('/Carrito/eliminar/(:num)', 'CarritoController::eliminar/$1',['filter' => 'auth']);
+$routes->get('/Carrito/quitar/(:num)', 'CarritoController::quitar/$1',['filter' => 'auth']);
+$routes->get('/Carrito/vaciar', 'CarritoController::vaciar',['filter' => 'auth']);
 
-$routes->post('carrito/agregarAjax/(:num)', 'CarritoController::agregarAjax/$1');
-$routes->post('carrito/quitarAjax/(:num)', 'CarritoController::quitarAjax/$1');
-$routes->post('carrito/eliminarAjax/(:num)', 'CarritoController::eliminarAjax/$1');
-$routes->get('carrito/fragmento', 'CarritoController::obtenerFragmentos');
+$routes->post('carrito/agregarAjax/(:num)', 'CarritoController::agregarAjax/$1',['filter' => 'auth']);
+$routes->post('carrito/quitarAjax/(:num)', 'CarritoController::quitarAjax/$1',['filter' => 'auth']);
+$routes->post('carrito/eliminarAjax/(:num)', 'CarritoController::eliminarAjax/$1',['filter' => 'auth']);
+$routes->get('carrito/fragmento', 'CarritoController::obtenerFragmentos',['filter' => 'auth']);
 
 
 

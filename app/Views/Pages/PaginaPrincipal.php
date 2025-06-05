@@ -1,3 +1,10 @@
+<?php if(session()->getFlashdata('error')): ?>
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <?= session()->getFlashdata('error') ?>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+</div>
+<?php endif; ?>
+
 
 <!-- SEGUNDO NAVBAR (Secundario o de categorías) -->
   
@@ -64,88 +71,32 @@
     </div>
   </div>
 
-  <!-- Cards de Perfumes de Perfumes Destacados -->  
-  <hr>
-  <h2 class="titulosSeccion text-center text-uppercase mt-4 mb-4 display-6">Productos Destacados</h2>
-  <hr>
-
-  <!-- Cards de Perfumes Destacados -->
-  <section id="Destacados" class="Perfumes-Destacados">
-    <div class="container text-center">
-      <div class="row row-cols-2 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
-        
-      <div class="col mb-4">
-        <div class="card h-100 d-flex flex-column mx-auto">
-          <img src="assets/img/JeanPaulElixir.png" class="card-img-top" alt="Jean Paul Gaultier Le Male Elixir">
-          <div class="card-body">
-            <h5 class="card-title">Jean Paul Gaultier Le Male Elixir</h5>
-            <p class="precio-elegante text-center"><span class="simbolo">$</span>160.000,00</p>
-            <p class="card-text">
-              Fragancia intensa y moderna con notas dulces.
-            </p>
-            <form action="<?= base_url('Carrito/agregar/1') ?>" method="post">
-            <input type="hidden" name="cantidad" value="1">
-            <button type="submit" class="btn btn-dark">Comprar</button>
-            </form>
-          </div>
-        </div>
-      </div>
-
-
+<!-- Cards de Perfumes Destacados -->
+<hr>
+<h2 class="titulosSeccion text-center text-uppercase mt-4 mb-4 display-6">Productos Destacados</h2>
+<hr>
+<section id="Destacados" class="Perfumes-Destacados">
+  <div class="container text-center">
+    <div class="row row-cols-2 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
+      <?php foreach ($destacados as $producto): ?>
         <div class="col mb-4">
           <div class="card h-100 d-flex flex-column mx-auto">
-            <img src="assets/img/ErbaPura.png" class="card-img-top" alt="ErbaPura">
+            <img src="<?= base_url('assets/img/' . $producto['imagen']) ?>" class="card-img-top" alt="<?= esc($producto['nombre']) ?>">
             <div class="card-body">
-              <h5 class="card-title">Erba Pura Xerjoff Eau De Parfum</h5>
-              <p class="precio-elegante text-center"><span class="simbolo">$</span>180.000,00</p>
-              <p class="card-text">
-                Perfume afrutado y fresco con un toque oriental.
-              </p>
-            <form action="<?= base_url('Carrito/agregar/2') ?>" method="post">
-            <input type="hidden" name="cantidad" value="1">
-            <button type="submit" class="btn btn-dark">Comprar</button>
-            </form>
+              <h5 class="card-title"><?= esc($producto['nombre']) ?></h5>
+              <p class="precio-elegante text-center"><span class="simbolo">$</span><?= number_format($producto['precio'], 2, ',', '.') ?></p>
+              <p class="card-text"><?= esc($producto['descripcion']) ?></p>
+              <form action="<?= base_url('Carrito/agregar/' . $producto['id_producto']) ?>" method="post">
+                <input type="hidden" name="cantidad" value="1">
+                <button type="submit" class="btn btn-dark">Comprar</button>
+              </form>
             </div>
           </div>
         </div>
-
-        <div class="col mb-4">
-          <div class="card h-100 d-flex flex-column mx-auto">
-            <img src="assets/img/BossUnited.png" class="card-img-top" alt="boss-bottled-united-eau-de-toilette">
-            <div class="card-body">
-              <h5 class="card-title">Hugo Boss Bottled Eau De Parfum</h5>
-              <p class="precio-elegante text-center"><span class="simbolo">$</span>130.000,00</p>
-              <p class="card-text">
-                Aroma masculino refinado y versátil.
-              </p>
-            <form action="<?= base_url('Carrito/agregar/3') ?>" method="post">
-            <input type="hidden" name="cantidad" value="1">
-            <button type="submit" class="btn btn-dark">Comprar</button>
-            </form>
-            </div>
-          </div>
-        </div>
-
-        <div class="col mb-4">
-          <div class="card h-100 d-flex flex-column mx-auto">
-            <img src="assets/img/DiorSauvage.png" class="card-img-top" alt="Bharara King Eau de Parfum">
-            <div class="card-body">
-              <h5 class="card-title">Dior Sauvage Eau de Parfum</h5>
-              <p class="precio-elegante text-center"><span class="simbolo">$</span>105.000,00</p>
-              <p class="card-text">
-                Fragancia fresca e intensa con notas cítricas.
-              </p>
-            <form action="<?= base_url('Carrito/agregar/4') ?>" method="post">
-            <input type="hidden" name="cantidad" value="1">
-            <button type="submit" class="btn btn-dark">Comprar</button>
-            </form>
-            </div>
-          </div>
-        </div>
-
-      </div>
+      <?php endforeach; ?>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- Titulo de Carrucel de Marcas -->
 <hr>
@@ -218,80 +169,26 @@
   <hr>
     <section class="Primavera/Verano">
       <div class="container text-center">
-        <div class="row row-cols-2 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
-          
-          <div class="col mb-4">
-            <div class="card h-100 d-flex flex-column mx-auto">
-              <img src="assets/img/nishane.png" class="card-img-top" alt="Logo de Ani Nishane Extrait de Parfum">
-              <div class="card-body">
-                <h5 class="card-title">Ani Nishane Extrait de Parfum</h5>
-                <p class="precio-elegante text-center"><span class="simbolo">$</span>250.000,00</p>
-                <p class="card-text">
-                  Aroma cálido y especiado con notas orientales y dulce.
-                </p>
-            <form action="<?= base_url('Carrito/agregar/5') ?>" method="post">
-            <input type="hidden" name="cantidad" value="1">
-            <button type="submit" class="btn btn-dark">Comprar</button>
-            </form>
-              </div>
+    <div class="row row-cols-2 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
+      <?php foreach ($exclusivos as $producto): ?>
+        <div class="col mb-4">
+          <div class="card h-100 d-flex flex-column mx-auto">
+            <img src="<?= base_url('assets/img/' . $producto['imagen']) ?>" class="card-img-top" alt="<?= esc($producto['nombre']) ?>">
+            <div class="card-body">
+              <h5 class="card-title"><?= esc($producto['nombre']) ?></h5>
+              <p class="precio-elegante text-center"><span class="simbolo">$</span><?= number_format($producto['precio'], 2, ',', '.') ?></p>
+              <p class="card-text"><?= esc($producto['descripcion']) ?></p>
+              <form action="<?= base_url('Carrito/agregar/' . $producto['id_producto']) ?>" method="post">
+                <input type="hidden" name="cantidad" value="1">
+                <button type="submit" class="btn btn-dark">Comprar</button>
+              </form>
             </div>
           </div>
-
-          <div class="col mb-4">
-            <div class="card h-100 d-flex flex-column mx-auto">
-              <img src="assets/img/CreedAventus.png" class="card-img-top" alt="Logo de Creed Aventus Eau de Parfum">
-              <div class="card-body">
-                <h5 class="card-title">Creed Aventus Eau de Parfum</h5>
-                <p class="precio-elegante text-center"><span class="simbolo">$</span>495.000,00</p>
-                <p class="card-text">
-                  Fragancia masculina fresca y afrutada con un fondo amaderado.
-                </p>
-            <form action="<?= base_url('Carrito/agregar/6') ?>" method="post">
-            <input type="hidden" name="cantidad" value="1">
-            <button type="submit" class="btn btn-dark">Comprar</button>
-            </form>
-              </div>
-            </div>
-          </div>
-
-          <div class="col mb-4">
-            <div class="card h-100 d-flex flex-column mx-auto">
-              <img src="assets/img/InitioParfums.png" class="card-img-top" alt="Logo de Side Effect Initio Eau de Parfum">
-              <div class="card-body">
-                <h5 class="card-title">Side Effect Initio Eau de Parfum</h5>
-                <p class="precio-elegante text-center"><span class="simbolo">$</span>400.000,00</p>
-                <p class="card-text">
-                  Intenso y sensual con matices ambarinos y especiados.
-                </p>
-            <form action="<?= base_url('Carrito/agregar/7') ?>" method="post">
-            <input type="hidden" name="cantidad" value="1">
-            <button type="submit" class="btn btn-dark">Comprar</button>
-            </form>
-              </div>
-            </div>
-          </div>
-
-          <div class="col mb-4">
-            <div class="card h-100 d-flex flex-column mx-auto">
-              <img src="assets/img/MaisonFrancisKurkdjian.jpg" class="card-img-top" alt="Logo de Maison Francis Kurkdjian Eau de Parfum">
-              <div class="card-body">
-                <h5 class="card-title">Maison Francis Kurkdjian</h5>
-                <p class="precio-elegante text-center"><span class="simbolo">$</span>144.000,00</p>
-                <p class="card-text">
-                  Perfume fresco y limpio con notas cítricas y florales
-                </p>
-            <form action="<?= base_url('Carrito/agregar/8') ?>" method="post">
-            <input type="hidden" name="cantidad" value="1">
-            <button type="submit" class="btn btn-dark">Comprar</button>
-            </form>
-              </div>
-            </div>
-          </div>
-
         </div>
-      </div>
-      <hr>
-    </section>
+      <?php endforeach; ?>
+    </div>
+  </div>
+</section>
 
     <!-- BANNER PERFUMES ARABES -->
     <div class="container-fluid px-0">
@@ -312,78 +209,26 @@
   <!-- Cards de Perfumes Arabes Destacados -->
   <section class="Perfumes-Arabes-Destacados">
     <div class="container text-center">
-      <div class="row row-cols-2 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
-        
+    <div class="row row-cols-2 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
+      <?php foreach ($arabes as $producto): ?>
         <div class="col mb-4">
           <div class="card h-100 d-flex flex-column mx-auto">
-            <img src="assets/img/9pmAfnan.png" class="card-img-top" alt="Logo de Afnan 9PM Eau de Parfum">
+            <img src="<?= base_url('assets/img/' . $producto['imagen']) ?>" class="card-img-top" alt="<?= esc($producto['nombre']) ?>">
             <div class="card-body">
-              <h5 class="card-title">Afnan 9PM Eau de Parfum</h5>
-              <p class="precio-elegante text-center"><span class="simbolo">$</span>70.000,00</p>
-              <p class="card-text">
-                9PM de Afnan es una fragancia dulce, cálida y envolvente.
-              </p>
-            <form action="<?= base_url('Carrito/agregar/9') ?>" method="post">
-            <input type="hidden" name="cantidad" value="1">
-            <button type="submit" class="btn btn-dark">Comprar</button>
-            </form>
+              <h5 class="card-title"><?= esc($producto['nombre']) ?></h5>
+              <p class="precio-elegante text-center"><span class="simbolo">$</span><?= number_format($producto['precio'], 2, ',', '.') ?></p>
+              <p class="card-text"><?= esc($producto['descripcion']) ?></p>
+              <form action="<?= base_url('Carrito/agregar/' . $producto['id_producto']) ?>" method="post">
+                <input type="hidden" name="cantidad" value="1">
+                <button type="submit" class="btn btn-dark">Comprar</button>
+              </form>
             </div>
           </div>
         </div>
-
-        <div class="col mb-4">
-          <div class="card h-100 d-flex flex-column mx-auto">
-            <img src="assets/img/HonorAndGlory.png" class="card-img-top" alt="Logo de HonorAndGlory">
-            <div class="card-body">
-              <h5 class="card-title">Honor and Glory Eau de Parfum</h5>
-              <p class="precio-elegante text-center"><span class="simbolo">$</span>55.000,00</p>
-              <p class="card-text">
-                Perfume potente y vibrante con acordes especiados y amaderados.
-              </p>
-            <form action="<?= base_url('Carrito/agregar/10') ?>" method="post">
-            <input type="hidden" name="cantidad" value="1">
-            <button type="submit" class="btn btn-dark">Comprar</button>
-            </form>
-            </div>
-          </div>
-        </div>
-
-        <div class="col mb-4">
-          <div class="card h-100 d-flex flex-column mx-auto">
-            <img src="assets/img/LattafaKhanra.png" class="card-img-top" alt="Logo de Lattafa Khanra eau de toilette">
-            <div class="card-body">
-              <h5 class="card-title">Lattafa Khamrah Eau de Parfum</h5>
-              <p class="precio-elegante text-center"><span class="simbolo">$</span>60.000,00</p>
-              <p class="card-text">
-                Fragancia oriental dulce con notas de canela, dátiles y vainilla.
-              </p>
-            <form action="<?= base_url('Carrito/agregar/11') ?>" method="post">
-            <input type="hidden" name="cantidad" value="1">
-            <button type="submit" class="btn btn-dark">Comprar</button>
-            </form>
-            </div>
-          </div>
-        </div>
-
-        <div class="col mb-4">
-          <div class="card h-100 d-flex flex-column mx-auto">
-            <img src="assets/img/BhararaKing.png" class="card-img-top" alt="Bharara King Eau de Parfum">
-            <div class="card-body">
-              <h5 class="card-title">Bharara King Eau de Parfum</h5>
-              <p class="precio-elegante text-center"><span class="simbolo">$</span>110.000,00</p>
-              <p class="card-text">
-                Combina notas frescas y especiadas con un corazón amaderado.
-              </p>
-            <form action="<?= base_url('Carrito/agregar/12') ?>" method="post">
-            <input type="hidden" name="cantidad" value="1">
-            <button type="submit" class="btn btn-dark">Comprar</button>
-            </form>
-          </div>
-        </div>
-
-      </div>
+      <?php endforeach; ?>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- Reseña de Reseña Jean Paul Gaultier Le Male Elixir -->
   <section id="Review" class="py-5 bg-light">

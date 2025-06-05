@@ -51,6 +51,7 @@ class CarritoController extends BaseController
     public function agregar($idProducto)
     {
         $session = session();
+        
         $carrito = $session->get('carrito') ?? [];
 
         $cantidadSolicitada = $this->request->getPost('cantidad');

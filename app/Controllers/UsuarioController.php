@@ -13,9 +13,9 @@ class UsuarioController extends BaseController
 
         if ($busqueda) {
             $usuarios = $usuarioModel->like('nombre', $busqueda)
-                                       ->orLike('apellido', $busqueda)
-                                       ->orLike('email', $busqueda)
-                                       ->findAll();
+                                    ->orLike('apellido', $busqueda)
+                                    ->orLike('email', $busqueda)
+                                    ->findAll();
         } else {
             $usuarios = $usuarioModel->findAll();
         }
@@ -72,7 +72,8 @@ class UsuarioController extends BaseController
                 'nombre'     => $usuario['nombre'],
                 'apellido'   => $usuario['apellido'],
                 'telefono'   => $usuario['telefono'],
-                'email'      => $usuario['email']
+                'email'      => $usuario['email'],
+                'rol'        =>$usuario['rol']
             ]);
             return redirect()->to('/')->with('success', '¡Inicio de sesión exitoso!');
         }
@@ -151,6 +152,22 @@ class UsuarioController extends BaseController
 
         $model->insert($data);
         return redirect()->to('/Auth/Login')->with('success', 'Usuario registrado correctamente');
+    }
+
+    public function perfil()
+    {
+        $usuario = session('usuario_logueado');
+
+        return view('Templates/main_layout', [
+            'title' => 'Mi Perfil',
+            'content' => view('Pages/PerfilUsuario', ['usuario' => $usuario])
+        ]);
+    }
+
+    public function logout()
+    {
+        session()->destroy();
+        return redirect()->to('/Auth/Login')->with('success', 'Sesión cerrada correctamente.');
     }
 
 }

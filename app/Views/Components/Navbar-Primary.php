@@ -25,15 +25,35 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- ÍCONOS Login y Carrito -->
-    <div class="d-flex gap-3 align-items-center order-2 order-lg-3 flex-lg-row">
-      <a class="nav-link text-white text-center" href="<?= base_url('/Auth/Login') ?>">
+<!-- ÍCONOS Login y Carrito -->
+<div class="d-flex gap-3 align-items-center order-2 order-lg-3 flex-lg-row">
+  <?php if (session()->has('usuario_logueado')): ?>
+    <?php
+      $usuario = session('usuario_logueado');
+      $rol = $usuario['rol'] ?? 'cliente';
+    ?>
+    <div class="dropdown">
+      <a class="nav-link text-white text-center dropdown-toggle" href="#" role="button" id="dropdownUsuario" data-bs-toggle="dropdown" aria-expanded="false">
         <i class="bi bi-person-circle fs-2"></i>
       </a>
-      <a class="nav-link text-white text-center" href="<?= base_url('/Carrito') ?>">
-        <i class="bi bi-cart3 fs-2"></i>
-      </a>
+      <ul class="dropdown-menu dropdown-menu-end bg-dark text-white" aria-labelledby="dropdownUsuario">
+        <li><a class="dropdown-item text-white" href="<?= base_url('/Pages/PerfilUsuario') ?>">Perfil</a></li>
+        <li><hr class="dropdown-divider bg-secondary"></li>
+        <li><a class="dropdown-item text-white" href="<?= base_url('/Logout') ?>">Cerrar sesión</a></li>
+      </ul>
     </div>
+  <?php else: ?>
+    <a class="nav-link text-white text-center" href="<?= base_url('/Auth/Login') ?>">
+      <i class="bi bi-person-circle fs-2"></i>
+    </a>
+  <?php endif; ?>
+
+  <a class="nav-link text-white text-center" href="<?= base_url('/Carrito') ?>">
+    <i class="bi bi-cart3 fs-2"></i>
+  </a>
+</div>
+
+
 
     <!-- MENÚ COLAPSABLE -->
     <div class="collapse navbar-collapse order-4 order-lg-1 justify-content-center" id="navbarContent">
@@ -51,8 +71,8 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="<?= base_url('Productos') ?>">Todos</a></li>
             <li><a class="dropdown-item" href="<?= base_url('Productos?categorias[]=1') ?>">Nicho</a></li>
-            <li><a class="dropdown-item" href="<?= base_url('Productos?categorias[]=2') ?>">Diseñador</a></li>
-            <li><a class="dropdown-item" href="<?= base_url('Productos?categorias[]=3') ?>">Arabes</a></li>
+            <li><a class="dropdown-item" href="<?= base_url('Productos?categorias[]=2') ?>">Arabes</a></li>
+            <li><a class="dropdown-item" href="<?= base_url('Productos?categorias[]=3') ?>">Diseñador</a></li>
           </ul>
         </li>
 
