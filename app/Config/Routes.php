@@ -27,6 +27,14 @@ $routes->group('', ['filter' => 'auth'], function($routes) {
 //Perfil de usuario
 $routes->get('/Pages/PerfilUsuario', 'Pages::PerfilUsuario', ['filter' => 'auth']);
 
+//Editar perfil usuario
+$routes->get('/Pages/EditarPerfilUsuario', 'UsuarioController::editarPerfil');
+
+
+//Actualizar usuario
+$routes->post('/Pages/ActualizarUsuario', 'UsuarioController::actualizarUsuario');
+
+
 
 // Rutas para Admin
 $routes->get('/Admin', 'AdminController::index',['filter' => 'admin']);

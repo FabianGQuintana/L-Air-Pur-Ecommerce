@@ -170,4 +170,46 @@ class UsuarioController extends BaseController
         return redirect()->to('/Auth/Login')->with('success', 'Sesión cerrada correctamente.');
     }
 
+    public function editarPerfil()
+    {
+        $usuario = session('usuario_logueado');
+
+        if (!$usuario) {
+            return redirect()->to('/Auth/Login');
+        }
+
+        return view('Templates/main_layout', [
+            'title'   => 'Editar Perfil',
+            'content' => view('Pages/EditarPerfilUsuario', ['usuario' => $usuario])
+        ]);
+    }
+
+
+    public function actualizarUsuario()
+    {
+        $session = session();
+        $usuario = $session->get('usuario_logueado');
+
+        if (!$usuario) {
+            return redirect()->to('/Auth/Login');
+        }
+
+        $model = new \App\Models\UsuarioModel();
+
+        $data = [
+            'nombre'   => $this->request->getPost('nombre'),
+            'apellido' => $this->request->getPost('apellido'),
+            'telefono' => $this->request->getPost('telefono')
+        ];
+
+        $model->update($usuario['id_usuario'], $data);
+
+        // Actualizar datos en la sesión
+        $usuario = array_merge($usuario, $data);
+        $session->set('usuario_logueado', $usuario);
+
+        return redirect()->to('/Pages/PerfilUsuario')->with('success', 'Perfil actualizado correctamente');
+    }
+
+
 }

@@ -73,15 +73,70 @@ class Pages extends BaseController
 
     public function PerfilUsuario()
     {
-        $usuario = session('usuario_logueado');
+        $session = session();
+        $usuario = $session->get('usuario_logueado');
 
+        if (!$usuario) {
+            return redirect()->to('/Auth/Login');
+        }
+
+        // === CARRITO ACTUAL DESDE SESIÓN ===
+        $carrito = $session->get('carrito') ?? [];
+        $productosModel = new \App\Models\ProductosModel();
+
+        $itemsCarrito = [];
+        $totalCarrito = 0;
+
+        foreach ($carrito as $idProducto => $item) {
+            $producto = $productosModel->obtenerProductoConDetalles($idProducto);
+            if ($producto) {
+                $subtotal = $producto['precio'] * $item['cantidad'];
+                $totalCarrito += $subtotal;
+
+                $itemsCarrito[] = [
+                    'id' => $idProducto,
+                    'nombre' => $producto['nombre'],
+                    'marca' => $producto['marca'],
+                    'categoria' => $producto['categoria'],
+                    'precio' => $producto['precio'],
+                    'cantidad' => $item['cantidad'],
+                    'subtotal' => $subtotal,
+                    'imagen' => $producto['imagen'],
+                ];
+            }
+        }
+
+        // === HISTORIAL DE COMPRAS ===
+        $facturaModel = new \App\Models\FacturaModel();
+        $detalleModel = new \App\Models\DetalleFacturaModel();
+
+        // Buscar facturas del usuario
+        $facturas = $facturaModel->where('id_usuario', $usuario['id_usuario'])
+                                ->orderBy('fecha', 'DESC')
+                                ->findAll();
+
+        // Agregar detalles a cada factura
+        foreach ($facturas as &$factura) {
+            $factura['detalles'] = $detalleModel->obtenerDetallesConProducto($factura['id_factura']);
+        }
+
+        // === CARGAR VISTA ===
         $data = [
             'title' => 'Perfil de Usuario - L’Air Pur',
-            'content' => view('Pages/PerfilUsuario', ['usuario' => $usuario])
+            'content' => view('Pages/PerfilUsuario', [
+                'usuario' => $usuario,
+                'itemsCarrito' => $itemsCarrito,
+                'totalCarrito' => $totalCarrito,
+                'facturas' => $facturas
+            ])
         ];
 
         return view('Templates/main_layout', $data);
     }
+
+
+
+    
 
 
 }
