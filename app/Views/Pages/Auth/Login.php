@@ -1,4 +1,5 @@
-<?php helper(['cookie', 'form']); ?>
+<?php helper('cookie'); ?>
+
 <link rel="stylesheet" href="<?= base_url('assets/css/StyleLogin.css') ?>">
 
 <div class="container mt-5">
