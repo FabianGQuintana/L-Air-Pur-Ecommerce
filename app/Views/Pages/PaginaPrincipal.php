@@ -81,15 +81,14 @@
       <?php foreach ($destacados as $producto): ?>
         <div class="col mb-4">
           <div class="card h-100 d-flex flex-column mx-auto">
+            <a href="<?= base_url('Productos/' . $producto['id_producto']) ?>" class="text-decoration-none text-dark">
             <img src="<?= base_url('assets/img/' . $producto['imagen']) ?>" class="card-img-top" alt="<?= esc($producto['nombre']) ?>">
             <div class="card-body">
               <h5 class="card-title"><?= esc($producto['nombre']) ?></h5>
               <p class="precio-elegante text-center"><span class="simbolo">$</span><?= number_format($producto['precio'], 2, ',', '.') ?></p>
-              <p class="card-text"><?= esc($producto['descripcion']) ?></p>
-              <form action="<?= base_url('Carrito/agregar/' . $producto['id_producto']) ?>" method="post">
-                <input type="hidden" name="cantidad" value="1">
-                <button type="submit" class="btn btn-dark">Comprar</button>
-              </form>
+              <div class="card-footer bg-transparent border-0">
+                <a href="<?= base_url('Productos/' . $producto['id_producto']) ?>" class="btn btn-dark w-100">Ver Detalle</a>
+              </div>
             </div>
           </div>
         </div>
@@ -173,15 +172,14 @@
       <?php foreach ($exclusivos as $producto): ?>
         <div class="col mb-4">
           <div class="card h-100 d-flex flex-column mx-auto">
+            <a href="<?= base_url('Productos/' . $producto['id_producto']) ?>" class="text-decoration-none text-dark">
             <img src="<?= base_url('assets/img/' . $producto['imagen']) ?>" class="card-img-top" alt="<?= esc($producto['nombre']) ?>">
             <div class="card-body">
               <h5 class="card-title"><?= esc($producto['nombre']) ?></h5>
               <p class="precio-elegante text-center"><span class="simbolo">$</span><?= number_format($producto['precio'], 2, ',', '.') ?></p>
-              <p class="card-text"><?= esc($producto['descripcion']) ?></p>
-              <form action="<?= base_url('Carrito/agregar/' . $producto['id_producto']) ?>" method="post">
-                <input type="hidden" name="cantidad" value="1">
-                <button type="submit" class="btn btn-dark">Comprar</button>
-              </form>
+              <div class="card-footer bg-transparent border-0">
+                <a href="<?= base_url('Productos/' . $producto['id_producto']) ?>" class="btn btn-dark w-100">Ver Detalle</a>
+              </div>
             </div>
           </div>
         </div>
@@ -213,15 +211,14 @@
       <?php foreach ($arabes as $producto): ?>
         <div class="col mb-4">
           <div class="card h-100 d-flex flex-column mx-auto">
+            <a href="<?= base_url('Productos/' . $producto['id_producto']) ?>" class="text-decoration-none text-dark">
             <img src="<?= base_url('assets/img/' . $producto['imagen']) ?>" class="card-img-top" alt="<?= esc($producto['nombre']) ?>">
             <div class="card-body">
               <h5 class="card-title"><?= esc($producto['nombre']) ?></h5>
               <p class="precio-elegante text-center"><span class="simbolo">$</span><?= number_format($producto['precio'], 2, ',', '.') ?></p>
-              <p class="card-text"><?= esc($producto['descripcion']) ?></p>
-              <form action="<?= base_url('Carrito/agregar/' . $producto['id_producto']) ?>" method="post">
-                <input type="hidden" name="cantidad" value="1">
-                <button type="submit" class="btn btn-dark">Comprar</button>
-              </form>
+              <div class="card-footer bg-transparent border-0">
+                <a href="<?= base_url('Productos/' . $producto['id_producto']) ?>" class="btn btn-dark w-100">Ver Detalle</a>
+              </div>
             </div>
           </div>
         </div>

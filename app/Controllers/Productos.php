@@ -62,13 +62,27 @@ class Productos extends BaseController
         if (!$producto) {
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Producto no encontrado");
         }
-        
+
+        // Obtener el carrito de la sesión
+        $session = session();
+        $carrito = $session->get('carrito') ?? [];
+
+        // Verificar si ya hay unidades de este producto en el carrito
+        $cantidadEnCarrito = isset($carrito[$id]) ? (int)$carrito[$id]['cantidad'] : 0;
+
+        // Calcular stock virtual (el que se debería mostrar)
+        $stockVirtual = max(0, (int)$producto['cantidad'] - $cantidadEnCarrito);
+
+        // Reemplazar en el array para que la vista lo use directamente
+        $producto['cantidad'] = $stockVirtual;
+
         $data['producto'] = $producto;
         $data['title'] = 'Producto - L’Air Pur';
         $data['content'] = view('Pages/DetalleProducto', $data);
 
         return view('Templates/main_layout', $data);
     }
+
 
     /**
      * Return a new resource object, with default properties.

@@ -51,36 +51,79 @@ class CarritoController extends BaseController
     public function agregar($idProducto)
     {
         $session = session();
-        
-        $carrito = $session->get('carrito') ?? [];
+        $usuario = $session->get('usuario_logueado');
+        $request = \Config\Services::request();
 
-        $cantidadSolicitada = $this->request->getPost('cantidad');
-        $cantidadSolicitada = (is_numeric($cantidadSolicitada) && $cantidadSolicitada > 0) ? intval($cantidadSolicitada) : 1;
+        if (!$usuario || !isset($usuario['id_usuario'])) {
+            if ($request->isAJAX()) {
+                return $this->response
+                    ->setStatusCode(401)
+                    ->setJSON(['redirect' => base_url('/Auth/Login')]);
+            } else {
+                return redirect()->to('/Auth/Login');
+            }
+        }
 
-        $productosModel = new \App\Models\ProductosModel();
-        $producto = $productosModel->obtenerProductoConDetalles($idProducto);
+        $cantidad = (int) $this->request->getPost('cantidad');
+
+        if ($cantidad < 1) {
+            return $this->response
+                ->setStatusCode(400)
+                ->setBody('Cantidad inválida');
+        }
+
+        $productoModel = new ProductosModel();
+        $producto = $productoModel->find($idProducto);
 
         if (!$producto) {
-            return $this->response->setStatusCode(400)->setBody('Producto no encontrado');
+            return $this->response
+                ->setStatusCode(404)
+                ->setBody('Producto no encontrado');
         }
 
-        $stockDisponible = intval($producto['cantidad']);
-        $cantidadActualEnCarrito = isset($carrito[$idProducto]) ? $carrito[$idProducto]['cantidad'] : 0;
-        $cantidadFinal = $cantidadActualEnCarrito + $cantidadSolicitada;
-
-        if ($cantidadFinal > $stockDisponible) {
-            return $this->response->setStatusCode(400)->setBody('No hay suficiente stock disponible');
+        if (!$session->has('carrito')) {
+            $session->set('carrito', []);
         }
 
-        $carrito[$idProducto] = [
-            'id' => $idProducto,
-            'cantidad' => $cantidadFinal
-        ];
+        $carrito = $session->get('carrito');
+
+        $cantidadExistente = isset($carrito[$idProducto]) ? (int) $carrito[$idProducto]['cantidad'] : 0;
+        $stockDisponibleReal = (int) $producto['cantidad'];
+        $stockDisponibleVirtual = $stockDisponibleReal - $cantidadExistente;
+
+        // Validar stock disponible
+        if ($cantidad > $stockDisponibleVirtual) {
+            return $this->response
+                ->setStatusCode(400)
+                ->setBody("No hay suficiente stock disponible. Stock virtual actual: $stockDisponibleVirtual");
+        }
+
+        // Agregar al carrito
+        if (isset($carrito[$idProducto])) {
+            $carrito[$idProducto]['cantidad'] += $cantidad;
+        } else {
+            $carrito[$idProducto] = [
+                'id_producto' => $idProducto,
+                'nombre' => $producto['nombre'],
+                'precio' => $producto['precio'],
+                'cantidad' => $cantidad,
+                'imagen' => $producto['imagen']
+            ];
+        }
 
         $session->set('carrito', $carrito);
 
-        return $this->response->setStatusCode(200)->setBody('Producto agregado al carrito');
+        // Calcular stock virtual restante
+        $cantidadTotalEnCarrito = $carrito[$idProducto]['cantidad'];
+        $stockDisponible = max(0, $producto['cantidad'] - $cantidadTotalEnCarrito);
+
+        return $this->response->setJSON([
+            'success' => true,
+            'mensaje' => 'Producto agregado al carrito',
+            'stock_disponible' => $stockDisponible
+        ]);
     }
+
 
     public function quitar($idProducto)
     {

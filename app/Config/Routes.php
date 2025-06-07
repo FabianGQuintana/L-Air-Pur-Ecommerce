@@ -42,7 +42,7 @@ $routes->get('/Admin/Productos', 'AdminController::administrarProductos',['filte
 
 // Rutas para el carrito de compras
 $routes->get('/Carrito', 'CarritoController::index',['filter' => 'auth']);
-$routes->post('/Carrito/agregar/(:num)', 'CarritoController::agregar/$1',['filter' => 'auth']);
+$routes->post('/Carrito/agregar/(:num)', 'CarritoController::agregar/$1');
 $routes->get('/Carrito/eliminar/(:num)', 'CarritoController::eliminar/$1',['filter' => 'auth']);
 $routes->get('/Carrito/quitar/(:num)', 'CarritoController::quitar/$1',['filter' => 'auth']);
 $routes->get('/Carrito/vaciar', 'CarritoController::vaciar',['filter' => 'auth']);
