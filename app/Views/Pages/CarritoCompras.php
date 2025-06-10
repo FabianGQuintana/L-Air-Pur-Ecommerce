@@ -50,18 +50,18 @@ function actualizarCarrito(accion, id) {
             'X-Requested-With': 'XMLHttpRequest',
             'Content-Type': 'application/x-www-form-urlencoded'
         },
-        body: '' // Aunque esté vacío, debe ir
+        body: ''
     })
-    .then(response => {
-        if (!response.ok) throw new Error('Error en la respuesta AJAX');
-        return response.json();
-    })
+    .then(response => response.json())
     .then(data => {
+        if (data.error) {
+            alert(data.mensaje);
+            return;
+        }
+
         if (data.productos && data.resumen) {
             document.querySelector('#carrito-items').innerHTML = data.productos;
             document.querySelector('#resumen-carrito').innerHTML = data.resumen;
-        } else {
-            console.warn('Respuesta inesperada:', data);
         }
     })
     .catch(error => {

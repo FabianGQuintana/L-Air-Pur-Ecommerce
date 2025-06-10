@@ -25,8 +25,9 @@
     </header>
 
     <main>
-        <?= $content ?? '' ?>
+        <?= isset($content) ? $content : $this->renderSection('content') ?>
     </main>
+
 
     <footer class="bg-dark text-light pt-3 pb-3 mt-5">
         <!-- Pie de página -->
@@ -35,5 +36,6 @@
 
     <!-- JS -->
     <script src="<?= base_url('assets/js/bootstrap.bundle.min.js') ?>"></script>
+    <?= $this->renderSection('popup') ?>
 </body>
 </html>

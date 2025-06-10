@@ -22,7 +22,9 @@ class CarritoController extends BaseController
             $producto = $productosModel->obtenerProductoConDetalles($idProducto);
 
             if ($producto) {
-                $subtotal = $producto['precio'] * $item['cantidad'];
+                $cantidadDisponible = $producto['cantidad'];
+                $cantidad = min($item['cantidad'], $cantidadDisponible);
+                $subtotal = $producto['precio'] * $cantidad;
                 $total += $subtotal;
 
                 $items[] = [
@@ -31,9 +33,10 @@ class CarritoController extends BaseController
                     'marca' => $producto['marca'],
                     'categoria' => $producto['categoria'],
                     'precio' => $producto['precio'],
-                    'cantidad' => $item['cantidad'],
+                    'cantidad' => $cantidad,
                     'subtotal' => $subtotal,
                     'imagen' => $producto['imagen'],
+                    'stock' => $cantidadDisponible
                 ];
             }
         }
@@ -169,7 +172,7 @@ class CarritoController extends BaseController
         return redirect()->back()->with('success', 'Carrito vaciado');
     }
 
-    private function obtenerDatosCarrito()
+    private function obtenerDatosCarrito() 
     {
         $session = session();
         $carrito = $session->get('carrito') ?? [];
@@ -181,7 +184,9 @@ class CarritoController extends BaseController
         foreach ($carrito as $idProducto => $item) {
             $producto = $productosModel->obtenerProductoConDetalles($idProducto);
             if ($producto) {
-                $subtotal = $producto['precio'] * $item['cantidad'];
+                $cantidadDisponible = $producto['cantidad'];
+                $cantidad = min($item['cantidad'], $cantidadDisponible);
+                $subtotal = $producto['precio'] * $cantidad;
                 $total += $subtotal;
 
                 $items[] = [
@@ -190,9 +195,10 @@ class CarritoController extends BaseController
                     'marca' => $producto['marca'],
                     'categoria' => $producto['categoria'],
                     'precio' => $producto['precio'],
-                    'cantidad' => $item['cantidad'],
+                    'cantidad' => $cantidad,
                     'subtotal' => $subtotal,
                     'imagen' => $producto['imagen'],
+                    'stock' => $cantidadDisponible
                 ];
             }
         }
@@ -204,6 +210,16 @@ class CarritoController extends BaseController
     {
         $session = session();
         $carrito = $session->get('carrito') ?? [];
+
+        $productosModel = new \App\Models\ProductosModel();
+        $producto = $productosModel->obtenerProductoConDetalles($id);
+
+        if (!$producto || $producto['cantidad'] <= ($carrito[$id]['cantidad'] ?? 0)) {
+            return $this->response->setJSON([
+                'error' => true,
+                'mensaje' => 'No hay suficiente stock disponible para este producto.'
+            ]);
+        }
 
         $carrito[$id]['cantidad'] = ($carrito[$id]['cantidad'] ?? 0) + 1;
         $session->set('carrito', $carrito);
@@ -247,5 +263,5 @@ class CarritoController extends BaseController
             'resumen' => view('Fragments/ResumenCarrito', $datos)
         ];
     }
-
+    
 }
