@@ -16,3 +16,15 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.3) !important;
 }
 
+/* Acomoda el ícono de password dentro del input */
+.toggle-password {
+    right: 1rem;
+    top: 70%;
+    transform: translateY(-50%);
+    position: absolute;
+    cursor: pointer;
+    color: #333;
+    font-size: 1.2rem;
+    z-index: 10;
+}
+

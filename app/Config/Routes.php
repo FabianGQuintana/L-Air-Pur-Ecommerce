@@ -39,6 +39,8 @@ $routes->post('/Pages/ActualizarUsuario', 'UsuarioController::actualizarUsuario'
 // Rutas para Admin
 $routes->get('/Admin', 'AdminController::index',['filter' => 'admin']);
 $routes->get('/Admin/Productos', 'AdminController::administrarProductos',['filter' => 'admin']);
+$routes->get('/Admin', 'AdminController::index',['filter' => 'admin']);
+$routes->get('/UsuarioController', 'AdminController::index',['filter' => 'admin']);
 
 // Rutas para el carrito de compras
 $routes->get('/Carrito', 'CarritoController::index',['filter' => 'auth']);

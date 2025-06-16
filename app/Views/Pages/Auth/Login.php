@@ -30,14 +30,15 @@
                     <form action="<?= base_url('/Auth/doLogin') ?>" method="post">
                         <div class="mb-3">
                             <label for="email" class="form-label">Correo electrónico</label>
-                            <input type="email" class="form-control" name="email" id="email" 
+                            <input type="email" class="form-control" name="email" id="email"
                                 placeholder="ejemplo@correo.com"
                                 value="<?= old('email', get_cookie('remember_email')) ?>" required>
                         </div>
 
-                        <div class="mb-3">
+                        <div class="mb-3 position-relative">
                             <label for="password" class="form-label">Contraseña</label>
-                            <input type="password" class="form-control" name="password" id="password" placeholder="••••••••" required>
+                            <input type="password" class="form-control password-input" name="password" id="password" placeholder="Contraseña" required>
+                            <i class="bi bi-eye-fill toggle-password"></i>
                         </div>
 
                         <div class="form-check mb-3">
@@ -56,3 +57,18 @@
         </div>
     </div>
 </div>
+
+<!-- Script para mostrar/ocultar la contraseña -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const toggle = document.querySelector('.toggle-password');
+    const passwordInput = document.getElementById('password');
+
+    toggle.addEventListener('click', function () {
+        const isPassword = passwordInput.type === 'password';
+        passwordInput.type = isPassword ? 'text' : 'password';
+        this.classList.toggle('bi-eye-fill');
+        this.classList.toggle('bi-eye-slash-fill');
+    });
+});
+</script>
