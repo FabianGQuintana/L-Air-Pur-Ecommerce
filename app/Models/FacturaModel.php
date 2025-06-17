@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class FacturaModel extends Model
 {
-    protected $table = 'factura';
+    protected $table = 'facturas';
     protected $primaryKey = 'id_factura';
 
     protected $allowedFields = [
