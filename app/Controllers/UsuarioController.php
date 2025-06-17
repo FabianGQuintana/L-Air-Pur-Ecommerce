@@ -55,28 +55,35 @@ class UsuarioController extends BaseController
             ]
         ];
 
-        if (! $this->validate($rules, $messages)) {
-            return redirect()->back()->withInput()->with('validation', $this->validator);
-        }
+            if (! $this->validate($rules, $messages)) {
+                return redirect()->back()->withInput()->with('validation', $this->validator);
+            }
 
-        $session = session();
-        $model = new UsuarioModel();
-        $email = $this->request->getPost('email');
-        $pass = $this->request->getPost('password');
+            $session = session();
+            $model = new UsuarioModel();
+            $email = $this->request->getPost('email');
+            $pass = $this->request->getPost('password');
 
-        $usuario = $model->where('email', $email)->first();
+            $usuario = $model->where('email', $email)->first();
 
-        if ($usuario && password_verify($pass, $usuario['password_hash'])) {
+            if ($usuario && password_verify($pass, $usuario['password_hash'])) {
             $session->set('usuario_logueado', [
-                'id_usuario' => $usuario['id_usuario'],
-                'nombre'     => $usuario['nombre'],
-                'apellido'   => $usuario['apellido'],
-                'telefono'   => $usuario['telefono'],
-                'email'      => $usuario['email'],
-                'rol'        =>$usuario['rol']
-            ]);
+            'id_usuario' => $usuario['id_usuario'],
+            'nombre'     => $usuario['nombre'],
+            'apellido'   => $usuario['apellido'],
+            'telefono'   => $usuario['telefono'],
+            'email'      => $usuario['email'],
+            'rol'        => $usuario['rol']
+        ]);
+
+        // Redirección condicional según rol
+        if ($usuario['rol'] === 'admin') {
+            return redirect()->to('/Admin')->with('success', '¡Bienvenido, administrador!');
+        } else {
             return redirect()->to('/')->with('success', '¡Inicio de sesión exitoso!');
         }
+    }
+
 
         return redirect()->back()->withInput()->with('error', 'Email o contraseña incorrectos');
     }
