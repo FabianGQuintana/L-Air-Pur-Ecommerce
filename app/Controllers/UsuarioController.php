@@ -99,10 +99,10 @@ class UsuarioController extends BaseController
     public function doRegister()
     {
         $rules = [
-            'nombre'            => 'required|min_length[3]',
-            'apellido'          => 'required|min_length[3]',
+            'nombre' => 'required|min_length[3]|regex_match[/^[\p{L}\s]+$/u]',
+            'apellido' => 'required|min_length[3]|regex_match[/^[\p{L}\s]+$/u]',
             'telefono'          => 'permit_empty|regex_match[/^[0-9\-\s\(\)]+$/]',
-            'email'             => 'required|valid_email',
+            'email'             => 'required|valid_email|is_unique[usuarios.email]',
             'emailConfirmar'    => 'required|matches[email]',
             'password_hash'     => 'required|min_length[6]',
             'passwordConfirmar' => 'required|matches[password_hash]'
@@ -111,18 +111,21 @@ class UsuarioController extends BaseController
         $messages = [
             'nombre' => [
                 'required'    => 'El nombre es obligatorio.',
-                'min_length'  => 'El nombre debe tener al menos 3 caracteres.'
+                'min_length'  => 'El nombre debe tener al menos 3 caracteres.',
+                'regex_match' => 'El nombre debe estar compuesto por letras'
             ],
             'apellido' => [
                 'required'    => 'El apellido es obligatorio.',
-                'min_length'  => 'El apellido debe tener al menos 3 caracteres.'
+                'min_length'  => 'El apellido debe tener al menos 3 caracteres.',
+                'regex_match' => 'El apellido debe estar compuesto por letras'
             ],
             'telefono' => [
                 'regex_match' => 'El teléfono solo puede contener números, espacios y paréntesis.'
             ],
             'email' => [
                 'required'    => 'El correo electrónico es obligatorio.',
-                'valid_email' => 'Por favor, introduce un correo electrónico válido.'
+                'valid_email' => 'Por favor, introduce un correo electrónico válido.',
+                'is_unique'   => 'Este correo ya esta registrado, Por favor ingrese nuevo nuevo.'
             ],
             'emailConfirmar' => [
                 'required' => 'Debes confirmar el correo.',
@@ -145,13 +148,9 @@ class UsuarioController extends BaseController
         $model = new UsuarioModel();
         $email = $this->request->getPost('email');
 
-        if ($model->where('email', $email)->first()) {
-            return redirect()->back()->withInput()->with('error', 'El correo electrónico ya está registrado.');
-        }
-
         $data = [
-            'nombre'        => $this->request->getPost('nombre'),
-            'apellido'      => $this->request->getPost('apellido'),
+            'nombre'   => ucfirst(strtolower($this->request->getPost('nombre'))),
+            'apellido' => ucfirst(strtolower($this->request->getPost('apellido'))),
             'telefono'      => $this->request->getPost('telefono'),
             'email'         => $email,
             'password_hash' => password_hash($this->request->getPost('password_hash'), PASSWORD_DEFAULT)
@@ -192,20 +191,49 @@ class UsuarioController extends BaseController
     }
 
 
-    public function actualizarUsuario()
+        public function actualizarUsuario()
     {
         $session = session();
         $usuario = $session->get('usuario_logueado');
 
+        // Protección de acceso: si no hay sesión, redirigir
         if (!$usuario) {
             return redirect()->to('/Auth/Login');
         }
 
+        // ✅ Validación de los datos recibidos
+        $rules = [
+            'nombre'   => 'required|min_length[3]|regex_match[/^[\p{L}\s]+$/u]',
+            'apellido' => 'required|min_length[3]|regex_match[/^[\p{L}\s]+$/u]',
+            'telefono' => 'permit_empty|regex_match[/^[0-9\-\s\(\)]+$/]'
+        ];
+
+        $messages = [
+            'nombre' => [
+                'required'    => 'El nombre es obligatorio.',
+                'min_length'  => 'El nombre debe tener al menos 3 caracteres.',
+                'regex_match' => 'El nombre solo puede contener letras y espacios.'
+            ],
+            'apellido' => [
+                'required'    => 'El apellido es obligatorio.',
+                'min_length'  => 'El apellido debe tener al menos 3 caracteres.',
+                'regex_match' => 'El apellido solo puede contener letras y espacios.'
+            ],
+            'telefono' => [
+                'regex_match' => 'El teléfono solo puede contener números, espacios y paréntesis.'
+            ]
+        ];
+
+        if (! $this->validate($rules, $messages)) {
+            return redirect()->back()->withInput()->with('validation', $this->validator);
+        }
+
+        // ✅ Si pasó la validación, procesar los datos
         $model = new \App\Models\UsuarioModel();
 
         $data = [
-            'nombre'   => $this->request->getPost('nombre'),
-            'apellido' => $this->request->getPost('apellido'),
+            'nombre'   => ucfirst(strtolower($this->request->getPost('nombre'))),
+            'apellido' => ucfirst(strtolower($this->request->getPost('apellido'))),
             'telefono' => $this->request->getPost('telefono')
         ];
 
@@ -217,6 +245,7 @@ class UsuarioController extends BaseController
 
         return redirect()->to('/Pages/PerfilUsuario')->with('success', 'Perfil actualizado correctamente');
     }
+
 
 
 }
