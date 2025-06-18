@@ -23,4 +23,13 @@ class FacturaModel extends Model
 
     protected $returnType = 'array';
     protected $useTimestamps = false;
+
+    public function obtenerVentasPorMes()
+    {
+        return $this->select("MONTH(fecha_hora) as mes, COUNT(*) as cantidad")
+                    ->groupBy("mes")
+                    ->orderBy("mes", "ASC")
+                    ->findAll();
+    }
+
 }

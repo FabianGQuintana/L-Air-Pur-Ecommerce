@@ -1,5 +1,19 @@
-<nav id="Admin" class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-admin">
+
+  <style>
+    #Admin .dropdown-menu .dropdown-item {
+      color: white;
+    }
+    #Admin .dropdown-menu {
+      background-color: #343a40;
+    }
+    #Admin .dropdown-menu .dropdown-item:hover {
+      background-color: #495057;
+    }
+  </style>
+
+  <div class="container-fluid d-flex align-items-center justify-content-between">
+
     <!-- LOGO -->
     <a class="navbar-brand letter-navbar" href="<?= base_url('/Admin') ?>">
       <div class="logo-animado">
@@ -13,28 +27,26 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- CONTENIDO QUE SE COLAPSA -->
-    <div class="collapse navbar-collapse" id="adminNavbar">
-
-      <!-- MENÚ NAV -->
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-2 list-unstyled">
-        <li class="nav-item mx-1 px-3 py-2 rounded-pill">
+    <!-- MENÚ COLAPSABLE -->
+    <div class="collapse navbar-collapse justify-content-end" id="adminNavbar">
+      <ul class="navbar-nav mb-2 mb-lg-0 gap-3 align-items-center">
+        <li class="nav-item">
           <a class="nav-link" href="<?= base_url('/Admin') ?>">Panel de Control</a>
         </li>
-        <li class="nav-item mx-1 px-3 py-2 rounded-pill">
+        <li class="nav-item">
           <a class="nav-link" href="<?= base_url('/Admin/Productos') ?>">Productos</a>
         </li>
-        <li class="nav-item mx-1 px-3 py-2 rounded-pill">
+        <li class="nav-item">
           <a class="nav-link" href="<?= base_url('UsuarioController') ?>">Usuarios</a>
         </li>
-        <li class="nav-item mx-1 px-3 py-2 rounded-pill">
+        <li class="nav-item">
           <a class="nav-link" href="<?= base_url('Admin/Ordenes') ?>">Órdenes</a>
         </li>
-        <li class="nav-item mx-1 px-3 py-2 rounded-pill">
+        <li class="nav-item">
           <a class="nav-link" href="<?= base_url('Admin/Reportes') ?>">Consultas</a>
         </li>
-        <li class="nav-item mx-1 px-3 py-2 rounded-pill">
-          <a class="nav-link" href="<?= base_url('Admin/Logout') ?>">Cerrar sesión</a>
+        <li class="nav-item">
+          <a class="nav-link text-danger" href="<?= base_url('Admin/Logout') ?>">Cerrar sesión</a>
         </li>
       </ul>
     </div>

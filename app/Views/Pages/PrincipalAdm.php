@@ -6,8 +6,8 @@
       <h2>Dashboard Administrador</h2>
     </div>
     <div class="col-md-6 text-end">
-      <span>Admin: Juan Pérez</span>
-      <button class="btn btn-light btn-sm ms-2">Cerrar sesión</button>
+      <span>Admin: <?= esc($adminNombre) . ' ' . esc($adminApellido) ?></span>
+      <a href="<?= base_url('/Logout') ?>" class="btn btn-light btn-sm ms-2">Cerrar sesión</a>
     </div>
   </div>
 
@@ -17,8 +17,8 @@
       <div class="card text-center">
         <div class="card-body">
           <h5 class="card-title">Productos</h5>
-          <p class="card-text display-6">120</p>
-          <a href="#" class="btn btn-primary btn-sm">Ver productos</a>
+          <p class="card-text display-6"><?= esc($totalProductos) ?></p>
+          <a href="<?= base_url('/Admin/Productos') ?>" class="btn btn-primary btn-sm">Ver productos</a>
         </div>
       </div>
     </div>
@@ -26,8 +26,8 @@
       <div class="card text-center">
         <div class="card-body">
           <h5 class="card-title">Usuarios</h5>
-          <p class="card-text display-6">75</p>
-          <a href="#" class="btn btn-primary btn-sm">Ver usuarios</a>
+          <p class="card-text display-6"><?= esc($totalUsuarios)?></p>
+          <a href="<?= base_url('UsuarioController') ?>" class="btn btn-primary btn-sm">Ver usuarios</a>
         </div>
       </div>
     </div>
@@ -35,7 +35,7 @@
       <div class="card text-center">
         <div class="card-body">
           <h5 class="card-title">Órdenes</h5>
-          <p class="card-text display-6">45</p>
+          <p class="card-text display-6"><?= esc($totalOrdenes)?></p>
           <a href="#" class="btn btn-primary btn-sm">Ver órdenes</a>
         </div>
       </div>
@@ -54,16 +54,19 @@
 </div>
 
 <!-- Script para el gráfico (Chart.js) -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <script>
-  const ctx = document.getElementById('ventasChart').getContext('2d');
-  const ventasChart = new Chart(ctx, {
+  const datos = <?= json_encode($ventasPorMes) ?>;
+  const labels = datos.map(item => `Mes ${item.mes}`);
+  const valores = datos.map(item => item.cantidad);
+
+  const ventasChart = new Chart(document.getElementById('ventasChart'), {
     type: 'bar',
     data: {
-      labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'],
+      labels: labels,
       datasets: [{
         label: 'Ventas',
-        data: [12, 19, 7, 15, 20],
+        data: valores,
         backgroundColor: 'rgba(54, 162, 235, 0.7)',
         borderColor: 'rgba(54, 162, 235, 1)',
         borderWidth: 1
@@ -72,11 +75,11 @@
     options: {
       responsive: true,
       scales: {
-        y: {
-          beginAtZero: true
-        }
+        y: { beginAtZero: true }
       }
     }
   });
 </script>
+
+
 
