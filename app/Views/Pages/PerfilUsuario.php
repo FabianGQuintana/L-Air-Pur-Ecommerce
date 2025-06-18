@@ -71,7 +71,7 @@
             <?php if (!empty($facturas)): ?>
                 <?php foreach ($facturas as $factura): ?>
                     <div class="mb-4">
-                        <h6 class="fw-bold">Factura #<?= esc($factura['id_factura']) ?> - <?= date('d/m/Y', strtotime($factura['fecha'])) ?></h6>
+                        <h6 class="fw-bold">Factura #<?= esc($factura['id_factura']) ?> - <?= date('d/m/Y', strtotime($factura['fecha_hora'])) ?></h6>
                         <table class="table table-sm table-bordered align-middle">
                             <thead class="table-light">
                                 <tr>

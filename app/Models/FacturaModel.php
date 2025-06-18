@@ -18,6 +18,9 @@ class FacturaModel extends Model
         'fecha_hora'
     ];
 
+    protected bool $allowEmptyInserts = false;
+    protected bool $updateOnlyChanged = true;
+
     protected $returnType = 'array';
     protected $useTimestamps = false;
 }

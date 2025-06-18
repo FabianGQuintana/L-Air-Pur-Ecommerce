@@ -112,7 +112,7 @@ class Pages extends BaseController
 
         // Buscar facturas del usuario
         $facturas = $facturaModel->where('id_usuario', $usuario['id_usuario'])
-                                ->orderBy('fecha', 'DESC')
+                                ->orderBy('fecha_hora', 'DESC')
                                 ->findAll();
 
         // Agregar detalles a cada factura
