@@ -15,10 +15,10 @@
     <p><small class="text-muted">IVA incluido</small></p>
 
     <div class="my-3">
-        <a href="/carrito/vaciar" class="btn btn-outline-danger btn-sm w-100 mb-2">
+        <a href="<?= base_url('/Carrito/vaciar') ?>" class="btn btn-outline-danger btn-sm w-100 mb-2">
             <i class="bi bi-trash-fill"></i> Vaciar carrito
         </a>
-        <a href="/" class="btn btn-outline-primary btn-sm w-100 mb-2">
+        <a href="<?= base_url('/') ?>" class="btn btn-outline-primary btn-sm w-100 mb-2">
             <i class="bi bi-arrow-left-circle"></i> Seguir comprando
         </a>
     </div>

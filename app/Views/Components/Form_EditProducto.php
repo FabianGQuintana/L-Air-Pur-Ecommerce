@@ -26,7 +26,6 @@
   <?php endif; ?>
 
   <form action="<?= base_url('Productos/'.$producto['id_producto']); ?>" method="post" enctype="multipart/form-data">
-
     <input type="hidden" name="_method" value="PUT">
     <input type="hidden" name="id_producto" value="<?= $producto['id_producto']; ?>">
     
@@ -40,7 +39,7 @@
         <select class="form-control" id="categoria" name="categoria" required>
           <option value="">Seleccionar</option>
           <?php foreach ($categorias as $categoria): ?>
-            <option value="<?= $categoria['id_categoria'] ?>" <?php echo ($producto['id_categoria'] == $categoria['id_categoria'])? 'selected' : ''; ?> <?= set_select('categoria', $categoria['id_categoria']) ?>>
+            <option value="<?= $categoria['id_categoria'] ?>" <?= ($producto['id_categoria'] == $categoria['id_categoria']) ? 'selected' : '' ?>>
               <?= $categoria['nombre'] ?>
             </option>
           <?php endforeach; ?>
@@ -68,16 +67,34 @@
       </div>
     </div>
 
-    <div class="mb-3">
-      <label for="marca" class="form-label">Marca</label>
-      <select class="form-control" id="marca" name="marca" required>
-        <option value="">Seleccionar</option>
-        <?php foreach ($marcas as $marca): ?>
-          <option value="<?= $marca['id_marca'] ?>" <?php echo ($producto['id_marca'] == $marca['id_marca'])? 'selected' : ''; ?> <?= set_select('marca', $marca['id_marca']) ?>>
-            <?= $marca['nombre_marca'] ?>
-          </option>
-        <?php endforeach; ?>
-      </select>
+    <div class="row">
+      <div class="mb-3 col-md-6">
+        <label for="marca" class="form-label">Marca</label>
+        <select class="form-control" id="marca" name="marca" required>
+          <option value="">Seleccionar</option>
+          <?php foreach ($marcas as $marca): ?>
+            <option value="<?= $marca['id_marca'] ?>" <?= ($producto['id_marca'] == $marca['id_marca']) ? 'selected' : '' ?>>
+              <?= $marca['nombre_marca'] ?>
+            </option>
+          <?php endforeach; ?>
+        </select>
+      </div>
+
+      <div class="mb-3 col-md-6">
+        <label for="activo" class="form-label">Estado del producto</label>
+        <?php if ($producto['cantidad'] > 0): ?>
+          <select class="form-control" id="activo" name="activo">
+            <option value="1" <?= $producto['activo'] ? 'selected' : '' ?>>Activo</option>
+            <option value="0" <?= !$producto['activo'] ? 'selected' : '' ?>>Inactivo</option>
+          </select>
+        <?php else: ?>
+          <select class="form-control" id="activo" name="activo" disabled>
+            <option value="0" selected>Inactivo (Stock agotado)</option>
+          </select>
+          <input type="hidden" name="activo" value="0">
+          <div class="form-text text-danger">No se puede activar el producto si el stock es 0.</div>
+        <?php endif; ?>
+      </div>
     </div>
 
     <div class="mb-3">

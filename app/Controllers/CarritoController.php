@@ -78,10 +78,10 @@ class CarritoController extends BaseController
         $productoModel = new ProductosModel();
         $producto = $productoModel->find($idProducto);
 
-        if (!$producto) {
+        if (!$producto || (isset($producto['activo']) && $producto['activo'] != 1)) {
             return $this->response
                 ->setStatusCode(404)
-                ->setBody('Producto no encontrado');
+                ->setBody('Producto no disponible');
         }
 
         if (!$session->has('carrito')) {
@@ -94,14 +94,12 @@ class CarritoController extends BaseController
         $stockDisponibleReal = (int) $producto['cantidad'];
         $stockDisponibleVirtual = $stockDisponibleReal - $cantidadExistente;
 
-        // Validar stock disponible
         if ($cantidad > $stockDisponibleVirtual) {
             return $this->response
                 ->setStatusCode(400)
                 ->setBody("No hay suficiente stock disponible. Stock virtual actual: $stockDisponibleVirtual");
         }
 
-        // Agregar al carrito
         if (isset($carrito[$idProducto])) {
             $carrito[$idProducto]['cantidad'] += $cantidad;
         } else {
@@ -116,7 +114,6 @@ class CarritoController extends BaseController
 
         $session->set('carrito', $carrito);
 
-        // Calcular stock virtual restante
         $cantidadTotalEnCarrito = $carrito[$idProducto]['cantidad'];
         $stockDisponible = max(0, $producto['cantidad'] - $cantidadTotalEnCarrito);
 
@@ -126,6 +123,7 @@ class CarritoController extends BaseController
             'stock_disponible' => $stockDisponible
         ]);
     }
+
 
 
     public function quitar($idProducto)
@@ -214,10 +212,14 @@ class CarritoController extends BaseController
         $productosModel = new \App\Models\ProductosModel();
         $producto = $productosModel->obtenerProductoConDetalles($id);
 
-        if (!$producto || $producto['cantidad'] <= ($carrito[$id]['cantidad'] ?? 0)) {
+        if (
+            !$producto ||
+            (isset($producto['activo']) && $producto['activo'] != 1) ||
+            $producto['cantidad'] <= ($carrito[$id]['cantidad'] ?? 0)
+        ) {
             return $this->response->setJSON([
                 'error' => true,
-                'mensaje' => 'No hay suficiente stock disponible para este producto.'
+                'mensaje' => 'No se puede agregar este producto. Puede estar agotado o inactivo.'
             ]);
         }
 

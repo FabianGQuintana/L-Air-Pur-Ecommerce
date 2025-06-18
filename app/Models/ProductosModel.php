@@ -32,21 +32,27 @@ class ProductosModel extends Model
      */
     public function filtrar(array $filtros = [], string $busqueda = '')
     {
-        // Agrego los JOIN para que vengan los datos de marcas y categorías
+        // JOIN para que vengan los datos de marcas y categorías
         $this->select('productos.*, marcas.nombre_marca AS marca, categorias.nombre AS categoria')
             ->join('marcas', 'marcas.id_marca = productos.id_marca')
             ->join('categorias', 'categorias.id_categoria = productos.id_categoria');
 
-        // Aplico los filtros si están presentes
+        // Filtro por marca
         if (!empty($filtros['marcas']) && is_array($filtros['marcas'])) {
             $this->whereIn('productos.id_marca', $filtros['marcas']);
         }
 
+        // Filtro por categoría
         if (!empty($filtros['categorias']) && is_array($filtros['categorias'])) {
             $this->whereIn('productos.id_categoria', $filtros['categorias']);
         }
 
-        // Aplico la búsqueda si está presente
+        // Filtro por estado activo (si está presente)
+        if (isset($filtros['activo'])) {
+            $this->where('productos.activo', $filtros['activo']);
+        }
+
+        // Filtro por búsqueda
         if (!empty($busqueda)) {
             $this->groupStart()
                 ->like('productos.nombre', $busqueda)
@@ -57,7 +63,6 @@ class ProductosModel extends Model
 
         return $this->findAll();
     }
-
 
     public function obtenerProductoConDetalles($id)
     {

@@ -86,6 +86,7 @@
           <th>Cantidad</th>
           <th>Precio</th>
           <th>Imagen</th>
+          <th>Estado</th> <!-- NUEVO -->
           <th>Editar</th>
           <th>Dar de baja</th>
         </tr>
@@ -97,15 +98,26 @@
             <td><?= esc($producto['marca']) ?></td>
             <td><?= esc($producto['categoria']) ?></td>
             <td><?= $producto['cantidad'] ?></td>
-            <td>$<?= number_format($producto['precio'], 2, ',', '.') ?></td>
+            <td>$<?= number_format($producto['precio'], 2, ',', '.') ?></td> 
             <td>
               <img src="<?= base_url('assets/img/' . $producto['imagen']) ?>" alt="<?= esc($producto['nombre']) ?>" class="img-thumbnail img-miniatura">
+            </td>
+            <td>
+              <?php if ($producto['activo']): ?>
+                <span class="badge bg-success">Activo</span>
+              <?php else: ?>
+                <span class="badge bg-secondary">Inactivo</span>
+              <?php endif; ?>
             </td>
             <td>
               <a href="<?= base_url('Productos/'. $producto['id_producto'].'/edit'); ?>" class="btn btn-custom-dark btn-sm w-100 mb-1">Editar</a>
             </td>
             <td>
-              <a href="#" class="btn btn-custom-danger btn-sm w-100" onclick="return confirm('¿Estás seguro de dar de baja este producto?');">Dar de baja</a>
+              <form action="<?= site_url('Productos/' . $producto['id_producto']) ?>" method="post" onsubmit="return confirm('¿Estás seguro que querés desactivar este producto?')">
+                  <?= csrf_field() ?>
+                  <input type="hidden" name="_method" value="DELETE">
+                  <button type="submit" class="btn btn-custom-danger btn-sm w-100">Dar de Baja</button>
+              </form>
             </td>
           </tr>
         <?php endforeach; ?>
@@ -113,28 +125,42 @@
     </table>
   </div>
 
-  <!-- Tarjetas: visible solo en pantallas chicas -->
-  <div class="d-block d-md-none">
-    <?php foreach($productos as $producto): ?>
-      <div class="card mb-3 card-producto">
-        <div class="card-body">
-          <h5 class="card-title fw-semibold"><?= htmlspecialchars($producto['nombre']) ?></h5>
-          <p class="card-text mb-1"><strong>Marca:</strong> <?= esc($producto['marca']) ?></p>
-          <p class="card-text mb-1"><strong>Categoría:</strong> <?= esc($producto['categoria']) ?></p>
-          <p class="card-text mb-1"><strong>Cantidad:</strong> <?= $producto['cantidad'] ?></p>
-          <p class="card-text mb-1"><strong>Precio:</strong> $<?= number_format($producto['precio'], 2, ',', '.') ?></p>
-          <div class="mb-2 text-center">
-            <img src="<?= base_url('assets/img/' . $producto['imagen']) ?>" alt="<?= esc($producto['nombre']) ?>" class="img-thumbnail img-miniatura-movil">
-          </div>
-          <div class="d-flex justify-content-between">
-            <a href="<?= base_url('Productos/'. $producto['id_producto'].'/edit'); ?>" class="btn btn-custom-dark btn-sm w-50 me-1">Editar</a>
-            <a href="#" class="btn btn-custom-danger btn-sm w-50" onclick="return confirm('¿Estás seguro de dar de baja este producto?');">Dar de baja</a>
-          </div>
+ <!-- Tarjetas: visible solo en pantallas chicas -->
+<div class="d-block d-md-none">
+  <?php foreach($productos as $producto): ?>
+    <div class="card mb-3 card-producto">
+      <div class="card-body">
+        <h5 class="card-title fw-semibold"><?= htmlspecialchars($producto['nombre']) ?></h5>
+        <p class="card-text mb-1"><strong>Marca:</strong> <?= esc($producto['marca']) ?></p>
+        <p class="card-text mb-1"><strong>Categoría:</strong> <?= esc($producto['categoria']) ?></p>
+        <p class="card-text mb-1"><strong>Cantidad:</strong> <?= $producto['cantidad'] ?></p>
+        <p class="card-text mb-1"><strong>Precio:</strong> $<?= number_format($producto['precio'], 2, ',', '.') ?></p>
+        <p class="card-text mb-1">
+          <strong>Estado:</strong>
+          <?php if ($producto['activo']): ?>
+            <span class="text-success fw-semibold">Activo</span>
+          <?php else: ?>
+            <span class="text-muted fw-semibold">Inactivo</span>
+          <?php endif; ?>
+        </p>
+        <div class="mb-2 text-center">
+          <img src="<?= base_url('assets/img/' . $producto['imagen']) ?>" alt="<?= esc($producto['nombre']) ?>" class="img-thumbnail img-miniatura-movil">
+        </div>
+        <!-- BOTONES en columna y a 100% de ancho -->
+        <div class="d-grid gap-2">
+          <a href="<?= base_url('Productos/'. $producto['id_producto'].'/edit'); ?>" class="btn btn-custom-dark btn-sm w-100">Editar</a>
+          <form action="<?= site_url('Productos/' . $producto['id_producto']) ?>" method="post" onsubmit="return confirm('¿Estás seguro que querés desactivar este producto?')">
+            <?= csrf_field() ?>
+            <input type="hidden" name="_method" value="DELETE">
+            <button type="submit" class="btn btn-custom-danger btn-sm w-100">Dar de baja</button>
+          </form>
         </div>
       </div>
-    <?php endforeach; ?>
-  </div>
+    </div>
+  <?php endforeach; ?>
 </div>
 
-<!-- Bootstrap Icons (opcional, si quieres usar los íconos de filtro/agregar) -->
+
+
+<!-- Bootstrap Icons -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">

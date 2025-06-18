@@ -30,22 +30,24 @@ class Productos extends BaseController
         $filtros = [
             'marcas'     => $this->request->getGet('marcas') ?? [],
             'categorias' => $this->request->getGet('categorias') ?? [],
+            'activo'     => 1, // ✅ Solo productos activos
         ];
 
         // Tomar término de búsqueda
         $busqueda = $this->request->getGet('busqueda') ?? '';
         $data['busqueda'] = $busqueda;
 
-        // Obtener productos filtrados y con búsqueda
+        // Obtener productos filtrados, activos y con búsqueda
         $productos = $productosModel->filtrar($filtros, $busqueda);
 
         $data['productos'] = $productos;
-        $data['filtros'] = $filtros; // para la vista
+        $data['filtros'] = $filtros;
         $data['title'] = 'Productos - L’Air Pur';
         $data['content'] = view('Pages/Catalogo', $data);
 
         return view('Templates/main_layout', $data);
     }
+
 
     /**
      * Return the properties of a resource object.
@@ -59,8 +61,9 @@ class Productos extends BaseController
         $modelo = new ProductosModel();
         $producto = $modelo->obtenerProductoConDetalles($id);
 
-        if (!$producto) {
-            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Producto no encontrado");
+        // Validar que exista y esté activo
+        if (!$producto || (isset($producto['activo']) && $producto['activo'] != 1)) {
+            return redirect()->to(base_url('/'));
         }
 
         // Obtener el carrito de la sesión
@@ -107,9 +110,9 @@ class Productos extends BaseController
             'nombre' => 'required|min_length[3]',
             'categoria' => 'required|is_not_unique[categorias.id_categoria]',
             'descripcion' => 'required|min_length[15]',
-            'precio' => 'required|decimal',
-            'cantidad' => 'required|integer',
-            'mililitros' => 'required|integer',
+            'precio' => 'required|decimal|greater_than[0]',
+            'cantidad' => 'required|integer|greater_than[0]',
+            'mililitros' => 'required|integer|greater_than[0]',
             'marca' => 'required|is_not_unique[marcas.id_marca]',
             'imagen' => ['rules' => 'uploaded[imagen]|is_image[imagen]|max_size[imagen,2048]'],
         ];
@@ -130,14 +133,17 @@ class Productos extends BaseController
             'precio' => [
                 'required' => 'El precio es obligatorio.',
                 'decimal' => 'El precio debe ser un número decimal válido.',
+                'greater_than' => 'El precio debe ser mayor a cero.',
             ],
             'cantidad' => [
                 'required' => 'La cantidad es obligatoria.',
                 'integer' => 'La cantidad debe ser un número entero.',
+                'greater_than' => 'La cantidad debe ser mayor a cero.',
             ],
             'mililitros' => [
                 'required' => 'Los mililitros son obligatorios.',
                 'integer' => 'Los mililitros deben ser un número entero.',
+                'greater_than' => 'Los mililitros deben ser mayores a cero.',
             ],
             'marca' => [
                 'required' => 'La marca es obligatoria.',
@@ -224,8 +230,6 @@ class Productos extends BaseController
      */
     public function update($id = null)
     {
-
-        // Definir las reglas base
         $reglas = [
             'nombre' => 'required|min_length[3]',
             'categoria' => 'required',
@@ -236,18 +240,14 @@ class Productos extends BaseController
             'marca' => 'required',
         ];
 
-        // Verificar si se subió una nueva imagen
         $imagen = $this->request->getFile('imagen');
         if ($imagen && $imagen->isValid() && !$imagen->hasMoved()) {
-            // Solo si se sube una nueva imagen, agregar las reglas de validación de la imagen
             $reglas['imagen'] = 'is_image[imagen]|max_size[imagen,2048]';
         }
 
-        // Mensajes personalizados
         $mensajes = [
             'nombre' => [
                 'required' => 'El nombre del producto es obligatorio.',
-                'is_unique' => 'El nombre del producto ya existe.',
                 'min_length' => 'El nombre debe tener al menos 3 caracteres.',
             ],
             'categoria' => [
@@ -278,12 +278,10 @@ class Productos extends BaseController
             ],
         ];
 
-        // Validar datos
         if (!$this->validate($reglas, $mensajes)) {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
 
-        // Obtener datos del formulario
         $post = $this->request->getPost([
             'nombre',
             'categoria',
@@ -292,19 +290,19 @@ class Productos extends BaseController
             'cantidad',
             'mililitros',
             'marca',
+            'activo',
         ]);
 
-        // Procesar imagen
+        $activo = ($post['cantidad'] > 0) ? $post['activo'] : 0;
+
         if ($imagen && $imagen->isValid() && !$imagen->hasMoved()) {
             $nombreImagen = $imagen->getName();
             $imagen->move('assets/img', $nombreImagen);
         } else {
-            // Mantener la imagen existente si no se subió una nueva
             $productoActual = (new ProductosModel())->find($id);
             $nombreImagen = $productoActual['imagen'] ?? 'default.png';
         }
 
-        // Actualizar el producto en la base de datos
         $productosModel = new ProductosModel();
         $productosModel->update($id, [
             'nombre' => trim($post['nombre']),
@@ -315,23 +313,38 @@ class Productos extends BaseController
             'mililitros' => $post['mililitros'],
             'id_marca' => $post['marca'],
             'imagen' => $nombreImagen,
+            'activo' => $activo,
         ]);
 
-        // Redirigir con éxito
         return redirect()->to('Productos/' . $id . '/edit')
-                         ->with('message', 'Producto actualizado satisfactoriamente.');
+                        ->with('message', 'Producto actualizado satisfactoriamente.');
     }
-
 
     /**
      * Delete the designated resource object from the model.
-     *
+     *  
      * @param int|string|null $id
      *
      * @return ResponseInterface
      */
     public function delete($id = null)
     {
-        //
+        if ($id === null) {
+            return redirect()->back()->with('error', 'ID de producto no proporcionado.');
+        }
+
+        $productosModel = new \App\Models\ProductosModel();
+
+        // Verificamos que el producto exista
+        $producto = $productosModel->find($id);
+        if (!$producto) {
+            return redirect()->back()->with('error', 'Producto no encontrado.');
+        }
+
+        // Realizamos el "borrado lógico" actualizando el campo 'activo' a 0
+        $productosModel->update($id, ['activo' => 0]);
+
+        return redirect()->back()->with('success', 'Producto desactivado correctamente.');
     }
+
 }

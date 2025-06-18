@@ -52,15 +52,15 @@
     <div class="row">
       <div class="mb-3 col-md-4">
         <label for="precio" class="form-label">Precio</label>
-        <input type="number" step="0.01" class="form-control" id="precio" name="precio" required value="<?= set_value('precio') ?>">
+        <input type="number" step="0.01" class="form-control" id="precio" name="precio" required min="0.01" value="<?= set_value('precio') ?>">
       </div>
       <div class="mb-3 col-md-4">
         <label for="cantidad" class="form-label">Cantidad</label>
-        <input type="number" class="form-control" id="cantidad" name="cantidad" required value="<?= set_value('cantidad') ?>">
+        <input type="number" class="form-control" id="cantidad" name="cantidad" required min="1" value="<?= set_value('cantidad') ?>">
       </div>
       <div class="mb-3 col-md-4">
         <label for="mililitros" class="form-label">Mililitros</label>
-        <input type="number" class="form-control" id="mililitros" name="mililitros" required value="<?= set_value('mililitros') ?>">
+        <input type="number" class="form-control" id="mililitros" name="mililitros" required min="1" value="<?= set_value('mililitros') ?>">
       </div>
     </div>
 
