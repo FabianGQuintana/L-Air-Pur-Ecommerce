@@ -30,11 +30,8 @@ $routes->get('/Pages/PerfilUsuario', 'Pages::PerfilUsuario', ['filter' => 'auth'
 //Editar perfil usuario
 $routes->get('/Pages/EditarPerfilUsuario', 'UsuarioController::editarPerfil');
 
-
 //Actualizar usuario
 $routes->post('/Pages/ActualizarUsuario', 'UsuarioController::actualizarUsuario');
-
-
 
 // Rutas para Admin
 $routes->get('/Admin', 'AdminController::index',['filter' => 'admin']);
@@ -48,20 +45,24 @@ $routes->post('/Carrito/agregar/(:num)', 'CarritoController::agregar/$1');
 $routes->get('/Carrito/eliminar/(:num)', 'CarritoController::eliminar/$1',['filter' => 'auth']);
 $routes->get('/Carrito/quitar/(:num)', 'CarritoController::quitar/$1',['filter' => 'auth']);
 $routes->get('/Carrito/vaciar', 'CarritoController::vaciar',['filter' => 'auth']);
-
 $routes->post('carrito/agregarAjax/(:num)', 'CarritoController::agregarAjax/$1',['filter' => 'auth']);
 $routes->post('carrito/quitarAjax/(:num)', 'CarritoController::quitarAjax/$1',['filter' => 'auth']);
 $routes->post('carrito/eliminarAjax/(:num)', 'CarritoController::eliminarAjax/$1',['filter' => 'auth']);
 $routes->get('carrito/fragmento', 'CarritoController::obtenerFragmentos',['filter' => 'auth']);
-
-
 
 // Rutas para contacto
 $routes->get('/Contact', 'Contact::index');
 $routes->post('/Contact/send', 'Contact::send');
 
 // Rutas para productos
-$routes->resource('Productos', ['placeholder' => '(:num)']);
+$routes->get('Productos', 'Productos::index');
+$routes->get('Productos/new', 'Productos::new', ['filter' => 'admin']);
+$routes->post('Productos', 'Productos::create', ['filter' => 'admin']);
+$routes->get('Productos/(:num)', 'Productos::show/$1');
+$routes->get('Productos/(:num)/edit', 'Productos::edit/$1', ['filter' => 'admin']);
+$routes->put('Productos/(:num)', 'Productos::update/$1', ['filter' => 'admin']);
+$routes->delete('Productos/(:num)', 'Productos::delete/$1', ['filter' => 'admin']);
+
 
 // Establecer controlador por defecto
 $routes->setDefaultController('Pages');
