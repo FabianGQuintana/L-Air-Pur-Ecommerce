@@ -55,35 +55,31 @@ class UsuarioController extends BaseController
             ]
         ];
 
-            if (! $this->validate($rules, $messages)) {
-                return redirect()->back()->withInput()->with('validation', $this->validator);
-            }
-
-            $session = session();
-            $model = new UsuarioModel();
-            $email = $this->request->getPost('email');
-            $pass = $this->request->getPost('password');
-
-            $usuario = $model->where('email', $email)->first();
-
-            if ($usuario && password_verify($pass, $usuario['password_hash'])) {
-            $session->set('usuario_logueado', [
-            'id_usuario' => $usuario['id_usuario'],
-            'nombre'     => $usuario['nombre'],
-            'apellido'   => $usuario['apellido'],
-            'telefono'   => $usuario['telefono'],
-            'email'      => $usuario['email'],
-            'rol'        => $usuario['rol']
-        ]);
-
-        // Redirección condicional según rol
-        if ($usuario['rol'] === 'admin') {
-            return redirect()->to('/Admin')->with('success', '¡Bienvenido, administrador!');
-        } else {
-            return redirect()->to('/')->with('success', '¡Inicio de sesión exitoso!');
+        if (! $this->validate($rules, $messages)) {
+            return redirect()->back()->withInput()->with('validation', $this->validator);
         }
-    }
 
+        $session = session();
+        $model = new UsuarioModel();
+        $email = $this->request->getPost('email');
+        $pass = $this->request->getPost('password');
+
+        $usuario = $model->where('email', $email)->first();
+
+        if ($usuario && password_verify($pass, $usuario['password_hash'])) {
+            $session->set('usuario_logueado', [
+                'id_usuario' => $usuario['id_usuario'],
+                'nombre'     => $usuario['nombre'],
+                'apellido'   => $usuario['apellido'],
+                'telefono'   => $usuario['telefono'],
+                'email'      => $usuario['email'],
+                'rol'        => $usuario['rol']
+            ]);
+
+            return ($usuario['rol'] === 'admin')
+                ? redirect()->to('/Admin')->with('success', '¡Bienvenido, administrador!')
+                : redirect()->to('/')->with('success', '¡Inicio de sesión exitoso!');
+        }
 
         return redirect()->back()->withInput()->with('error', 'Email o contraseña incorrectos');
     }
@@ -99,8 +95,8 @@ class UsuarioController extends BaseController
     public function doRegister()
     {
         $rules = [
-            'nombre' => 'required|min_length[3]|regex_match[/^[\p{L}\s]+$/u]',
-            'apellido' => 'required|min_length[3]|regex_match[/^[\p{L}\s]+$/u]',
+            'nombre'            => 'required|min_length[3]|regex_match[/^[\p{L}\s]+$/u]',
+            'apellido'          => 'required|min_length[3]|regex_match[/^[\p{L}\s]+$/u]',
             'telefono'          => 'permit_empty|regex_match[/^[0-9\-\s\(\)]+$/]',
             'email'             => 'required|valid_email|is_unique[usuarios.email]',
             'emailConfirmar'    => 'required|matches[email]',
@@ -125,7 +121,7 @@ class UsuarioController extends BaseController
             'email' => [
                 'required'    => 'El correo electrónico es obligatorio.',
                 'valid_email' => 'Por favor, introduce un correo electrónico válido.',
-                'is_unique'   => 'Este correo ya esta registrado, Por favor ingrese nuevo nuevo.'
+                'is_unique'   => 'Este correo ya está registrado, por favor ingrese uno nuevo.'
             ],
             'emailConfirmar' => [
                 'required' => 'Debes confirmar el correo.',
@@ -145,13 +141,21 @@ class UsuarioController extends BaseController
             return redirect()->back()->withInput()->with('validation', $this->validator);
         }
 
+        $telefono = $this->request->getPost('telefono');
+        $soloDigitos = preg_replace('/\D/', '', $telefono);
+
+        if (!empty($telefono) && strlen($soloDigitos) < 10) {
+            $this->validator->setError('telefono', 'El número de teléfono debe tener al menos 10 dígitos reales.');
+            return redirect()->back()->withInput()->with('validation', $this->validator);
+        }
+
         $model = new UsuarioModel();
         $email = $this->request->getPost('email');
 
         $data = [
-            'nombre'   => ucfirst(strtolower($this->request->getPost('nombre'))),
-            'apellido' => ucfirst(strtolower($this->request->getPost('apellido'))),
-            'telefono'      => $this->request->getPost('telefono'),
+            'nombre'        => $this->capitalizarNombreCompleto($this->request->getPost('nombre')),
+            'apellido'      => $this->capitalizarNombreCompleto($this->request->getPost('apellido')),
+            'telefono'      => $telefono,
             'email'         => $email,
             'password_hash' => password_hash($this->request->getPost('password_hash'), PASSWORD_DEFAULT)
         ];
@@ -165,7 +169,7 @@ class UsuarioController extends BaseController
         $usuario = session('usuario_logueado');
 
         return view('Templates/main_layout', [
-            'title' => 'Mi Perfil',
+            'title'   => 'Mi Perfil',
             'content' => view('Pages/PerfilUsuario', ['usuario' => $usuario])
         ]);
     }
@@ -190,22 +194,22 @@ class UsuarioController extends BaseController
         ]);
     }
 
-
-        public function actualizarUsuario()
+    public function actualizarUsuario()
     {
         $session = session();
         $usuario = $session->get('usuario_logueado');
 
-        // Protección de acceso: si no hay sesión, redirigir
         if (!$usuario) {
             return redirect()->to('/Auth/Login');
         }
 
-        // ✅ Validación de los datos recibidos
         $rules = [
-            'nombre'   => 'required|min_length[3]|regex_match[/^[\p{L}\s]+$/u]',
-            'apellido' => 'required|min_length[3]|regex_match[/^[\p{L}\s]+$/u]',
-            'telefono' => 'permit_empty|regex_match[/^[0-9\-\s\(\)]+$/]'
+            'nombre'                => 'required|min_length[3]|regex_match[/^[\p{L}\s]+$/u]',
+            'apellido'              => 'required|min_length[3]|regex_match[/^[\p{L}\s]+$/u]',
+            'telefono'              => 'permit_empty|regex_match[/^[0-9\-\s\(\)]+$/]',
+            'email'                 => 'required|valid_email|is_unique[usuarios.email,id_usuario,{id_usuario}]',
+            'nueva_contrasena'      => 'permit_empty|min_length[6]',
+            'confirmar_contrasena'  => 'matches[nueva_contrasena]'
         ];
 
         $messages = [
@@ -221,25 +225,52 @@ class UsuarioController extends BaseController
             ],
             'telefono' => [
                 'regex_match' => 'El teléfono solo puede contener números, espacios y paréntesis.'
+            ],
+            'email' => [
+                'required'    => 'El correo electrónico es obligatorio.',
+                'valid_email' => 'Debe ingresar un correo electrónico válido.',
+                'is_unique'   => 'Este correo ya está en uso por otro usuario.'
+            ],
+            'nueva_contrasena' => [
+                'min_length' => 'La nueva contraseña debe tener al menos 6 caracteres.'
+            ],
+            'confirmar_contrasena' => [
+                'matches' => 'La confirmación de la contraseña no coincide.'
             ]
         ];
+
+        // Reemplaza el marcador {id_usuario} por el ID actual (evita conflicto con su propio email)
+        $rules['email'] = str_replace('{id_usuario}', $usuario['id_usuario'], $rules['email']);
 
         if (! $this->validate($rules, $messages)) {
             return redirect()->back()->withInput()->with('validation', $this->validator);
         }
 
-        // ✅ Si pasó la validación, procesar los datos
-        $model = new \App\Models\UsuarioModel();
+        $telefono = $this->request->getPost('telefono');
+        $soloDigitos = preg_replace('/\D/', '', $telefono);
+        if (!empty($telefono) && strlen($soloDigitos) < 10) {
+            $this->validator->setError('telefono', 'El número de teléfono debe tener al menos 10 dígitos reales.');
+            return redirect()->back()->withInput()->with('validation', $this->validator);
+        }
+
+        $model = new UsuarioModel();
 
         $data = [
-            'nombre'   => ucfirst(strtolower($this->request->getPost('nombre'))),
-            'apellido' => ucfirst(strtolower($this->request->getPost('apellido'))),
-            'telefono' => $this->request->getPost('telefono')
+            'nombre'   => $this->capitalizarNombreCompleto($this->request->getPost('nombre')),
+            'apellido' => $this->capitalizarNombreCompleto($this->request->getPost('apellido')),
+            'telefono' => $telefono,
+            'email'    => $this->request->getPost('email')
         ];
+
+        $newPassword = $this->request->getPost('new_password');
+        if (!empty($newPassword)) {
+            $data['password_hash'] = password_hash($newPassword, PASSWORD_DEFAULT);
+        }
 
         $model->update($usuario['id_usuario'], $data);
 
-        // Actualizar datos en la sesión
+        // Actualizar sesión
+        unset($data['password_hash']); // No guardamos la contraseña en sesión
         $usuario = array_merge($usuario, $data);
         $session->set('usuario_logueado', $usuario);
 
@@ -247,5 +278,10 @@ class UsuarioController extends BaseController
     }
 
 
-
+    private function capitalizarNombreCompleto(string $texto): string
+    {
+        return preg_replace_callback('/\b[\p{L}\'\-]+/u', function ($coincidencia) {
+            return mb_convert_case($coincidencia[0], MB_CASE_TITLE, "UTF-8");
+        }, mb_strtolower($texto, 'UTF-8'));
+    }
 }

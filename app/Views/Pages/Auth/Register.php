@@ -60,13 +60,13 @@
                         <div class="mb-3">
                             <label for="password_hash" class="form-label">Contraseña</label>
                             <input type="password" class="form-control" name="password_hash" id="password_hash"
-                                placeholder="••••••••" required>
+                                placeholder="Contraseña" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="passwordConfirmar" class="form-label">Confirmar Contraseña</label>
                             <input type="password" class="form-control" name="passwordConfirmar" id="passwordConfirmar"
-                                placeholder="••••••••" required>
+                                placeholder="Contraseña" required>
                         </div>
 
                         <div class="d-grid mb-3">
