@@ -1,7 +1,7 @@
 <?= $this->extend('Templates/main_layout') ?>
 <?= $this->section('content') ?>
 
-<link rel="stylesheet" href="<?= base_url('assets/css/StyleDetalleProducto.css') ?>">
+<link rel="stylesheet" href="<?= base_url('assets/css/Style-DetalleProducto.css') ?>">
 
 <div class="container my-3">
     <div class="row producto-container">
@@ -51,94 +51,6 @@
 
 <?= $this->section('popup') ?>
 <?php if (!empty($mostrar_popup)): ?>
-    <style>
-        #popupCarrito {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 320px;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-            z-index: 9999;
-            padding: 16px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            opacity: 0;
-            transform: translateY(100%);
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-
-        #popupCarrito.mostrar {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .popup-contenido {
-            text-align: center;
-        }
-
-        .popup-imagen {
-            position: relative;
-        }
-
-        .popup-imagen img {
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-        }
-
-        .popup-check {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background-color: #28a745;
-            color: white;
-            font-weight: bold;
-            border-radius: 50%;
-            padding: 4px 7px;
-            font-size: 14px;
-            box-shadow: 0 0 5px rgba(0,0,0,0.2);
-        }
-
-        .popup-texto strong {
-            font-size: 16px;
-            display: block;
-            margin-top: 8px;
-        }
-
-        .popup-texto p {
-            margin: 4px 0 0 0;
-            font-size: 14px;
-            color: #555;
-        }
-
-        .popup-botones {
-            margin-top: 12px;
-            display: flex;
-            gap: 8px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .popup-botones .btn {
-            font-size: 12px;
-            padding: 4px 10px;
-        }
-
-        @media (max-width: 576px) {
-            #popupCarrito {
-                width: 90%;
-                right: 5%;
-                bottom: 10px;
-            }
-        }
-    </style>
-
     <div id="popupCarrito" class="popup-carrito shadow rounded">
         <div class="popup-contenido">
             <div class="popup-imagen">
@@ -158,108 +70,13 @@
 <?php endif; ?>
 <?= $this->endSection() ?>
 
-<!-- Script AJAX -->
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("formAgregarCarrito");
-    const mensajeDiv = document.getElementById("mensajeCarrito");
-    const stockTexto = document.getElementById("stockDisponibleTexto");
-    const stockLista = document.getElementById("stockDisponibleLista");
-    const selectCantidad = document.getElementById("cantidad");
-    const botonSubmit = form.querySelector("button[type='submit']");
-
-    const stockInicial = parseInt(stockLista.textContent);
-    if (stockInicial <= 0) {
-        selectCantidad.disabled = true;
-        botonSubmit.disabled = true;
-        mensajeDiv.innerHTML = `<div class="alert alert-warning">No hay stock disponible.</div>`;
-    }
-
-    form.addEventListener("submit", function (e) {
-        e.preventDefault();
-
-        const idProducto = form.querySelector('input[name="id_producto"]').value;
-        const cantidadSeleccionada = selectCantidad.value;
-
-        fetch(`<?= base_url('/Carrito/agregar/') ?>${idProducto}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'X-Requested-With': 'XMLHttpRequest'
-            },
-            body: new URLSearchParams({
-                cantidad: cantidadSeleccionada
-            })
-        })
-        .then(response => {
-            if (response.status === 401) {
-                return response.json().then(data => {
-                    if (data.redirect) {
-                        window.location.href = data.redirect;
-                    }
-                });
-            } else if (response.status === 400 || response.status === 404) {
-                return response.text().then(msg => {
-                    mensajeDiv.innerHTML = `<div class="alert alert-danger">${msg}</div>`;
-                });
-            } else {
-                return response.json().then(data => {
-                    // No mostrar mensaje de éxito aquí
-
-                    // Actualizar stock
-                    stockTexto.textContent = `${data.stock_disponible} disponibles`;
-                    stockLista.textContent = data.stock_disponible;
-
-                    const cantidadAnterior = parseInt(cantidadSeleccionada);
-                    selectCantidad.innerHTML = "";
-                    const nuevoMax = Math.min(12, data.stock_disponible);
-                    for (let i = 1; i <= nuevoMax; i++) {
-                        const option = document.createElement("option");
-                        option.value = i;
-                        option.textContent = i;
-                        if (i === cantidadAnterior) option.selected = true;
-                        selectCantidad.appendChild(option);
-                    }
-
-                    if (data.stock_disponible <= 0) {
-                        selectCantidad.disabled = true;
-                        botonSubmit.disabled = true;
-                        mensajeDiv.innerHTML = `<div class="alert alert-warning mt-3">No hay stock disponible.</div>`;
-                    } else {
-                        selectCantidad.disabled = false;
-                        botonSubmit.disabled = false;
-                    }
-
-                    // Mostrar popup animado
-                    mostrarPopup(
-                        "<?= base_url('assets/img/' . $producto['imagen']) ?>",
-                        "<?= esc($producto['nombre']) ?> <?= esc($producto['mililitros']) ?> mL",
-                        cantidadSeleccionada
-                    );
-                });
-            }
-        })
-        .catch(error => {
-            console.error("Error al agregar al carrito:", error);
-            mensajeDiv.innerHTML = `<div class="alert alert-danger">Ocurrió un error al agregar el producto.</div>`;
-        });
-    });
-
-    function mostrarPopup(imagenURL, descripcion, cantidad) {
-        const popup = document.getElementById("popupCarrito");
-        const img = document.getElementById("popupImagenProducto");
-        const desc = document.getElementById("popupDescripcionProducto");
-
-        img.src = imagenURL;
-        desc.textContent = `${descripcion} - ${cantidad} unidad${cantidad > 1 ? 'es' : ''}`;
-
-        popup.classList.add("mostrar");
-
-        setTimeout(() => {
-            popup.classList.remove("mostrar");
-        }, 4000);
-    }
-});
+    const configDetalleProducto = {
+        urlAgregarCarrito: "<?= base_url('/Carrito/agregar/') ?>",
+        imagenProducto: "<?= base_url('assets/img/' . $producto['imagen']) ?>",
+        descripcionProducto: "<?= esc($producto['nombre']) ?> <?= esc($producto['mililitros']) ?> mL"
+    };
 </script>
+<script src="<?= base_url('assets/js/detalleProducto.js') ?>"></script>
 
 <?= $this->endSection() ?>

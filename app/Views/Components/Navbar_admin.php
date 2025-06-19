@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="<?= base_url('assets/css/Style_NavbarAdmin.css') ?>">
+<link rel="stylesheet" href="<?= base_url('assets/css/Style-NavbarAdmin.css') ?>">
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-admin">
 
