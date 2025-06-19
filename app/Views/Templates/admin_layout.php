@@ -9,7 +9,6 @@
     <link rel="icon" type="image/png" href="<?= base_url('assets/img/LogoPrincipal.png') ?>">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="<?= base_url('assets/css/AdminDashboard.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.min.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/bootstrap-icons/bootstrap-icons.css') ?>">
     

@@ -14,12 +14,7 @@
 }
 
 .btn-custom-dark {
-  background-color: #343a40;
   color: #fff;
-}
-
-.btn-custom-dark:hover {
-  background-color: #23272b;
 }
 
 .btn-custom-danger {

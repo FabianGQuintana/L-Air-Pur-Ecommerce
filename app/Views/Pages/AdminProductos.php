@@ -7,26 +7,38 @@
   <h2 class="mb-4 text-center fw-light">Listado de Productos</h2>
 
   <!-- Barra de búsqueda + botones -->
-  <div class="mb-3 d-flex gap-2 justify-content-between">
+  <div class="mb-3 d-flex gap-2 flex-wrap justify-content-between align-items-center">
     <form method="get" action="<?= base_url('/Admin/Productos') ?>" class="flex-grow-1 me-2">
       <div class="input-group">
         <input type="text"
-               name="busqueda"
-               class="form-control"
-               placeholder="Buscar productos, marcas o categorías..."
-               value="<?= esc($busqueda ?? '') ?>">
+              name="busqueda"
+              class="form-control"
+              placeholder="Buscar productos, marcas o categorías..."
+              value="<?= esc($busqueda ?? '') ?>">
         <button class="btn btn-outline-secondary" type="submit">
           <i class="bi bi-search"></i> Buscar
         </button>
       </div>
     </form>
 
-    <button class="btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#filtrosCollapse" aria-expanded="false" aria-controls="filtrosCollapse">
-      <i class="bi bi-funnel-fill me-1"></i> Filtros
-    </button>
-    <a href="<?= base_url('Productos/new') ?>" class="btn btn-success">
-      <i class="bi bi-plus-circle-fill me-1"></i> Agregar
-    </a>
+    <!-- Botones de filtro rápido por estado -->
+    <div class="d-flex gap-2 flex-wrap">
+      <button class="btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#filtrosCollapse" aria-expanded="false" aria-controls="filtrosCollapse">
+        <i class="bi bi-funnel-fill me-1"></i> Filtros
+      </button>
+      <a href="<?= base_url('/Admin/Productos') ?>" class="btn btn-outline-secondary">
+        <i class="bi bi-eye-fill me-1"></i> Todos
+      </a>
+      <a href="<?= base_url('/Admin/Productos') . '?activo=1' ?>" class="btn btn-outline-success">
+        <i class="bi bi-eye me-1"></i> Activos
+      </a>
+      <a href="<?= base_url('/Admin/Productos') . '?activo=0' ?>" class="btn btn-outline-danger">
+        <i class="bi bi-eye-slash me-1"></i> Inactivos
+      </a>
+      <a href="<?= base_url('Productos/new') ?>" class="btn btn-success">
+        <i class="bi bi-plus-circle-fill me-1"></i> Agregar
+      </a>
+    </div>
   </div>
 
   <!-- Sección de filtros -->

@@ -34,7 +34,7 @@ class AdminController extends BaseController
         return view('Templates/admin_layout', $data);
     }
 
-    public function administrarProductos()
+    public function administrarProductos() 
     {
         $categoriasModel = new CategoriasModel();
         $data['categorias'] = $categoriasModel->findAll();
@@ -50,11 +50,17 @@ class AdminController extends BaseController
             'categorias' => $this->request->getGet('categorias') ?? [],
         ];
 
-        // Tomar término de búsqueda
+        // Filtro de activo/inactivo
+        $activo = $this->request->getGet('activo');
+        if ($activo !== null && $activo !== '') {
+            $filtros['activo'] = (int)$activo; // Convertir a entero 0 o 1
+        }
+
+        // Término de búsqueda
         $busqueda = $this->request->getGet('busqueda') ?? '';
         $data['busqueda'] = $busqueda;
 
-        // Obtener productos filtrados y con búsqueda
+        // Productos filtrados
         $productos = $productosModel->filtrar($filtros, $busqueda);
 
         $data['productos'] = $productos;
@@ -64,6 +70,7 @@ class AdminController extends BaseController
 
         return view('Templates/admin_layout', $data);
     }
+
 
     
 }

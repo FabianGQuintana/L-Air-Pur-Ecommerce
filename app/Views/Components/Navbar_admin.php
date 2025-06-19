@@ -1,16 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-admin">
+<link rel="stylesheet" href="<?= base_url('assets/css/Style_NavbarAdmin.css') ?>">
 
-  <style>
-    #Admin .dropdown-menu .dropdown-item {
-      color: white;
-    }
-    #Admin .dropdown-menu {
-      background-color: #343a40;
-    }
-    #Admin .dropdown-menu .dropdown-item:hover {
-      background-color: #495057;
-    }
-  </style>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-admin">
 
   <div class="container-fluid d-flex align-items-center justify-content-between">
 

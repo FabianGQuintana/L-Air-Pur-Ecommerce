@@ -57,6 +57,7 @@ $routes->get('/Carrito/confirmacion', 'CarritoController::confirmacion',['filter
 // Rutas para contacto
 $routes->get('/Contact', 'Contact::index');
 $routes->post('/Contact/send', 'Contact::send');
+$routes->post('Contact/sendConsulta', 'Contact::sendConsulta');
 
 // Rutas para productos
 $routes->get('Productos', 'Productos::index');

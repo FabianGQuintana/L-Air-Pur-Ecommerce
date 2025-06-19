@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="<?= base_url('assets/css/AdminDashboard.css') ?>">
+
 <!-- Inicio del cuerpo -->
 <div class="container-fluid">
   <!-- Encabezado -->

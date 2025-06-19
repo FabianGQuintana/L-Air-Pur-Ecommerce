@@ -44,4 +44,4 @@
 
 <hr>
 
-<?= view('Components/Form_Contacto') ?>
+<?= $formulario ?>
