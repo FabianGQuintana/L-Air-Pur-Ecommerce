@@ -18,12 +18,14 @@
         <a href="<?= base_url('/Carrito/vaciar') ?>" class="btn btn-outline-danger btn-sm w-100 mb-2">
             <i class="bi bi-trash-fill"></i> Vaciar carrito
         </a>
-        <a href="<?= base_url('/') ?>" class="btn btn-outline-primary btn-sm w-100 mb-2">
+        <a href="<?= base_url('Productos') ?>" class="btn btn-outline-primary btn-sm w-100 mb-2">
             <i class="bi bi-arrow-left-circle"></i> Seguir comprando
         </a>
     </div>
 
-    <a href="/checkout" class="btn btn-success btn-lg w-100">
-        <i class="bi bi-credit-card-fill"></i> Comprar Ahora
-    </a>
+    <form action="<?= base_url('/Carrito/comprar') ?>" method="post">
+        <button type="submit" class="btn btn-success btn-lg w-100">
+            <i class="bi bi-credit-card-fill"></i> Comprar Ahora
+        </button>
+    </form>
 </div>

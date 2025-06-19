@@ -12,9 +12,8 @@ class FacturaModel extends Model
     protected $allowedFields = [
         'id_factura',
         'id_usuario',
-        'medio_pago',
         'importe_total',
-        'descuento',
+        'cantidad_productos',
         'fecha_hora'
     ];
 

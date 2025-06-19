@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use App\Models\ProductosModel;
+use App\Models\FacturaModel;
+use App\Models\DetalleFacturaModel;
 
 class CarritoController extends BaseController
 {
@@ -265,5 +267,151 @@ class CarritoController extends BaseController
             'resumen' => view('Fragments/ResumenCarrito', $datos)
         ];
     }
-    
+
+    public function comprar()
+    {
+        $session = session();
+        $carrito = $session->get('carrito');
+        $usuario = $session->get('usuario_logueado');
+
+
+        if (!$this->validarCompra($usuario, $carrito)) {
+            return redirect()->back()->with('error', 'Debe estar logueado y tener productos en el carrito.');
+        }
+
+        $db = \Config\Database::connect();
+        $db->transStart();
+
+        $idFactura = $this->crearFactura($usuario, $carrito);
+        $this->procesarDetalleYActualizarStock($carrito, $idFactura);
+
+
+        $db->transComplete();
+
+        if (!$db->transStatus()) {
+            return redirect()->back()->with('error', 'Error al procesar la compra. Intente nuevamente.');
+        }
+
+        $session->remove('carrito');
+        return redirect()->to('/Carrito/confirmacion')->with('success', 'Compra realizada con éxito.');
+    }
+
+    private function validarCompra($usuario, $carrito): bool
+    {
+        return $usuario && !empty($carrito);
+    }
+
+    /**
+     * Crea una factura para el usuario con los productos del carrito.
+     *
+     * @param array $usuario Datos del usuario logueado
+     * @param array $carrito Contenido del carrito de compras
+     * @return int ID de la factura recién insertada
+     */
+    private function crearFactura(array $usuario, array $carrito): int
+    {
+        $facturaModel = new \App\Models\FacturaModel();
+
+        $totalProductos = 0;
+        $importeTotal = 0;
+
+        foreach ($carrito as $item) {
+            $cantidad = (int) $item['cantidad'];
+            $precio = (float) $item['precio'];
+            $totalProductos += $cantidad;
+            $importeTotal += $cantidad * $precio;
+        }
+
+        $facturaModel->insert([
+            'id_usuario' => $usuario['id_usuario'],
+            'cantidad_productos' => $totalProductos,
+            'importe_total' => $importeTotal,
+            'fecha_hora' => date('Y-m-d H:i:s')
+        ]);
+
+        return $facturaModel->getInsertID();
+    }
+
+    private function procesarDetalleYActualizarStock(array $carrito, int $idFactura): void
+    {
+        $detalleFacturaModel = new \App\Models\DetalleFacturaModel();
+        $productosModel = new \App\Models\ProductosModel();
+
+        foreach ($carrito as $idProducto => $item) {
+            $idProducto = (int)$idProducto;
+            $cantidadComprada = (int)$item['cantidad'];
+            $precioUnitario = (float)$item['precio'];
+
+            $detalleFacturaModel->insert([
+                'id_factura' => $idFactura,
+                'id_producto' => $idProducto,
+                'cantidad' => $cantidadComprada,
+                'subtotal' => $cantidadComprada * $precioUnitario
+            ]);
+
+            $producto = $productosModel->find($idProducto);
+            if ($producto) {
+                $nuevoStock = $producto['cantidad'] - $cantidadComprada;
+                $productosModel->update($idProducto, [
+                    'cantidad' => $nuevoStock,
+                    'activo' => ($nuevoStock <= 0) ? 0 : 1
+                ]);
+            }
+        }
+    }
+
+    public function confirmacion()
+    {
+        $session = session();
+        $usuario = $session->get('usuario_logueado');
+
+        if (!$usuario) {
+            return redirect()->to('/Auth/Login')->with('error', 'Debe iniciar sesión para ver la confirmación de su compra.');
+        }
+
+        $facturaModel = new \App\Models\FacturaModel();
+        $detalleModel = new \App\Models\DetalleFacturaModel();
+        $productoModel = new \App\Models\ProductosModel();
+
+        // Obtener la última factura del usuario
+        $factura = $facturaModel
+            ->where('id_usuario', $usuario['id_usuario'])
+            ->orderBy('id_factura', 'DESC')
+            ->first();
+
+        if (!$factura) {
+            return redirect()->to('/')->with('warning', 'No se encontró ninguna factura.');
+        }
+
+        // Obtener los detalles de la factura
+        $detallesFactura = $detalleModel
+            ->where('id_factura', $factura['id_factura'])
+            ->findAll();
+
+        // Enriquecer con datos del producto
+        $detalles = [];
+        foreach ($detallesFactura as $detalle) {
+            $producto = $productoModel->find($detalle['id_producto']);
+
+            if ($producto) {
+                $detalles[] = [
+                    'nombre_producto' => $producto['nombre'],
+                    'cantidad' => $detalle['cantidad'],
+                    'precio_unitario' => $producto['precio'],
+                    'subtotal' => $detalle['subtotal']
+                ];
+            }
+        }
+
+        return view('Templates/main_layout', [
+            'title' => 'Gracias por su compra',
+            'content' => view('Pages/ConfirmacionCompra', [
+                'usuario' => $usuario,
+                'factura' => $factura,
+                'detalles' => $detalles
+            ])
+        ]);
+    }
+
 }
+

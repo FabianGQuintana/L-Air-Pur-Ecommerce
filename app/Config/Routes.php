@@ -45,10 +45,14 @@ $routes->post('/Carrito/agregar/(:num)', 'CarritoController::agregar/$1');
 $routes->get('/Carrito/eliminar/(:num)', 'CarritoController::eliminar/$1',['filter' => 'auth']);
 $routes->get('/Carrito/quitar/(:num)', 'CarritoController::quitar/$1',['filter' => 'auth']);
 $routes->get('/Carrito/vaciar', 'CarritoController::vaciar',['filter' => 'auth']);
+$routes->post('/Carrito/comprar', 'CarritoController::comprar');
 $routes->post('carrito/agregarAjax/(:num)', 'CarritoController::agregarAjax/$1',['filter' => 'auth']);
 $routes->post('carrito/quitarAjax/(:num)', 'CarritoController::quitarAjax/$1',['filter' => 'auth']);
 $routes->post('carrito/eliminarAjax/(:num)', 'CarritoController::eliminarAjax/$1',['filter' => 'auth']);
 $routes->get('carrito/fragmento', 'CarritoController::obtenerFragmentos',['filter' => 'auth']);
+$routes->get('/Carrito/confirmacion', 'CarritoController::confirmacion',['filter' => 'auth']);
+
+
 
 // Rutas para contacto
 $routes->get('/Contact', 'Contact::index');

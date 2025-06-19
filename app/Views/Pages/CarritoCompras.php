@@ -1,3 +1,17 @@
+<?php if (session()->has('error')): ?>
+    <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+        <?= session('error') ?>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+<?php endif; ?>
+
+<?php if (session()->has('success')): ?>
+    <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+        <?= session('success') ?>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+<?php endif; ?>
+
 <div class="container mt-5">
     <h1 class="mb-4">🛒 Mi Carrito de Compras</h1>
 
@@ -9,7 +23,7 @@
         <div class="alert alert-info">
             <p>El carrito está vacío. ¡Explora nuestra tienda y encuentra tus perfumes favoritos!</p>
         </div>
-        <a href="/" class="btn btn-primary">
+        <a href="<?= base_url('Productos') ?>" class="btn btn-dark">
             <i class="bi bi-arrow-left-circle"></i> Seguir comprando
         </a>
     <?php else: ?>
