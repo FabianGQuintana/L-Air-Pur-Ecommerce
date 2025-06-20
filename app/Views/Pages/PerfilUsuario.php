@@ -88,7 +88,7 @@
                                 <?php $totalFactura = 0; ?>
                                 <?php foreach ($factura['detalles'] as $detalle): ?>
                                     <?php
-                                        $subtotal = $detalle['precio_unitario'] * $detalle['cantidad'];
+                                        $subtotal = $detalle['subtotal'] * $detalle['cantidad'];
                                         $totalFactura += $subtotal;
                                     ?>
                                     <tr>
@@ -99,7 +99,7 @@
                                         <td><?= esc($detalle['marca']) ?></td>
                                         <td><?= esc($detalle['categoria']) ?></td>
                                         <td><?= esc($detalle['cantidad']) ?></td>
-                                        <td>$<?= number_format($detalle['precio_unitario'], 0, ',', '.') ?></td>
+                                        <td>$<?= number_format($detalle['subtotal'], 0, ',', '.') ?></td>
                                         <td>$<?= number_format($subtotal, 0, ',', '.') ?></td>
                                     </tr>
                                 <?php endforeach; ?>

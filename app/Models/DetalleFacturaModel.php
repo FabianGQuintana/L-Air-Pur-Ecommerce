@@ -19,4 +19,21 @@ class DetalleFacturaModel extends Model
 
     protected $returnType = 'array';
     protected $useTimestamps = false;
+
+    public function obtenerDetallesConProducto($idFactura)
+    {
+        return $this->select('
+                detalle_facturas.*,
+                productos.nombre AS nombre_producto,
+                productos.precio,
+                productos.imagen,
+                marcas.nombre_marca AS marca,
+                categorias.nombre AS categoria
+            ')
+            ->join('productos', 'productos.id_producto = detalle_facturas.id_producto')
+            ->join('marcas', 'marcas.id_marca = productos.id_marca')
+            ->join('categorias', 'categorias.id_categoria = productos.id_categoria')
+            ->where('detalle_facturas.id_factura', $idFactura)
+            ->findAll();
+    }
 }
