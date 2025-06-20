@@ -71,6 +71,57 @@ class AdminController extends BaseController
         return view('Templates/admin_layout', $data);
     }
 
+    public function listarCompras()
+    {
+        $facturaModel = new FacturaModel();
+        $usuarioModel = new UsuarioModel();
 
-    
+        $facturas = $facturaModel->select('facturas.*, usuarios.nombre, usuarios.apellido, usuarios.email')
+                                ->join('usuarios', 'usuarios.id_usuario = facturas.id_usuario')
+                                ->orderBy('facturas.fecha_hora', 'DESC')
+                                ->findAll();
+
+        $data['facturas'] = $facturas;
+        $data['title'] = 'Compras Realizadas';
+        $data['content'] = view('Pages/AdminCompras', $data);
+
+        return view('Templates/admin_layout', $data);
+    }
+
+    public function verFactura($idFactura)
+    {
+        $facturaModel = new FacturaModel();
+        $detalleModel = new DetalleFacturaModel();
+        $productoModel = new ProductosModel();
+        $usuarioModel = new UsuarioModel();
+
+        $factura = $facturaModel->find($idFactura);
+        if (!$factura) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException("Factura no encontrada");
+        }
+
+        $usuario = $usuarioModel->find($factura['id_usuario']);
+
+        $detallesBrutos = $detalleModel->where('id_factura', $idFactura)->findAll();
+
+        $detalles = [];
+        foreach ($detallesBrutos as $item) {
+            $producto = $productoModel->find($item['id_producto']);
+            $detalles[] = [
+                'nombre_producto' => $producto['nombre'],
+                'cantidad'        => $item['cantidad'],
+                'precio_unitario' => $producto['precio'],
+                'subtotal'        => $item['subtotal']
+            ];
+        }
+
+        
+        $data['factura'] = $factura;
+        $data['usuario'] = $usuario;
+        $data['detalles'] = $detalles;
+        $data['content'] = view('Components/Factura',$data);
+
+        return view('Templates/admin_layout', $data);
+    }
+
 }

@@ -1,3 +1,7 @@
+<!-- =========================
+    Vista Carrito de Comprar  
+========================== -->
+
 <?php if (session()->has('error')): ?>
     <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
         <?= session('error') ?>

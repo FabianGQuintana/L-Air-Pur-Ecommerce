@@ -1,33 +1,8 @@
-<style>
-    .factura-box {
-        background-color: #fff;
-        border-radius: 10px;
-        padding: 30px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        max-width: 700px;
-        margin: 0 auto;
-    }
-    .empresa {
-        background-color: rgb(75, 67, 97);
-        color: white;
-        padding: 20px;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-    }
-    .resumen-total {
-        background-color: #198754;
-        color: white;
-        padding: 10px;
-        font-size: 1.25rem;
-        font-weight: bold;
-        text-align: end;
-    }
-    @media (max-width: 768px) {
-        .empresa, .factura-box {
-            padding: 15px;
-        }
-    }
-</style>
+<!-- =============================
+         Factura de Producto
+================================ -->
+
+<link rel="stylesheet" href="<?= base_url('assets/css/Style-Factura.css') ?>">
 
 <div class="container my-5">
     <div class="factura-box">

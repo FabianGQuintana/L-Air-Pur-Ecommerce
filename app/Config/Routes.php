@@ -38,6 +38,8 @@ $routes->get('/Admin', 'AdminController::index',['filter' => 'admin']);
 $routes->get('/Admin/Productos', 'AdminController::administrarProductos',['filter' => 'admin']);
 $routes->get('/Admin', 'AdminController::index',['filter' => 'admin']);
 $routes->get('/UsuarioController', 'AdminController::index',['filter' => 'admin']);
+$routes->get('/Admin/compras', 'AdminController::listarCompras');
+$routes->get('/Admin/verFactura/(:num)', 'AdminController::verFactura/$1');
 
 // Rutas para el carrito de compras
 $routes->get('/Carrito', 'CarritoController::index',['filter' => 'auth']);

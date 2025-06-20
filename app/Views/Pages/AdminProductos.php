@@ -160,7 +160,9 @@
         </div>
         <!-- BOTONES en columna y a 100% de ancho -->
         <div class="d-grid gap-2">
-          <a href="<?= base_url('Productos/'. $producto['id_producto'].'/edit'); ?>" class="btn btn-custom-dark btn-sm w-100">Editar</a>
+          <a href="<?= base_url('Productos/'. $producto['id_producto'].'/edit'); ?>" class="btn btn-dark btn-sm w-100" title="Editar">
+              <i class="bi bi-pencil"></i>
+          </a>
           <form action="<?= site_url('Productos/' . $producto['id_producto']) ?>" method="post" onsubmit="return confirm('¿Estás seguro que querés desactivar este producto?')">
             <?= csrf_field() ?>
             <input type="hidden" name="_method" value="DELETE">
