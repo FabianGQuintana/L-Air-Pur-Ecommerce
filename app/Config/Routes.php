@@ -38,8 +38,16 @@ $routes->get('/Admin', 'AdminController::index',['filter' => 'admin']);
 $routes->get('/Admin/Productos', 'AdminController::administrarProductos',['filter' => 'admin']);
 $routes->get('/Admin', 'AdminController::index',['filter' => 'admin']);
 $routes->get('/UsuarioController', 'AdminController::index',['filter' => 'admin']);
-$routes->get('/Admin/compras', 'AdminController::listarCompras');
-$routes->get('/Admin/verFactura/(:num)', 'AdminController::verFactura/$1');
+$routes->get('/Admin/compras', 'AdminController::listarCompras',['filter' => 'admin']);
+$routes->get('/Admin/verFactura/(:num)', 'AdminController::verFactura/$1',['filter' => 'admin']);
+$routes->get('/Admin/Nuevo', 'AdminController::nuevo',['filter' => 'admin']);
+$routes->post('/Admin/Guardar', 'AdminController::guardar',['filter' => 'admin']);
+$routes->post('/Admin/Actualizar/(:num)', 'AdminController::actualizar/$1',['filter' => 'admin']);
+$routes->get('/Admin/Editar/(:num)', 'AdminController::editar/$1',['filter' => 'admin']);
+$routes->get('/Admin/Eliminar/(:num)', 'AdminController::eliminar/$1', ['filter' => 'admin']);
+$routes->get('/Admin/Reactivar/(:num)', 'AdminController::reactivar/$1', ['filter' => 'admin']);
+
+
 
 // Rutas para el carrito de compras
 $routes->get('/Carrito', 'CarritoController::index',['filter' => 'auth']);

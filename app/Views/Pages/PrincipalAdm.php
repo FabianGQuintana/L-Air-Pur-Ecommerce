@@ -1,11 +1,10 @@
 <link rel="stylesheet" href="<?= base_url('assets/css/AdminDashboard.css') ?>">
-
 <!-- Inicio del cuerpo -->
 <div class="container-fluid">
   <!-- Encabezado -->
-  <div class="row bg-primary text-white p-3 mb-3">
+  <div class="row bg-secondary text-white p-3 mb-3">
     <div class="col-md-6">
-      <h2>Dashboard Administrador</h2>
+      <h2>Panel Administrador</h2>
     </div>
     <div class="col-md-6 text-end">
       <span>Admin: <?= esc($adminNombre) . ' ' . esc($adminApellido) ?></span>
@@ -27,7 +26,7 @@
     <div class="col-md-4 mb-3">
       <div class="card text-center">
         <div class="card-body">
-          <h5 class="card-title">Usuarios</h5>
+          <h5 class="card-title">Usuarios Activos</h5>
           <p class="card-text display-6"><?= esc($totalUsuarios)?></p>
           <a href="<?= base_url('UsuarioController') ?>" class="btn btn-primary btn-sm">Ver usuarios</a>
         </div>

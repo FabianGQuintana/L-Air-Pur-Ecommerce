@@ -9,9 +9,8 @@
     <link rel="icon" type="image/png" href="<?= base_url('assets/img/LogoPrincipal.png') ?>">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.min.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/bootstrap-icons/bootstrap-icons.css') ?>">
-    
+    <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.min.css') ?>">
 
     <!-- Google Fonts & Bootstrap Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">

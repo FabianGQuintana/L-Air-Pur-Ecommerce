@@ -98,7 +98,7 @@
           <th>Cantidad</th>
           <th>Precio</th>
           <th>Imagen</th>
-          <th>Estado</th> <!-- NUEVO -->
+          <th>Estado</th>
           <th>Editar</th>
           <th>Dar de baja</th>
         </tr>
@@ -110,7 +110,7 @@
             <td><?= esc($producto['marca']) ?></td>
             <td><?= esc($producto['categoria']) ?></td>
             <td><?= $producto['cantidad'] ?></td>
-            <td>$<?= number_format($producto['precio'], 2, ',', '.') ?></td> 
+            <td>$<?= number_format($producto['precio'], 2, ',', '.') ?></td>
             <td>
               <img src="<?= base_url('assets/img/' . $producto['imagen']) ?>" alt="<?= esc($producto['nombre']) ?>" class="img-thumbnail img-miniatura">
             </td>
