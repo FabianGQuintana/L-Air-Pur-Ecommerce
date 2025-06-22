@@ -1,14 +1,16 @@
 <link rel="stylesheet" href="<?= base_url('assets/css/AdminDashboard.css') ?>">
-<!-- Inicio del cuerpo -->
+
 <div class="container-fluid">
   <!-- Encabezado -->
-  <div class="row bg-secondary text-white p-3 mb-3">
+  <div class="row bg-secondary text-white p-3 mb-3 align-items-center">
     <div class="col-md-6">
-      <h2>Panel Administrador</h2>
+      <h2 class="mb-0">Panel Administrador</h2>
     </div>
     <div class="col-md-6 text-end">
-      <span>Admin: <?= esc($adminNombre) . ' ' . esc($adminApellido) ?></span>
-      <a href="<?= base_url('/Logout') ?>" class="btn btn-light btn-sm ms-2">Cerrar sesión</a>
+      <div class="admin-info bg-dark px-3 py-2 rounded-3 d-inline-block">
+        <i class="bi bi-person-circle me-2"></i>
+        <strong><?= esc($adminNombre) ?> <?= esc($adminApellido) ?></strong>
+      </div>
     </div>
   </div>
 
@@ -27,7 +29,7 @@
       <div class="card text-center">
         <div class="card-body">
           <h5 class="card-title">Usuarios Activos</h5>
-          <p class="card-text display-6"><?= esc($totalUsuarios)?></p>
+          <p class="card-text display-6"><?= esc($totalUsuarios) ?></p>
           <a href="<?= base_url('UsuarioController') ?>" class="btn btn-primary btn-sm">Ver usuarios</a>
         </div>
       </div>
@@ -36,8 +38,8 @@
       <div class="card text-center">
         <div class="card-body">
           <h5 class="card-title">Órdenes</h5>
-          <p class="card-text display-6"><?= esc($totalOrdenes)?></p>
-          <a href="#" class="btn btn-primary btn-sm">Ver órdenes</a>
+          <p class="card-text display-6"><?= esc($totalOrdenes) ?></p>
+          <a  href="<?= base_url('/Admin/compras') ?>" class="btn btn-primary btn-sm">Ver órdenes</a>
         </div>
       </div>
     </div>
@@ -48,39 +50,59 @@
     <div class="col-12">
       <div class="card p-3">
         <h5 class="card-title">Ventas mensuales</h5>
-        <canvas id="ventasChart" height="100"></canvas>
+        <div class="chart-container">
+          <canvas id="ventasChart"></canvas>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Script para el gráfico (Chart.js) -->
-
+<!-- Gráfico dinámico con Chart.js -->
 <script>
-  const datos = <?= json_encode($ventasPorMes) ?>;
-  const labels = datos.map(item => `Mes ${item.mes}`);
-  const valores = datos.map(item => item.cantidad);
+  document.addEventListener("DOMContentLoaded", function () {
+    const datos = <?= json_encode($ventasPorMes) ?>;
 
-  const ventasChart = new Chart(document.getElementById('ventasChart'), {
-    type: 'bar',
-    data: {
-      labels: labels,
-      datasets: [{
-        label: 'Ventas',
-        data: valores,
-        backgroundColor: 'rgba(54, 162, 235, 0.7)',
-        borderColor: 'rgba(54, 162, 235, 1)',
-        borderWidth: 1
-      }]
-    },
-    options: {
-      responsive: true,
-      scales: {
-        y: { beginAtZero: true }
+    const labels = datos.map(item => item.mes);
+    const valores = datos.map(item => item.cantidad);
+
+    const ctx = document.getElementById('ventasChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'Ventas por mes',
+          data: valores,
+          backgroundColor: 'rgba(54, 162, 235, 0.7)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: {
+              precision: 0
+            }
+          },
+          x: {
+            ticks: {
+              autoSkip: false,
+              maxRotation: 45,
+              minRotation: 20
+            }
+          }
+        },
+        plugins: {
+          legend: {
+            display: true
+          }
+        }
       }
-    }
+    });
   });
 </script>
-
-
-

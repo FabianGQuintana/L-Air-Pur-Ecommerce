@@ -30,6 +30,29 @@ class AdminController extends BaseController
         $ventasMensuales = $facturaModel->obtenerVentasPorMes();
         $data['ventasPorMes'] = $ventasMensuales;
 
+        // Inicializar todos los meses en 0
+        $meses = array_fill(1, 12, 0);
+
+        // Rellenar con los datos reales
+        foreach ($ventasMensuales as $venta) {
+            $meses[(int)$venta['mes']] = (int)$venta['cantidad'];
+        }
+
+        $nombreMeses = [
+            1 => 'Enero', 2 => 'Febrero', 3 => 'Marzo', 4 => 'Abril',
+            5 => 'Mayo', 6 => 'Junio', 7 => 'Julio', 8 => 'Agosto',
+            9 => 'Septiembre', 10 => 'Octubre', 11 => 'Noviembre', 12 => 'Diciembre'
+        ];
+
+        $data['ventasPorMes'] = [];
+        foreach ($meses as $numeroMes => $cantidad) {
+            $data['ventasPorMes'][] = [
+                'mes' => $nombreMeses[$numeroMes],
+                'cantidad' => $cantidad
+            ];
+        }
+
+
         $usuarios = $usuariosModel->where('activo', 1)->findAll();
 
         $data['title'] = 'Administrador';

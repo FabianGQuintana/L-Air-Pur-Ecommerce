@@ -1,3 +1,24 @@
 /* -------------------------------------------
-    Estilos para el NAVBAR DE ADMINISTRADOR
+    Estilos para panel de administrador
 -------------------------------------------- */
+/* Estilos para evitar que el gráfico se rompa */
+.chart-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+  overflow-x: auto; /* permite scroll horizontal en pantallas chicas */
+}
+
+#ventasChart {
+    max-width: 100%;
+    height: auto !important;
+}
+
+.admin-info {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
+  background-color: #343a40;
+  border-radius: 0.5rem;
+}
+
