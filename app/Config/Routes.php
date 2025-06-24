@@ -19,8 +19,6 @@ $routes->get('/Auth/Register', 'UsuarioController::register');
 $routes->post('/Auth/doRegister', 'UsuarioController::doRegister');
 $routes->get('/Logout', 'UsuarioController::logout');
 
-$routes->resource('UsuarioController', ['placeholder' => '(:num)']);
-
 $routes->group('', ['filter' => 'auth'], function($routes) {
     $routes->get('/dashboard', 'Dashboard::index');
 });
@@ -74,7 +72,7 @@ $routes->post('/Contact/send', 'Contact::send');
 $routes->post('Contact/sendConsulta', 'Contact::sendConsulta');
 
 // Rutas para productos
-$routes->get('Productos', 'Productos::index',['filter' => 'admin']);
+$routes->get('Productos', 'Productos::index');
 $routes->get('Productos/new', 'Productos::new', ['filter' => 'admin']);
 $routes->post('Productos', 'Productos::create', ['filter' => 'admin']);
 $routes->get('Productos/(:num)', 'Productos::show/$1');
