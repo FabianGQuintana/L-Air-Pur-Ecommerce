@@ -35,7 +35,7 @@ $routes->post('/Pages/ActualizarUsuario', 'UsuarioController::actualizarUsuario'
 $routes->get('/Admin', 'AdminController::index',['filter' => 'admin']);
 $routes->get('/Admin/Productos', 'AdminController::administrarProductos',['filter' => 'admin']);
 $routes->get('/Admin', 'AdminController::index',['filter' => 'admin']);
-$routes->get('/UsuarioController', 'AdminController::index',['filter' => 'admin']); // Acá
+$routes->get('/UsuarioController', 'UsuarioController::index',['filter' => 'admin']); // Acá
 $routes->get('/Admin/compras', 'AdminController::listarCompras',['filter' => 'admin']);
 $routes->get('/Admin/verFactura/(:num)', 'AdminController::verFactura/$1',['filter' => 'admin']);
 $routes->get('/Admin/Nuevo', 'AdminController::nuevo',['filter' => 'admin']);
