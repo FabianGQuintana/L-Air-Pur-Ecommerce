@@ -36,6 +36,9 @@
           <a class="nav-link" href="<?= base_url('/Admin/consultas') ?>">Consultas</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="<?= base_url('/') ?>">Pagina Usuario</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link text-danger" href="<?= base_url('/Logout') ?>">Cerrar sesión</a>
         </li>
       </ul>

@@ -81,6 +81,10 @@
           <a class="nav-link" href="<?= base_url('Contact') ?>">Contacto</a>
         </li>
 
+        <?php if (session()->has('usuario_logueado') && session('usuario_logueado')['rol'] === 'admin'): ?>
+          <li><a class="nav-link" href="<?= base_url('/Admin') ?>">Administración</a></li>
+        <?php endif; ?>
+
         <!-- MÁS INFO -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
