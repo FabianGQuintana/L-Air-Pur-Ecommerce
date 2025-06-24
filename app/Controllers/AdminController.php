@@ -244,12 +244,8 @@ class AdminController extends BaseController
     public function listarCompras()
     {
         $facturaModel = new FacturaModel();
-        $usuarioModel = new UsuarioModel();
 
-        $facturas = $facturaModel->select('facturas.*, usuarios.nombre, usuarios.apellido, usuarios.email')
-            ->join('usuarios', 'usuarios.id_usuario = facturas.id_usuario')
-            ->orderBy('facturas.fecha_hora', 'DESC')
-            ->findAll();
+        $facturas = $facturaModel->obtenerFacturasConUsuario();
 
         $data['facturas'] = $facturas;
         $data['title'] = 'Compras Realizadas';

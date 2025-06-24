@@ -31,4 +31,12 @@ class FacturaModel extends Model
                     ->findAll();
     }
 
+    public function obtenerFacturasConUsuario()
+    {
+        return $this->select('facturas.*, usuarios.nombre, usuarios.apellido, usuarios.email')
+                    ->join('usuarios', 'usuarios.id_usuario = facturas.id_usuario')
+                    ->orderBy('facturas.fecha_hora', 'DESC')
+                    ->findAll();
+    }
+
 }
