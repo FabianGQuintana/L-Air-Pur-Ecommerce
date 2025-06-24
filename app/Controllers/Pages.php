@@ -7,27 +7,26 @@ use App\Models\ProductosModel;
 class Pages extends BaseController
 {
     public function index()
-{
-    
-    $productoModel = new \App\Models\ProductosModel();
+    {
+        
+        $productoModel = new \App\Models\ProductosModel();
 
-    // Consultas con límite de 4 productos por categoría
-    $productosDiseñador = $productoModel->where('id_categoria', 3)->limit(4)->find();
-    $productosNicho     = $productoModel->where('id_categoria', 1)->limit(4)->find();
-    $productosArabes    = $productoModel->where('id_categoria', 2)->limit(4)->find();
+        // Consultas con límite de 4 productos por categoría
+        $productosDiseñador = $productoModel->obtenerPorCategoriaActivos(3);
+        $productosNicho     = $productoModel->obtenerPorCategoriaActivos(1);
+        $productosArabes    = $productoModel->obtenerPorCategoriaActivos(2);
 
-    // Cargar la página de inicio con los productos por sección
-    return view('Templates/main_layout', [
-        'title' => 'Inicio - L’Air Pur',
-        'content' => view('Pages/PaginaPrincipal', [
-            'destacados' => $productosDiseñador,
-            'exclusivos' => $productosNicho,
-            'arabes'     => $productosArabes,
-        ])
-    ]);
-}
+        // Cargar la página de inicio con los productos por sección
+        return view('Templates/main_layout', [
+            'title' => 'Inicio - L’Air Pur',
+            'content' => view('Pages/PaginaPrincipal', [
+                'destacados' => $productosDiseñador,
+                'exclusivos' => $productosNicho,
+                'arabes'     => $productosArabes,
+            ])
+        ]);
+    }
 
-    
     public function QuienesSomos()
     {
         // Cargar la página "Quiénes Somos"
@@ -133,10 +132,4 @@ class Pages extends BaseController
 
         return view('Templates/main_layout', $data);
     }
-
-
-
-    
-
-
 }

@@ -64,6 +64,12 @@ class ProductosModel extends Model
         return $this->findAll();
     }
 
+    /**
+     * Obtiene un producto por su ID y los detalles de la marca y categoría.
+     *
+     * @param int $id El ID del producto.
+     * @return array|null El producto con detalles de marca y categoría, o null si no se encuentra.
+     */
     public function obtenerProductoConDetalles($id)
     {
         return $this->select('productos.*, marcas.nombre_marca AS marca, categorias.nombre AS categoria')
@@ -73,28 +79,18 @@ class ProductosModel extends Model
                     ->first();
     }
 
-    //Limitadores de productos en cards por secciones
-    public function obtenerDestacados(){
-
-    return $this->where('categoria', 'Diseñador')
-                ->limit(4)
-                ->findAll();
-    }
-
-    public function obtenerExclusivos(){
-
-        return $this->where('categoria','Nicho')
-                    ->limit(4)
-                    ->findAll();
-
-    }
-
-        public function obtenerArabes(){
-
-        return $this->where('categoria','Arabes')
-                    ->limit(4)
-                    ->findAll();
-
+    /**
+     * Obtiene un producto por su ID y los detalles de la marca y categoría.
+     *
+     * @param int $id El ID del producto.
+     * @return array|null El producto con detalles de marca y categoría, o null si no se encuentra.
+     */
+    public function obtenerPorCategoriaActivos(int $idCategoria, int $limite = 4)
+    {
+        return $this->where('id_categoria', $idCategoria)
+                    ->where('activo', 1)
+                    ->limit($limite)
+                    ->find();
     }
 }
 

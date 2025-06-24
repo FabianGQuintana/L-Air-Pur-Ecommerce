@@ -6,6 +6,34 @@
 <div class="container my-4">
   <h2 class="mb-4 text-center fw-light">Listado de Productos</h2>
 
+  <?php if (session()->getFlashdata('success')): ?>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <i class="bi bi-check-circle-fill me-2"></i>
+      <?= esc(session()->getFlashdata('success')) ?>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+    </div>
+  <?php endif; ?>
+
+  <?php if (session()->getFlashdata('errors') && old('nombre_marca')): ?>
+  <div class="alert alert-danger">
+      <ul class="mb-0">
+        <?php foreach (session()->getFlashdata('errors') as $error): ?>
+          <li><?= esc($error) ?></li>
+        <?php endforeach; ?>
+      </ul>
+    </div>
+  <?php endif; ?>
+
+  <?php if (session()->getFlashdata('errors') && old('nombre')): ?>
+    <div class="alert alert-danger">
+      <ul class="mb-0">
+        <?php foreach (session()->getFlashdata('errors') as $error): ?>
+          <li><?= esc($error) ?></li>
+        <?php endforeach; ?>
+      </ul>
+    </div>
+  <?php endif; ?>
+
   <!-- Barra de búsqueda + botones -->
   <div class="mb-3 d-flex gap-2 flex-wrap justify-content-between align-items-center">
     <form method="get" action="<?= base_url('/Admin/Productos') ?>" class="flex-grow-1 me-2">
@@ -36,8 +64,48 @@
         <i class="bi bi-eye-slash me-1"></i> Inactivos
       </a>
       <a href="<?= base_url('Productos/new') ?>" class="btn btn-success">
-        <i class="bi bi-plus-circle-fill me-1"></i> Agregar
+        <i class="bi bi-plus-circle-fill me-1"></i> Agregar Producto
       </a>
+      <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#formCategoria" aria-expanded="false" aria-controls="formCategoria">
+        <i class="bi bi-tags-fill me-1"></i> Nueva Categoría
+      </button>
+      <button class="btn btn-outline-info" type="button" data-bs-toggle="collapse" data-bs-target="#formMarca" aria-expanded="false" aria-controls="formMarca">
+        <i class="bi bi-bookmark-plus-fill me-1"></i> Nueva Marca
+      </button>
+    </div>
+  </div>
+
+    <!-- Formulario de nueva categoría -->
+  <div class="collapse mt-4" id="formCategoria">
+    <div class="card card-body border-primary">
+      <h5 class="fw-semibold mb-3 text-primary">Agregar Nueva Categoría</h5>
+      <form method="post" action="<?= base_url('/admin/guardarCategoria') ?>">
+        <?= csrf_field() ?>
+        <div class="mb-3">
+          <label for="nombre_categoria" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="nombre_categoria" name="nombre" required>
+        </div>
+        <div class="mb-3">
+          <label for="descripcion_categoria" class="form-label">Descripción</label>
+          <textarea class="form-control" id="descripcion_categoria" name="descripcion" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar Categoría</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Formulario de nueva marca -->
+  <div class="collapse mt-4" id="formMarca">
+    <div class="card card-body border-info">
+      <h5 class="fw-semibold mb-3 text-info">Agregar Nueva Marca</h5>
+      <form method="post" action="<?= base_url('/admin/guardarMarca') ?>">
+        <?= csrf_field() ?>
+        <div class="mb-3">
+          <label for="nombre_marca" class="form-label">Nombre de Marca</label>
+          <input type="text" class="form-control" id="nombre_marca" name="nombre_marca" required>
+        </div>
+        <button type="submit" class="btn btn-info text-white">Guardar Marca</button>
+      </form>
     </div>
   </div>
 

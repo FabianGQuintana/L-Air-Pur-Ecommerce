@@ -26,7 +26,7 @@
                         </div>
                     <?php endif; ?>
 
-                    <form action="<?= base_url('admin/guardar') ?>" method="post">
+                    <form action="<?= base_url('/Admin/Guardar') ?>" method="post">
 
                         <div class="mb-3">
                             <label for="nombre" class="form-label">Nombre</label>

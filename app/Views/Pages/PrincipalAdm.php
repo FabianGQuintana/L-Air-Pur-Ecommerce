@@ -21,7 +21,7 @@
         <div class="card-body">
           <h5 class="card-title">Productos</h5>
           <p class="card-text display-6"><?= esc($totalProductos) ?></p>
-          <a href="<?= base_url('/Admin/Productos') ?>" class="btn btn-primary btn-sm">Ver productos</a>
+          <a href="<?= base_url('/Admin/Productos') ?>" class="btn btn-dark btn-sm">Ver productos</a>
         </div>
       </div>
     </div>
@@ -30,7 +30,7 @@
         <div class="card-body">
           <h5 class="card-title">Usuarios Activos</h5>
           <p class="card-text display-6"><?= esc($totalUsuarios) ?></p>
-          <a href="<?= base_url('UsuarioController') ?>" class="btn btn-primary btn-sm">Ver usuarios</a>
+          <a href="<?= base_url('UsuarioController') ?>" class="btn btn-dark btn-sm">Ver usuarios</a>
         </div>
       </div>
     </div>
@@ -39,7 +39,7 @@
         <div class="card-body">
           <h5 class="card-title">Órdenes</h5>
           <p class="card-text display-6"><?= esc($totalOrdenes) ?></p>
-          <a  href="<?= base_url('/Admin/compras') ?>" class="btn btn-primary btn-sm">Ver órdenes</a>
+          <a  href="<?= base_url('/Admin/compras') ?>" class="btn btn-dark btn-sm">Ver órdenes</a>
         </div>
       </div>
     </div>

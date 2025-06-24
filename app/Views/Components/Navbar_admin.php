@@ -30,7 +30,7 @@
           <a class="nav-link" href="<?= base_url('UsuarioController') ?>">Usuarios</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?= base_url('/Admin/compras') ?>">Órdenes</a>
+          <a class="nav-link" href="<?= base_url('/Admin/compras') ?>">Compras</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="<?= base_url('/Admin/consultas') ?>">Consultas</a>

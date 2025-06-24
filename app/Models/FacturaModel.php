@@ -39,4 +39,10 @@ class FacturaModel extends Model
                     ->findAll();
     }
 
+    public function obtenerUltimaFactura(int $idUsuario): ?array
+    {
+        return $this->where('id_usuario', $idUsuario)
+                    ->orderBy('id_factura', 'DESC')
+                    ->first();
+    }
 }

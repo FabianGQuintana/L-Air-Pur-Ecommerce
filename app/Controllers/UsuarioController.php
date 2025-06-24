@@ -1,11 +1,22 @@
 <?php
 
+/**
+ * Controlador de usuarios del sistema.
+ * Maneja el registro, login, perfil, edición y visualización de usuarios.
+ * 
+ * @package App\Controllers
+ */
+
 namespace App\Controllers;
 
 use App\Models\UsuarioModel;
 
 class UsuarioController extends BaseController
 {
+    /**
+     * Muestra la lista de usuarios.
+     * Permite filtrar por nombre, apellido o email mediante parámetro `busqueda`.
+     */
     public function index()
     {
         $usuarioModel = new UsuarioModel();
@@ -29,6 +40,9 @@ class UsuarioController extends BaseController
         ]);
     }
 
+    /**
+     * Muestra la vista de inicio de sesión.
+     */
     public function login()
     {
         return view('Templates/login_layout', [
@@ -37,6 +51,10 @@ class UsuarioController extends BaseController
         ]);
     }
 
+    /**
+     * Procesa el formulario de inicio de sesión.
+     * Valida las credenciales, inicia sesión y redirige según el rol del usuario.
+     */
     public function doLogin()
     {
         $rules = [
@@ -84,6 +102,9 @@ class UsuarioController extends BaseController
         return redirect()->back()->withInput()->with('error', 'Email o contraseña incorrectos');
     }
 
+    /**
+     * Muestra la vista de registro de usuario.
+     */
     public function register()
     {
         return view('Templates/login_layout', [
@@ -92,6 +113,10 @@ class UsuarioController extends BaseController
         ]);
     }
 
+    /**
+     * Procesa el formulario de registro.
+     * Valida los campos, verifica unicidad de email y guarda un nuevo usuario.
+     */
     public function doRegister()
     {
         $rules = [
@@ -164,6 +189,9 @@ class UsuarioController extends BaseController
         return redirect()->to('/Auth/Login')->with('success', 'Usuario registrado correctamente');
     }
 
+    /**
+     * Muestra el perfil del usuario logueado.
+     */
     public function perfil()
     {
         $usuario = session('usuario_logueado');
@@ -174,12 +202,18 @@ class UsuarioController extends BaseController
         ]);
     }
 
+    /**
+     * Cierra la sesión del usuario actual.
+     */
     public function logout()
     {
         session()->destroy();
         return redirect()->to('/Auth/Login')->with('success', 'Sesión cerrada correctamente.');
     }
 
+    /**
+     * Muestra el formulario para editar los datos del perfil del usuario logueado.
+     */
     public function editarPerfil()
     {
         $usuario = session('usuario_logueado');
@@ -194,6 +228,11 @@ class UsuarioController extends BaseController
         ]);
     }
 
+    /**
+     * Procesa la actualización de datos del usuario logueado.
+     * Permite cambiar nombre, apellido, teléfono, email y contraseña.
+     * Actualiza también los datos en la sesión.
+     */
     public function actualizarUsuario()
     {
         $session = session();
@@ -277,7 +316,13 @@ class UsuarioController extends BaseController
         return redirect()->to('/Pages/PerfilUsuario')->with('success', 'Perfil actualizado correctamente');
     }
 
-
+    /**
+     * Capitaliza correctamente nombres y apellidos.
+     * Convierte a minúscula y luego pone la primera letra de cada palabra en mayúscula.
+     * 
+     * @param string $texto Texto a capitalizar.
+     * @return string Texto capitalizado.
+     */
     private function capitalizarNombreCompleto(string $texto): string
     {
         return preg_replace_callback('/\b[\p{L}\'\-]+/u', function ($coincidencia) {

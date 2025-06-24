@@ -15,7 +15,7 @@
         </form>
 
         <div class="mt-2 mt-md-0">
-            <a href="<?= base_url('admin/nuevo') ?>" class="btn btn-success">
+            <a href="<?= base_url('/Admin/Nuevo') ?>" class="btn btn-success">
                 <i class="bi bi-person-plus-fill me-1"></i> Crear Admin
             </a>
         </div>

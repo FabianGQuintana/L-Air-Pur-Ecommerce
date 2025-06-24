@@ -48,9 +48,10 @@ $routes->get('/Admin/Eliminar/(:num)', 'AdminController::eliminar/$1', ['filter'
 $routes->get('/Admin/Reactivar/(:num)', 'AdminController::reactivar/$1', ['filter' => 'admin']);
 $routes->get('/Admin/consultas', 'AdminController::verConsultas');
 $routes->get('/Admin/responderConsulta/(:segment)/(:num)', 'AdminController::responderConsulta/$1/$2');
-
-
-
+$routes->get('/admin/nuevaCategoria', 'AdminController::nuevaCategoria');
+$routes->post('/admin/guardarCategoria', 'AdminController::guardarCategoria');
+$routes->get('/admin/nuevaMarca', 'AdminController::nuevaMarca');
+$routes->post('/admin/guardarMarca', 'AdminController::guardarMarca');
 
 // Rutas para el carrito de compras
 $routes->get('/Carrito', 'CarritoController::index',['filter' => 'auth']);

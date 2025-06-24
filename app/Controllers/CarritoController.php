@@ -499,7 +499,10 @@ class CarritoController extends BaseController
                 ->with('error', 'Debe iniciar sesión para ver la confirmación de su compra.');
         }
 
-        $factura = $this->obtenerUltimaFactura($usuario['id_usuario']);
+        $facturaModel = new \App\Models\FacturaModel();
+        $detalleModel = new \App\Models\DetalleFacturaModel();
+
+        $factura = $facturaModel->obtenerUltimaFactura($usuario['id_usuario']);
 
         if (!$factura) {
             return redirect()
@@ -507,7 +510,7 @@ class CarritoController extends BaseController
                 ->with('warning', 'No se encontró ninguna factura.');
         }
 
-        $detalles = $this->obtenerDetallesConProductos($factura['id_factura']);
+        $detalles = $detalleModel->obtenerDetallesConProductos($factura['id_factura']);
 
         return view('Templates/main_layout', [
             'title' => 'Gracias por su compra',
@@ -519,51 +522,4 @@ class CarritoController extends BaseController
         ]);
     }
 
-    /**
-     * Obtiene la última factura realizada por un usuario.
-     *
-     * @param int $idUsuario ID del usuario.
-     * @return array|null Datos de la factura o null si no existe.
-     */
-    private function obtenerUltimaFactura($idUsuario)
-    {
-        $facturaModel = new \App\Models\FacturaModel();
-        return $facturaModel
-            ->where('id_usuario', $idUsuario)
-            ->orderBy('id_factura', 'DESC')
-            ->first();
-    }
-
-    /**
-     * Obtiene los detalles de una factura junto con la información de los productos.
-     *
-     * @param int $idFactura ID de la factura.
-     * @return array Lista de detalles con nombre de producto, cantidad, precio unitario y subtotal.
-     */
-    private function obtenerDetallesConProductos($idFactura)
-    {
-        $detalleModel = new \App\Models\DetalleFacturaModel();
-        $productoModel = new \App\Models\ProductosModel();
-
-        $detallesFactura = $detalleModel
-            ->where('id_factura', $idFactura)
-            ->findAll();
-
-        $detalles = [];
-
-        foreach ($detallesFactura as $detalle) {
-            $producto = $productoModel->find($detalle['id_producto']);
-
-            if ($producto) {
-                $detalles[] = [
-                    'nombre_producto' => $producto['nombre'],
-                    'cantidad' => $detalle['cantidad'],
-                    'precio_unitario' => $producto['precio'],
-                    'subtotal' => $detalle['subtotal']
-                ];
-            }
-        }
-
-        return $detalles;
-    }
 }

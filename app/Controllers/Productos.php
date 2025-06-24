@@ -12,7 +12,7 @@ class Productos extends BaseController
     protected $helpers = ['form'];
 
     /**
-     * Return an array of resource objects, themselves in array format.
+     * Muestra el catálogo de productos, con posibilidad de aplicar filtros por marca, categoría y búsqueda por nombre.
      *
      * @return ResponseInterface
      */
@@ -50,10 +50,9 @@ class Productos extends BaseController
 
 
     /**
-     * Return the properties of a resource object.
+     * Muestra el detalle de un producto específico.
      *
-     * @param int|string|null $id
-     *
+     * @param int|string|null $id ID del producto a mostrar
      * @return ResponseInterface
      */
     public function show($id = null)
@@ -82,7 +81,7 @@ class Productos extends BaseController
     }
 
     /**
-     * Return a new resource object, with default properties.
+     * Muestra el formulario para crear un nuevo producto.
      *
      * @return ResponseInterface
      */
@@ -100,7 +99,7 @@ class Productos extends BaseController
     }
 
     /**
-     * Create a new resource object, from "posted" parameters.
+     * Procesa y guarda los datos enviados desde el formulario para crear un nuevo producto.
      *
      * @return ResponseInterface
      */
@@ -197,10 +196,9 @@ class Productos extends BaseController
     }
 
     /**
-     * Return the editable properties of a resource object.
+     * Muestra el formulario para editar un producto existente.
      *
-     * @param int|string|null $id
-     *
+     * @param int|string|null $id ID del producto a editar
      * @return ResponseInterface
      */
     public function edit($id = null)
@@ -222,10 +220,9 @@ class Productos extends BaseController
     }
 
     /**
-     * Add or update a model resource, from "posted" properties.
+     * Procesa y guarda los cambios realizados a un producto existente.
      *
-     * @param int|string|null $id
-     *
+     * @param int|string|null $id ID del producto a actualizar
      * @return ResponseInterface
      */
     public function update($id = null)
@@ -321,10 +318,9 @@ class Productos extends BaseController
     }
 
     /**
-     * Delete the designated resource object from the model.
-     *  
-     * @param int|string|null $id
+     * Realiza un "borrado lógico" del producto, desactivándolo.
      *
+     * @param int|string|null $id ID del producto a eliminar
      * @return ResponseInterface
      */
     public function delete($id = null)

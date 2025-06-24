@@ -36,4 +36,14 @@ class DetalleFacturaModel extends Model
             ->where('detalle_facturas.id_factura', $idFactura)
             ->findAll();
     }
+
+    public function obtenerDetallesConProductos(int $idFactura): array
+    {
+        $detalles = $this->select('detalle_facturas.cantidad, detalle_facturas.subtotal, productos.nombre AS nombre_producto, productos.precio AS precio_unitario')
+                        ->join('productos', 'productos.id_producto = detalle_facturas.id_producto')
+                        ->where('detalle_facturas.id_factura', $idFactura)
+                        ->findAll();
+
+        return $detalles ?: [];
+    }
 }

@@ -12,8 +12,17 @@ use App\Models\UsuarioModel;
 use App\Models\ConsultasModel;
 use App\Models\ContactoModel;
 
+/**
+ * Controlador del panel de administración.
+ * Permite gestionar usuarios, productos, facturas y consultas.
+ */
+
 class AdminController extends BaseController
 {
+    /**
+     * Página principal del panel de administrador.
+     * Muestra estadísticas generales del sistema y gráficas de ventas mensuales.
+     */
     public function index()
     {
         $productosModel = new ProductosModel();
@@ -62,6 +71,9 @@ class AdminController extends BaseController
         return view('Templates/admin_layout', $data);
     }
 
+    /**
+     * Muestra el formulario para crear un nuevo administrador.
+     */
     public function nuevo()
     {
         return view('Templates/admin_layout', [
@@ -70,6 +82,10 @@ class AdminController extends BaseController
         ]);
     }
 
+    /**
+     * Guarda un nuevo usuario con rol de administrador.
+     * Valida los datos ingresados antes de guardar.
+     */
     public function guardar()
     {
         $validation = \Config\Services::validation();
@@ -105,6 +121,11 @@ class AdminController extends BaseController
             ->with('success', 'Administrador creado correctamente.');
     }
 
+    /**
+     * Muestra el formulario de edición de un usuario.
+     *
+     * @param int $id ID del usuario a editar.
+     */
     public function actualizar($id)
     {
         $usuarioModel = new \App\Models\UsuarioModel();
@@ -175,6 +196,12 @@ class AdminController extends BaseController
     }
 
 
+    /**
+     * Actualiza los datos de un usuario existente.
+     * Aplica validaciones específicas para nombre, apellido, teléfono y email.
+     *
+     * @param int $id ID del usuario a actualizar.
+     */
     public function editar($id)
     {
         $usuarioModel = new UsuarioModel();
@@ -190,6 +217,11 @@ class AdminController extends BaseController
         ]);
     }
 
+    /**
+     * Desactiva un usuario (borrado lógico).
+     *
+     * @param int $id ID del usuario a desactivar.
+     */
     public function eliminar($id)
     {
         $usuarioModel = new \App\Models\UsuarioModel();
@@ -199,6 +231,11 @@ class AdminController extends BaseController
             ->with('success', 'Usuario desactivado correctamente.');
     }
 
+    /**
+     * Reactiva un usuario previamente desactivado.
+     *
+     * @param int $id ID del usuario a reactivar.
+     */
     public function reactivar($id)
     {
         $usuarioModel = new \App\Models\UsuarioModel();
@@ -208,6 +245,10 @@ class AdminController extends BaseController
             ->with('success', 'Usuario reactivado correctamente.');
     }
 
+    /**
+     * Administra los productos existentes.
+     * Aplica filtros por categoría, marca, estado y búsqueda por nombre.
+     */
     public function administrarProductos()
     {
         $categoriasModel = new CategoriasModel();
@@ -241,6 +282,9 @@ class AdminController extends BaseController
         return view('Templates/admin_layout', $data);
     }
 
+    /**
+     * Lista todas las compras (facturas) realizadas por los usuarios.
+     */
     public function listarCompras()
     {
         $facturaModel = new FacturaModel();
@@ -254,6 +298,11 @@ class AdminController extends BaseController
         return view('Templates/admin_layout', $data);
     }
 
+    /**
+     * Muestra el detalle completo de una factura específica.
+     *
+     * @param int $idFactura ID de la factura a visualizar.
+     */
     public function verFactura($idFactura)
     {
         $facturaModel = new FacturaModel();
@@ -289,6 +338,12 @@ class AdminController extends BaseController
         return view('Templates/admin_layout', $data);
     }
 
+    /**
+     * Capitaliza correctamente nombres y apellidos.
+     *
+     * @param string $texto Texto a capitalizar.
+     * @return string Texto capitalizado.
+     */
     private function capitalizarNombreCompleto(string $texto): string
     {
         return preg_replace_callback('/\b[\p{L}\'\-]+/u', function ($coincidencia) {
@@ -296,6 +351,9 @@ class AdminController extends BaseController
         }, mb_strtolower($texto, 'UTF-8'));
     }
 
+    /**
+     * Muestra todas las consultas realizadas por usuarios registrados y no registrados.
+     */
     public function verConsultas()
     {
         $consultasModel = new ConsultasModel();
@@ -315,6 +373,12 @@ class AdminController extends BaseController
         ]);
     }
 
+    /**
+     * Marca una consulta o contacto como respondido.
+     *
+     * @param string $tipo Tipo de consulta ('consulta' o 'contacto').
+     * @param int $id ID del registro a actualizar.
+     */
     public function responderConsulta($tipo, $id)
     {
         if ($tipo === 'consulta') {
@@ -328,4 +392,77 @@ class AdminController extends BaseController
         return redirect()->to(base_url('/Admin/consultas'))->with('mensaje', 'Consulta actualizada.');
     }
 
+    public function guardarCategoria()
+    {
+        $validation = \Config\Services::validation();
+
+        $rules = [
+            'nombre' => [
+                'label' => 'Nombre',
+                'rules' => 'required|min_length[3]|alpha_space|regex_match[/(?!^\s*$).+/]',
+                'errors' => [
+                    'required'     => 'El {field} es obligatorio.',
+                    'min_length'   => 'El {field} debe tener al menos 3 caracteres.',
+                    'alpha_space'  => 'El {field} solo puede contener letras y espacios.',
+                    'regex_match'  => 'El {field} no puede estar compuesto solo por espacios.'
+                ]
+            ],
+            'descripcion' => [
+                'label' => 'Descripción',
+                'rules' => 'required|min_length[15]|regex_match[/(?!^\s*$).+/]',
+                'errors' => [
+                    'required'     => 'La {field} es obligatoria.',
+                    'min_length'   => 'La {field} debe tener al menos 15 caracteres.',
+                    'regex_match'  => 'La {field} no puede estar compuesta solo por espacios.'
+                ]
+            ]
+        ];
+
+        if (!$this->validate($rules)) {
+            return redirect()->to('/Admin/Productos')->withInput()->with('errors', $validation->getErrors());
+        }
+
+        $categoriaModel = new CategoriasModel();
+
+        $data = [
+            'nombre'      => $this->request->getPost('nombre'),
+            'descripcion' => $this->request->getPost('descripcion'),
+        ];
+
+        $categoriaModel->insert($data);
+
+        return redirect()->to('/Admin/Productos')->with('success', 'Categoría creada correctamente.');
+    }
+
+    public function guardarMarca()
+    {
+        $validation = \Config\Services::validation();
+
+        $rules = [
+            'nombre_marca' => [
+                'label' => 'Nombre de marca',
+                'rules' => 'required|min_length[3]|alpha_space|regex_match[/(?!^\s*$).+/]',
+                'errors' => [
+                    'required'     => 'El {field} es obligatorio.',
+                    'min_length'   => 'El {field} debe tener al menos 3 caracteres.',
+                    'alpha_space'  => 'El {field} solo puede contener letras y espacios.',
+                    'regex_match'  => 'El {field} no puede estar compuesto solo por espacios.'
+                ]
+            ]
+        ];
+
+        if (!$this->validate($rules)) {
+            return redirect()->to('/Admin/Productos')->withInput()->with('errors', $validation->getErrors());
+        }
+
+        $marcaModel = new MarcasModel();
+
+        $data = [
+            'nombre_marca' => $this->request->getPost('nombre_marca'),
+        ];
+
+        $marcaModel->insert($data);
+
+        return redirect()->to('/Admin/Productos')->with('success', 'Marca creada correctamente.');
+    }
 }

@@ -28,6 +28,10 @@
         <?= $content ?? '' ?>
     </main>
 
+    <footer>
+        <!-- Pie de página -->
+        <?= view('Components/Footer_Admin') ?>
+    </footer>
 
     <!-- JS -->
     <script src="<?= base_url('assets/js/bootstrap.bundle.min.js') ?>"></script>
