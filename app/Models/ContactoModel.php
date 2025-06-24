@@ -19,4 +19,9 @@ class ContactoModel extends Model
     ];
 
     protected $useTimestamps = false;
+
+    public function obtenerTodosOrdenados()
+    {
+        return $this->orderBy('fecha_hora', 'DESC')->findAll();
+    }
 }

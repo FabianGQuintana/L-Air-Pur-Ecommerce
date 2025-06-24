@@ -46,6 +46,9 @@ $routes->post('/Admin/Actualizar/(:num)', 'AdminController::actualizar/$1',['fil
 $routes->get('/Admin/Editar/(:num)', 'AdminController::editar/$1',['filter' => 'admin']);
 $routes->get('/Admin/Eliminar/(:num)', 'AdminController::eliminar/$1', ['filter' => 'admin']);
 $routes->get('/Admin/Reactivar/(:num)', 'AdminController::reactivar/$1', ['filter' => 'admin']);
+$routes->get('/Admin/consultas', 'AdminController::verConsultas');
+$routes->get('/Admin/responderConsulta/(:segment)/(:num)', 'AdminController::responderConsulta/$1/$2');
+
 
 
 

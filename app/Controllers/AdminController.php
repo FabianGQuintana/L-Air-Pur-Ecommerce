@@ -9,6 +9,8 @@ use App\Models\ProductosModel;
 use App\Models\FacturaModel;
 use App\Models\DetalleFacturaModel;
 use App\Models\UsuarioModel;
+use App\Models\ConsultasModel;
+use App\Models\ContactoModel;
 
 class AdminController extends BaseController
 {
@@ -297,4 +299,37 @@ class AdminController extends BaseController
             return mb_convert_case($coincidencia[0], MB_CASE_TITLE, "UTF-8");
         }, mb_strtolower($texto, 'UTF-8'));
     }
+
+    public function verConsultas()
+    {
+        $consultasModel = new ConsultasModel();
+        $contactoModel = new ContactoModel();
+
+        $consultas = $consultasModel->obtenerConUsuarios();
+        $contactos = $contactoModel->obtenerTodosOrdenados();
+
+        $data = view('Pages/ConsultasAdmin', [
+            'consultas' => $consultas,
+            'contactos' => $contactos,
+        ]);
+
+        return view('Templates/admin_layout', [
+            'title' => 'Consultas de Usuarios',
+            'content' => $data
+        ]);
+    }
+
+    public function responderConsulta($tipo, $id)
+    {
+        if ($tipo === 'consulta') {
+            $model = new ConsultasModel();
+            $model->update($id, ['estado' => 'Respondido']);
+        } elseif ($tipo === 'contacto') {
+            $model = new ContactoModel();
+            $model->update($id, ['estado' => 'Respondido']);
+        }
+
+        return redirect()->to(base_url('/Admin/consultas'))->with('mensaje', 'Consulta actualizada.');
+    }
+
 }

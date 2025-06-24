@@ -33,7 +33,7 @@
           <a class="nav-link" href="<?= base_url('/Admin/compras') ?>">Órdenes</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?= base_url('Admin/Reportes') ?>">Consultas</a>
+          <a class="nav-link" href="<?= base_url('/Admin/consultas') ?>">Consultas</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-danger" href="<?= base_url('/Logout') ?>">Cerrar sesión</a>
