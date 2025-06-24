@@ -187,7 +187,6 @@ class AdminController extends BaseController
             'apellido' => $this->capitalizarNombreCompleto($this->request->getPost('apellido')),
             'telefono' => $telefono,
             'email' => $this->request->getPost('email'),
-            'rol' => $this->request->getPost('rol'),
         ];
 
         $usuarioModel->update($id, $data);
