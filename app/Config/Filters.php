@@ -37,6 +37,8 @@ class Filters extends BaseFilters
         // Filtro de Autenticacion
         'auth'          => \App\Filters\AuthFilter::class,
         'admin'         => \App\Filters\AdminFilter::class,
+        //Filtro para solo usuarios.
+        'soloUsuario'   => \App\Filters\SoloUsuarioFilter::class,
 
 
     ];
