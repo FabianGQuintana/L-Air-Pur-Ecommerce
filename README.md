@@ -1,65 +1,196 @@
+# 📦 L’Air Pur - E-commerce de Perfumes
 
-# L-Air-Pur-Ecommerce
-Proyecto ecommerce relacionado a perfumes y destinado hacia perfumerias (Proyecto En Proceso). página web hecha en php, Codeigniter4,Html,Css, Bootstrap 5.
+Este repositorio contiene el código fuente del proyecto **L’Air Pur**, un sistema web de comercio electrónico para la venta de perfumes, desarrollado con **CodeIgniter 4, PHP 8.2 y MySQL**, bajo arquitectura MVC.
 
-# CodeIgniter 4 Framework
 
-## What is CodeIgniter?
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+---
 
-This repository holds the distributable version of the framework.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+## 🚀 Características principales
+- Registro y autenticación de usuarios
+- Catálogo con filtros dinámicos
+- Carrito de compras con AJAX
+- Facturación automática
+- Panel administrativo para gestión de productos, usuarios y reportes
+- Cumple normas RGPD y buenas prácticas de seguridad
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+---
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+## ⚙️ Tecnologías utilizadas
+- **Backend:** PHP 8.2, CodeIgniter 4
+- **Frontend:** Bootstrap 5, JavaScript ES6, AJAX/Fetch
+- **Base de datos:** MySQL (MariaDB en XAMPP)
+- **Servidor:** Apache 2.4
+- **Dependencias:** Composer
 
-## Important Change with index.php
+---
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+## 📂 Requisitos previos
+- **PHP ≥ 8.2**
+- **Composer**
+- **MySQL ≥ 8**
+- **Apache ≥ 2.4**
+- Extensiones habilitadas: `intl`, `mbstring`, `mysqli`, `openssl`, `json`, `curl`
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+---
 
-**Please** read the user guide for a better explanation of how CI4 works!
+# 🖥️ Instalación en Windows (XAMPP)
 
-## Repository Management
+1️⃣ **Clona el repositorio**
+```bash
+git clone https://github.com/tu-usuario/tu-repo.git
+cd tu-repo
+2️⃣ Ubica el proyecto en tu carpeta htdocs
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+Ejemplo:
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+bash
+Copiar
+Editar
+C:\xampp\htdocs\lairpur
+3️⃣ Configura la base de datos
 
-## Contributing
+Abre phpMyAdmin.
 
-We welcome contributions from the community.
+Crea una base de datos llamada lairpur.
 
-Please read the [*Contributing to CodeIgniter*](https://github.com/codeigniter4/CodeIgniter4/blob/develop/CONTRIBUTING.md) section in the development repository.
+Importa el archivo lairpur.sql incluido en la carpeta /database.
 
-## Server Requirements
+4️⃣ Configura el entorno
 
-PHP version 8.1 or higher is required, with the following extensions installed:
+Renombra el archivo .env.example a .env.
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+Abre el archivo .env y coloca tus datos de conexión:
 
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> - The end of life date for PHP 8.1 will be December 31, 2025.
+dotenv
+Copiar
+Editar
+database.default.hostname = localhost
+database.default.database = lairpur
+database.default.username = root
+database.default.password = 
+app.baseURL = 'http://localhost/lairpur/public/'
+5️⃣ Instala dependencias con Composer
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+bash
+Copiar
+Editar
+composer install
+6️⃣ Habilita las reglas de reescritura en Apache
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
-(Primer Commit(Home 65%)-14/4/25)
+Asegúrate de que el módulo mod_rewrite esté activado.
+
+Abre el archivo httpd.conf y busca esta línea:
+
+apache
+Copiar
+Editar
+#LoadModule rewrite_module modules/mod_rewrite.so
+Descoméntala (elimina el # al inicio).
+
+7️⃣ Reinicia Apache y accede al proyecto
+
+Abre tu navegador y entra a:
+
+arduino
+Copiar
+Editar
+http://localhost/lairpur/public
+🐧 Instalación en Linux (LAMP)
+1️⃣ Clona el repositorio en /var/www
+
+bash
+Copiar
+Editar
+sudo git clone https://github.com/tu-usuario/tu-repo.git /var/www/lairpur
+cd /var/www/lairpur
+2️⃣ Configura permisos
+
+bash
+Copiar
+Editar
+sudo chown -R www-data:www-data /var/www/lairpur
+sudo chmod -R 755 /var/www/lairpur/writable
+3️⃣ Crea la base de datos
+
+bash
+Copiar
+Editar
+mysql -u root -p
+Dentro del cliente de MySQL:
+
+sql
+Copiar
+Editar
+CREATE DATABASE lairpur;
+exit;
+Importa el archivo SQL:
+
+bash
+Copiar
+Editar
+mysql -u root -p lairpur < database/lairpur.sql
+4️⃣ Configura el archivo .env
+
+bash
+Copiar
+Editar
+cp .env.example .env
+nano .env
+Edita los valores de conexión a la base de datos según tu entorno.
+
+5️⃣ Instala dependencias con Composer
+
+bash
+Copiar
+Editar
+composer install
+6️⃣ Configura Apache
+
+Crea un archivo de configuración en /etc/apache2/sites-available/lairpur.conf con el siguiente contenido:
+
+apache
+Copiar
+Editar
+<VirtualHost *:80>
+    ServerName lairpur.local
+    DocumentRoot /var/www/lairpur/public
+    <Directory /var/www/lairpur/public>
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>
+Luego:
+
+bash
+Copiar
+Editar
+sudo a2ensite lairpur.conf
+echo "127.0.0.1 lairpur.local" | sudo tee -a /etc/hosts
+7️⃣ Reinicia Apache y accede al proyecto
+
+bash
+Copiar
+Editar
+sudo systemctl restart apache2
+En tu navegador:
+
+arduino
+Copiar
+Editar
+http://lairpur.local
+---
+
+## 📩 Contacto
+
+¿Tienes preguntas, sugerencias o te gustaría contribuir al proyecto?
+
+No dudes en ponerte en contacto:
+
+- 📧 **Email:** [quintanafabiangustavo@gmail.com](mailto:quintanafabiangustavo@gmail.com)
+- 💼 **LinkedIn:** (https://www.linkedin.com/in/fabian-quintana-60a59a325)(https://www.linkedin.com/in/fabian-quintana-60a59a325))
+- 🐙 **GitHub:** [@FabianGQuintana]https://github.com/FabianGQuintana
+---
+
+¡Gracias por visitar **L’Air Pur**! ✨
+
